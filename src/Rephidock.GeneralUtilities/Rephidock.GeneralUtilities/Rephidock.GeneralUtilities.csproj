@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+   <PropertyGroup>
+    <Title>Rephidock.GeneralUtilities</Title>
+    <Authors>Rephidock</Authors>
+    <Version>0.0.0</Version>
+    <Description>A package with general utilities that may be useful</Description>
+    <Copyright>Copyright (c) 2024 Rephidock</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>general;utils;helper</PackageTags>
+    <PackageProjectUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
+    <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
+    <PackageReleaseNotes>
+      Initial release
+	</PackageReleaseNotes>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\..\README.nuget.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Rephidock.GeneralUtilities</RootNamespace>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+  
+</Project>
