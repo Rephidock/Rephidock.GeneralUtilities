@@ -5,10 +5,9 @@ using System.Linq.Expressions;
 namespace Rephidock.GeneralUtilities;
 
 
-// Based on
-
 /// <summary>
 /// A generic converter between an enum and an integer type.
+/// Created for use with enums as generics.
 /// </summary>
 /// <remarks>
 /// Taken from <see href="https://github.com/dotnet/csharplang/discussions/1993"/>
