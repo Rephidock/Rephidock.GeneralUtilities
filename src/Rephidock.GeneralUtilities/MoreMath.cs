@@ -6,7 +6,7 @@ namespace Rephidock.GeneralUtilities;
 
 /// <summary>
 /// Provides static methods for some
-/// arithmatic functions.
+/// arithmetic functions.
 /// </summary>
 public static class MoreMath {
 
