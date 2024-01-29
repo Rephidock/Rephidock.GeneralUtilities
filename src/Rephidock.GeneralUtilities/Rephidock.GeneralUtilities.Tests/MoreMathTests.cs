@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 using Rephidock.GeneralUtilities;
 
 
@@ -53,6 +54,50 @@ public sealed class MoreMathTests {
 
 		// Assert
 		Assert.Equal(expectedResult, givenResult);
+	}
+
+	#endregion
+
+	#region //// TrueMod
+
+	[Theory]
+	[InlineData(0, 2, 0)]
+	[InlineData(5, 2, 1)]
+	[InlineData(-1, 2, 1)]
+	[InlineData(-1, 6, 5)]
+	[InlineData(1, 6, 1)]
+	[InlineData(-6, 6, 0)]
+	[InlineData(5, 3, 2)]
+	[InlineData(-5, 3, 1)]
+	[InlineData(-3, 3, 0)]
+	[InlineData(0, 1, 0)]
+	[InlineData(1, 1, 0)]
+	[InlineData(-1, 1, 0)]
+	public void TrueMod_SimpleUse_CorrectReturn(int value, int modulo, int expectedResult) {
+
+		// Arrange
+
+		// Act
+		int actualResult = value.TrueMod(modulo);
+
+		// Assert
+		Assert.Equal(expectedResult, actualResult);
+	}
+
+	[Theory]
+	[InlineData(0)]
+	[InlineData(1)]
+	[InlineData(-1)]
+	[InlineData(127)]
+	public void TrueMod_ModuloZero_ThrowsArgument(int value) {
+
+		// Arrange
+
+		// Act
+		void ThrowingCode() => value.TrueMod(0);
+
+		// Assert
+		Assert.Throws<ArgumentException>(ThrowingCode);
 	}
 
 	#endregion
