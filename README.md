@@ -1,17 +1,12 @@
 # GeneralUtilities
 
-[![GitHub Licence Badge](https://img.shields.io/github/license/Rephidock/Rephidock.GeneralUtilities)](https://github.com/Rephidock/Rephidock.GeneralUtilities/blob/main/LICENSE)
-[![Nuget Version Badge](https://img.shields.io/nuget/v/Rephidock.GeneralUtilities?logo=nuget)](https://www.nuget.org/packages/Rephidock.GeneralUtilities)
+[![GitHub Licence Badge](https://img.shields.io/github/license/Rephidock/Rephidock.GeneralUtilities)](https://github.com/Rephidock/Rephidock.GeneralUtilities/blob/main/LICENSE) [![Nuget Version Badge](https://img.shields.io/nuget/v/Rephidock.GeneralUtilities?logo=nuget)](https://www.nuget.org/packages/Rephidock.GeneralUtilities)
 
  A package with general utilities that may be useful.
 
 ## Contents
 
 
-
-### Root namespace
-
-The root namespace contains most general of the utilities
 
 | Class                                | Summary                              |
 | ------------------------------------ | ------------------------------------ |

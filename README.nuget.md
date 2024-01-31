@@ -8,10 +8,6 @@
 
 
 
-### Root namespace
-
-The root namespace contains most general of the utilities
-
 | Class                                | Summary                              |
 | ------------------------------------ | ------------------------------------ |
 | (static) `EnumConverter<TEnum,TInt>` | A generic enum <-> integer converter |
