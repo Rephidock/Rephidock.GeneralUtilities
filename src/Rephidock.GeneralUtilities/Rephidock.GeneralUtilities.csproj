@@ -3,7 +3,7 @@
    <PropertyGroup>
     <Title>Rephidock.GeneralUtilities</Title>
     <Authors>Rephidock</Authors>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Description>A package with general utilities that may be useful</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,8 +12,8 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      Initial release
-	</PackageReleaseNotes>
+      - Bugfix: Fixed infinite recursion in MoreMath.Lerp on ints
+    </PackageReleaseNotes>
   </PropertyGroup>
   
   <ItemGroup>
