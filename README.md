@@ -36,14 +36,3 @@ The `.Color` namespace relates to `System.Drawing.Color`
 | (extension) `Color.Transparent` | Returns source `Color` with alpha of 0           |
 | `ColorMath.LerpColor`           | Linearly interpolates between 2 colors           |
 | `ColorMath.AlphaBlend`          | Blend 2 colors with alpha-1-minus-alpha blending |
-
-
-
-### `.Easing` namespace
-
-The `.Easing` namespace relates to easing functions/curves (tweening maths). See [easings.net](https://easings.net) for information on easing.
-
-| Class or Delegate        | Summary                                             |
-| ------------------------ | --------------------------------------------------- |
-| (static class) `Easing`  | Provides easing functions in form of static methods |
-| (delegate) `EasingCurve` | Delegate matching methods in the `Easing` class     |
