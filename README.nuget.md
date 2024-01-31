@@ -18,6 +18,7 @@ The root namespace contains most general of the utilities
 
 | Method                    | Summary                                            |
 | ------------------------- | -------------------------------------------------- |
+| (extension) `T.Yield<T>`  | Wraps anything in a `IEnumerable<T>`               |
 | (extension) `int.TrueMod` | Performs a modulo operation (`%` is remainder)     |
 | `MoreMath.Lerp`           | Linearly interpolates between 2 values             |
 | `MoreMath.ReverseLerp`    | Inverse of `Lerp` (returns lerp amount form value) |
