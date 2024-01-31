@@ -38,7 +38,7 @@ public static class MoreMath {
 
 	/// <inheritdoc cref="Lerp(float, float, float)"/>
 	public static int Lerp(int start, int end, float amount) {
-		return (int)MathF.Round(Lerp(start, end, amount));
+		return (int)MathF.Round(Lerp((float)start, end, amount));
 	}
 
 	/// <inheritdoc cref="Lerp(float, float, float)"/>
