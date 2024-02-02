@@ -21,4 +21,18 @@ public static class GeneralEnumerableExtensions {
 		yield return item;
 	}
 
+	/// <summary>
+	/// Fulently performs <see cref="string.Join{T}(string?, IEnumerable{T})"/>
+	/// </summary>
+	public static string JoinString<TSource>(this IEnumerable<TSource> items, string separator) {
+		return string.Join(separator, items);
+	}
+
+	/// <summary>
+	/// Fulently performs <see cref="string.Join{T}(char, IEnumerable{T})"/>
+	/// </summary>
+	public static string JoinString<TSource>(this IEnumerable<TSource> items, char separator) {
+		return string.Join(separator, items);
+	}
+
 }

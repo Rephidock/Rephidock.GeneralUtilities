@@ -13,6 +13,7 @@
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       - Added (extension) Random.NextUInt31
+      - Added (extension) IEnumerable&lt;T&gt;.JoinString
     </PackageReleaseNotes>
   </PropertyGroup>
   
