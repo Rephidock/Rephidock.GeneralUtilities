@@ -6,8 +6,13 @@ namespace Rephidock.GeneralUtilities;
 
 
 /// <summary>
+/// <para>
 /// A generic converter between an enum and an integer type.
 /// Created for use with enums as generics.
+/// </para>
+/// <para>
+/// Checks integers to be defined enum enteries.
+/// </para>
 /// </summary>
 /// <remarks>
 /// Taken from <see href="https://github.com/dotnet/csharplang/discussions/1993"/>
@@ -36,7 +41,10 @@ public static class EnumConverter<TEnum, TInt>
 	/// <summary>Converts a generic Enum to the base integer type</summary>
 	public static TInt ToInt(TEnum input) => _convertFromEnum(input);
 
-	/// <summary>Converts from an integer to generic Enum type</summary>
+	/// <summary>
+	/// Converts from an integer to generic Enum type.
+	/// Throws on values not defined in the enum.
+	/// </summary>
 	/// <exception cref="InvalidCastException">Value is not defined in the enum</exception>
 	public static TEnum ToEnum(TInt input) {
 
