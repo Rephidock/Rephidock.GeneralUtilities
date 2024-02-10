@@ -12,13 +12,15 @@
 | ------------------------------------ | ------------------------------------ |
 | (static) `EnumConverter<TEnum,TInt>` | A generic enum <-> integer converter |
 
-| Method                    | Summary                                            |
-| ------------------------- | -------------------------------------------------- |
-| (extension) `T.Yield<T>`  | Wraps anything in a `IEnumerable<T>`               |
-| (extension) `int.TrueMod` | Performs a modulo operation (`%` is remainder)     |
-| `MoreMath.Lerp`           | Linearly interpolates between 2 values             |
-| `MoreMath.ReverseLerp`    | Inverse of `Lerp` (returns lerp amount form value) |
-| `MoreMath.TabShift`       | Returns column position of a character after tab   |
+| Method                                  | Summary                                            |
+| --------------------------------------- | -------------------------------------------------- |
+| (extension) `T.Yield<T>`                | Wraps anything in a `IEnumerable<T>`               |
+| (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`                 |
+| (extension) `int.TrueMod`               | Performs a modulo operation (`%` is remainder)     |
+| (extension) `Random.NextUInt31`         | Returns a random int in range of [0, int.MaxValue] |
+| `MoreMath.Lerp`                         | Linearly interpolates between 2 values             |
+| `MoreMath.ReverseLerp`                  | Inverse of `Lerp` (returns lerp amount form value) |
+| `MoreMath.TabShift`                     | Returns column position of a character after tab   |
 
 
 
