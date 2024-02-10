@@ -16,12 +16,14 @@
 | --------------------------------------- | -------------------------------------------------- |
 | (extension) `T.Yield<T>`                | Wraps anything in a `IEnumerable<T>`               |
 | (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`                 |
-| (extension) `int.TrueMod`               | Performs a modulo operation (`%` is remainder)     |
+| (extension) `int.TrueMod`[^1]           | Performs a modulo operation (`%` is remainder)     |
 | (extension) `Random.NextUInt31`         | Returns a random int in range of [0, int.MaxValue] |
 | (extension) `Type.IsSubcalssOrSelfOf`   | Checks if a type is base type or subclass of it    |
 | `MoreMath.Lerp`                         | Linearly interpolates between 2 values             |
 | `MoreMath.ReverseLerp`                  | Inverse of `Lerp` (returns lerp amount form value) |
 | `MoreMath.TabShift`                     | Returns column position of a character after tab   |
+
+[^1]: Also exits for `float` and `double`
 
 
 

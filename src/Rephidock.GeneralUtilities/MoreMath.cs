@@ -77,6 +77,8 @@ public static class MoreMath {
 		return ((tabColumn / tabSize) + 1) * tabSize;
 	}
 
+	#region //// TrueMod
+
 	/// <summary>
 	/// <para>
 	/// Returns the value mod modulo.
@@ -101,5 +103,27 @@ public static class MoreMath {
 		int remainder = value % modulo;
 		return remainder < 0 ? remainder + modulo : remainder;
 	}
+
+	/// <inheritdoc cref="TrueMod(int, int)"/>
+	public static float TrueMod(this float value, float modulo) {
+
+		if (modulo == 0) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
+		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
+
+		float remainder = value % modulo;
+		return remainder < 0 ? remainder + modulo : remainder;
+	}
+
+	/// <inheritdoc cref="TrueMod(int, int)"/>
+	public static double TrueMod(this double value, double modulo) {
+
+		if (modulo == 0) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
+		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
+
+		double remainder = value % modulo;
+		return remainder < 0 ? remainder + modulo : remainder;
+	}
+
+	#endregion
 
 }
