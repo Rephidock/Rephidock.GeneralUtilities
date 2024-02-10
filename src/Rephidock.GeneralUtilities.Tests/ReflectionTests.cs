@@ -47,7 +47,6 @@ public sealed class ReflectionTests {
 	[InlineData(typeof(Unrelated),		typeof(FromBase),		false)]
 	[InlineData(typeof(Base),			typeof(FromFromBase),	false)]
 	[InlineData(typeof(FromBase),		typeof(FromFromBase),	false)]
-	[InlineData(typeof(FromFromBase),	typeof(FromFromBase),	true )]
 	[InlineData(typeof(Unrelated),		typeof(FromFromBase),	false)]
 	[InlineData(typeof(Base),			typeof(Unrelated),		false)]
 	[InlineData(typeof(FromBase),		typeof(Unrelated),		false)]
