@@ -24,7 +24,7 @@
 | `MoreMath.ReverseLerp`                  | Inverse of `Lerp` (returns lerp amount form value) |
 | `MoreMath.TabShift`                     | Returns column position of a character after tab   |
 
-[^1]: Also exits for `float` and `double`
+[^1]: Also exists for `float` and `double`
 
 
 
