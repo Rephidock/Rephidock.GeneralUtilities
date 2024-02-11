@@ -126,4 +126,62 @@ public static class MoreMath {
 
 	#endregion
 
+	#region //// Wrap
+
+	/// <summary>
+	/// <para>
+	/// Wraps value into given range:
+	/// values below the range are wraped into it from the end and
+	/// values above are wraped into it from the start
+	/// </para>
+	/// <para>
+	/// Can be thought of as a generilized version of <c>TrueMod</c>, as
+	/// <c>x.Wrap(0, y)</c> returns the same result as <c>x.TrueMod(y)</c>
+	/// </para>
+	/// </summary>
+	/// <param name="value">The value to wrap</param>
+	/// <param name="min">The start of the range, inclusive</param>
+	/// <param name="max">The end of the range, exclusive</param>
+	/// <remarks>
+	/// If <paramref name="min"/> is greater than <paramref name="max"/>, the values are swapped.
+	/// If <paramref name="min"/> and <paramref name="max"/> are equal, <paramref name="min"/> is returned.
+	/// </remarks>
+	/// <returns>The value wrapped to be inside the range</returns>
+	public static int Wrap(this int value, int min, int max) {
+
+		// Range of 0 -- easy return
+		if (min == max) return min;
+
+		// Swap min and max so that min < max
+		if (min > max) (max, min) = (min, max);
+
+		return (value - min).TrueMod(max - min) + min;
+	}
+
+	/// <inheritdoc cref="Wrap(int, int, int)"/>
+	public static float Wrap(this float value, float min, float max) {
+
+		// Range of 0 -- easy return
+		if (min == max) return min;
+
+		// Swap min and max so that min < max
+		if (min > max) (max, min) = (min, max);
+
+		return (value - min).TrueMod(max - min) + min;
+	}
+
+	/// <inheritdoc cref="Wrap(int, int, int)"/>
+	public static double Wrap(this double value, double min, double max) {
+
+		// Range of 0 -- easy return
+		if (min == max) return min;
+
+		// Swap min and max so that min < max
+		if (min > max) (max, min) = (min, max);
+
+		return (value - min).TrueMod(max - min) + min;
+	}
+
+	#endregion
+
 }

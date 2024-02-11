@@ -123,4 +123,70 @@ public sealed class MoreMathTests {
 
 	#endregion
 
+	#region //// Wrap
+
+	[Theory]
+	[InlineData(-4, 1, 4, 2)]
+	[InlineData(-3, 1, 4, 3)]
+	[InlineData(-2, 1, 4, 1)]
+	[InlineData(-1, 1, 4, 2)]
+	[InlineData(0, 1, 4, 3)]
+	[InlineData(1, 1, 4, 1)]
+	[InlineData(2, 1, 4, 2)]
+	[InlineData(3, 1, 4, 3)]
+	[InlineData(4, 1, 4, 1)]
+	[InlineData(-4, -3, 0, -1)]
+	[InlineData(-3, -3, 0, -3)]
+	[InlineData(-2, -3, 0, -2)]
+	[InlineData(-1, -3, 0, -1)]
+	[InlineData(0, -3, 0, -3)]
+	[InlineData(1, -3, 0, -2)]
+	[InlineData(2, -3, 0, -1)]
+	public void Wrap_SimpleUse_CorrectReturn(int value, int min, int max, int expectedResult) {
+
+		// Arrange
+
+		// Act
+		int actualResult = value.Wrap(min, max);
+
+		// Assert
+		Assert.Equal(expectedResult, actualResult);
+	}
+
+	[Theory]
+	[InlineData(0, 1, 2)]
+	[InlineData(0, -3, 2)]
+	[InlineData(-98, 12, 24)]
+	public void Wrap_SwappedRangeBounds_ReturnsTheSameValue(int value, int min, int max) {
+
+		// Arrange
+
+		// Act
+		int expectedResult = value.Wrap(min, max);
+		int resultWithSwapped = value.Wrap(max, min);
+
+		// Assert
+		Assert.Equal(expectedResult, resultWithSwapped);
+	}
+
+	[Theory]
+	[InlineData(0, 0)]
+	[InlineData(99, 0)]
+	[InlineData(0, 1)]
+	[InlineData(-6, 1)]
+	[InlineData(999, -3)]
+	[InlineData(-98, 12)]
+	public void Wrap_ZeroLengthRange_ReturnsMin(int value, int min) {
+
+		// Arrange
+
+		// Act
+		int result = value.Wrap(min, min);
+
+		// Assert
+		Assert.Equal(min, result);
+	}
+
+	#endregion
+
 }
