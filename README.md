@@ -18,6 +18,8 @@
 | (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`                 |
 | (extension) `int.TrueMod`[^1]           | Performs a modulo operation (`%` is remainder)     |
 | (extension) `int.Wrap`[^1]              | Wraps value into given range                       |
+| (extension) `float.DegToRad`[^2]        | Converts angle in degrees to radians               |
+| (extension) `float.RadToDeg`[^2]        | Converts angle in radians to degrees               |
 | (extension) `Random.NextUInt31`         | Returns a random int in range of [0, int.MaxValue] |
 | (extension) `Type.IsSubcalssOrSelfOf`   | Checks if a type is base type or subclass of it    |
 | `MoreMath.Lerp`                         | Linearly interpolates between 2 values             |
@@ -25,6 +27,7 @@
 | `MoreMath.TabShift`                     | Returns column position of a character after tab   |
 
 [^1]: Also exists for `float` and `double`
+[^2]: Also exists for `double`
 
 
 

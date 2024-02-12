@@ -17,6 +17,7 @@
       - Added (extension) IEnumerable&lt;T&gt;.JoinString
       - Added (extension) Type.IsSubcalssOrSelfOf
       - Added (extension) int.Wrap and equivalent for float and double
+      - Added (extension) float.DegToRad and float.RadToDeg, with equivalent for double
       - EnumConverter documentation clarification
     </PackageReleaseNotes>
   </PropertyGroup>

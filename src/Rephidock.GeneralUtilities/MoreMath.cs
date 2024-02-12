@@ -184,4 +184,28 @@ public static class MoreMath {
 
 	#endregion
 
+	#region //// Deg <-> Rad
+
+	/// <summary>
+	/// Converts angle measured in degress to angle measured in radians
+	/// </summary>
+	/// <param name="angleDegrees">Angle measued in degrees</param>
+	/// <returns>Angle measured in radians</returns>
+	public static float DegToRad(this float angleDegrees) => angleDegrees / 180f * MathF.PI;
+
+	/// <summary>
+	/// Converts angle measured in radians to angle measured in degrees
+	/// </summary>
+	/// <param name="angleRadians">Angle measued in radians</param>
+	/// <returns>Angle measured in degrees</returns>
+	public static float RadToDeg(this float angleRadians) => angleRadians / MathF.PI * 180f;
+
+	/// <inheritdoc cref="DegToRad(float)"/>
+	public static double DegToRad(this double angleDegrees) => angleDegrees / 180d * Math.PI;
+
+	/// <inheritdoc cref="RadToDeg(float)"/>
+	public static double RadToDeg(this double angleRadians) => angleRadians / Math.PI * 180d;
+
+	#endregion
+
 }

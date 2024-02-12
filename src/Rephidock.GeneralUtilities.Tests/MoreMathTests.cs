@@ -189,4 +189,46 @@ public sealed class MoreMathTests {
 
 	#endregion
 
+	#region //// Deg <-> Rad
+
+	[Theory]
+	[InlineData(0, 0)]
+	[InlineData(180, MathF.PI)]
+	[InlineData(-180, -MathF.PI)]
+	[InlineData(90, MathF.PI/2)]
+	[InlineData(-90, -MathF.PI/2)]
+	public void DegRadConversion_SimpleUse_CorrectReturn(float angleDegress, float angleRadians) {
+
+		// Arrange
+
+		// Act
+		float actualDegrees = angleRadians.RadToDeg();
+		float actualRadians = angleDegress.DegToRad();
+
+		// Assert
+		Assert.Equal(angleDegress, actualDegrees);
+		Assert.Equal(angleRadians, actualRadians);
+	}
+
+	[Theory]
+	[InlineData(0)]
+	[InlineData(180)]
+	[InlineData(-45)]
+	[InlineData(Math.PI)]
+	[InlineData(-Math.Tau)]
+	public void DegRadConversion_UsingBoth_ReturnIntialValue(float angle) {
+
+		// Arrange
+
+		// Act
+		float recived1 = angle.RadToDeg().DegToRad();
+		float recived2 = angle.RadToDeg().DegToRad();
+
+		// Assert
+		Assert.Equal(angle, recived1);
+		Assert.Equal(angle, recived2);
+	}
+
+	#endregion
+
 }
