@@ -231,4 +231,41 @@ public sealed class MoreMathTests {
 
 	#endregion
 
+	#region //// AngleDiference
+
+	const float AngleDiffToleranceZero = 1E-44f;
+	const float AngleDiffToleranceSmall = 1E-7f;
+	const float AngleDiffToleranceBig = 1E-5f;
+
+	[Theory]
+	[InlineData(0, 0, 0, AngleDiffToleranceZero)]
+	[InlineData(45, 45, 0, AngleDiffToleranceZero)]
+	[InlineData(360, 720, 0, AngleDiffToleranceBig)]
+	[InlineData(0, 10, 10, AngleDiffToleranceSmall)]
+	[InlineData(10, 0, -10, AngleDiffToleranceSmall)]
+	[InlineData(359, 1, 2, AngleDiffToleranceBig)]
+	[InlineData(359, -2, -1, AngleDiffToleranceBig)]
+	[InlineData(45, 315, -90, AngleDiffToleranceBig)]
+	[InlineData(0, 170, 170, AngleDiffToleranceBig)]
+	[InlineData(0, 190, -170, AngleDiffToleranceBig)]
+	[InlineData(360, 190, -170, AngleDiffToleranceBig)]
+	[InlineData(360, 170, 170, AngleDiffToleranceBig)]
+	[InlineData(5360, 5190, -170, AngleDiffToleranceBig)]
+	[InlineData(5360, 5170, 170, AngleDiffToleranceBig)]
+	public void AngleDifference_ConvertThenUse_CorrectReturn(float angleSrcDeg, float angleDestDeg, float expectedDeg, float toleranceRad) {
+
+		// Arrange
+		float angleSrcRad = angleSrcDeg.DegToRad();
+		float angleDestRad = angleDestDeg.DegToRad();
+		float expectedRad = expectedDeg.DegToRad();
+
+		// Act
+		float distanceRad = MoreMath.AngleDifference(angleSrcRad,angleDestRad);
+
+		// Assert
+		Assert.Equal(expectedRad, distanceRad, toleranceRad);
+	}
+
+	#endregion
+
 }

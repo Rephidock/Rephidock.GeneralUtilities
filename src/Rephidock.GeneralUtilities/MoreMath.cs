@@ -208,4 +208,30 @@ public static class MoreMath {
 
 	#endregion
 
+	#region //// AngleDifference
+
+	/// <summary>
+	/// Given two angles calculates the shortest distance,
+	/// taking the circle over/underflow into account.
+	/// </summary>
+	/// <param name="angleSourceRadians">First angle, measured in radians</param>
+	/// <param name="angleDestinationRadians">Second angle, measured in radians</param>
+	/// <remarks>
+	/// Returned distance is in range of <c>[-<see cref="MathF.PI"/>, <see cref="MathF.PI"/>)</c>.
+	/// </remarks>
+	/// <returns>Shortest distance between two angles.</returns>
+	public static float AngleDifference(float angleSourceRadians, float angleDestinationRadians) {
+		return (angleDestinationRadians - angleSourceRadians).Wrap(-MathF.PI, MathF.PI);
+	}
+
+	/// <inheritdoc cref="AngleDifference(float, float)"/>
+	/// <remarks>
+	/// Returned distance is in range of <c>[-<see cref="Math.PI"/>, <see cref="Math.PI"/>)</c>.
+	/// </remarks>
+	public static double AngleDifference(double angleSourceRadians, double angleDestinationRadians) {
+		return (angleDestinationRadians - angleSourceRadians).Wrap(-Math.PI, Math.PI);
+	}
+
+	#endregion
+
 }

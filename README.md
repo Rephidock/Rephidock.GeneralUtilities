@@ -25,6 +25,7 @@
 | `MoreMath.Lerp`                         | Linearly interpolates between 2 values             |
 | `MoreMath.ReverseLerp`                  | Inverse of `Lerp` (returns lerp amount form value) |
 | `MoreMath.TabShift`                     | Returns column position of a character after tab   |
+| `MoreMath.AngleDifference`              | Calculates the shortest distance between 2 angles  |
 
 [^1]: Also exists for `float` and `double`
 [^2]: Also exists for `double`
