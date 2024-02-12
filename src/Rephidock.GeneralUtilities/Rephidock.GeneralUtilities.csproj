@@ -12,10 +12,10 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      - Added int.TrueMod equivalents for float and double
       - Added (extension) Random.NextUInt31
       - Added (extension) IEnumerable&lt;T&gt;.JoinString
       - Added (extension) Type.IsSubcalssOrSelfOf
+      - Added (extension) int.TrueMod equivalents for float and double
       - Added (extension) int.Wrap and equivalent for float and double
       - Added (extension) float.DegToRad and float.RadToDeg, with equivalent for double
       - Added MoreMath.AngleDifference
