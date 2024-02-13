@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 
 namespace Rephidock.GeneralUtilities;
@@ -42,8 +43,22 @@ public static class MoreMath {
 	}
 
 	/// <inheritdoc cref="Lerp(float, float, float)"/>
+	public static long Lerp(long start, long end, double amount) {
+		return (long)Math.Round(Lerp((double)start, end, amount));
+	}
+
+	/// <inheritdoc cref="Lerp(float, float, float)"/>
 	public static byte Lerp(byte start, byte end, float amount) {
 		return (byte)Lerp((int)start, end, amount);
+	}
+
+	/// <inheritdoc cref="Lerp(float, float, float)"/>
+	/// <remarks>
+	/// Beware of preceision loss, as this method converts between
+	/// <see cref="BigInteger"/> and <see cref="double"/>
+	/// </remarks>
+	public static BigInteger Lerp(BigInteger start, BigInteger end, double amount) {
+		return (BigInteger)Math.Round(Lerp((double)start, (double)end, amount));
 	}
 
 	/// <summary>
@@ -124,6 +139,26 @@ public static class MoreMath {
 		return remainder < 0 ? remainder + modulo : remainder;
 	}
 
+	/// <inheritdoc cref="TrueMod(int, int)"/>
+	public static long TrueMod(this long value, long modulo) {
+
+		if (modulo == 0) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
+		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
+
+		long remainder = value % modulo;
+		return remainder < 0 ? remainder + modulo : remainder;
+	}
+
+	/// <inheritdoc cref="TrueMod(int, int)"/>
+	public static BigInteger TrueMod(this BigInteger value, BigInteger modulo) {
+
+		if (modulo == 0) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
+		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
+
+		BigInteger remainder = value % modulo;
+		return remainder < 0 ? remainder + modulo : remainder;
+	}
+
 	#endregion
 
 	#region //// Wrap
@@ -172,6 +207,30 @@ public static class MoreMath {
 
 	/// <inheritdoc cref="Wrap(int, int, int)"/>
 	public static double Wrap(this double value, double min, double max) {
+
+		// Range of 0 -- easy return
+		if (min == max) return min;
+
+		// Swap min and max so that min < max
+		if (min > max) (max, min) = (min, max);
+
+		return (value - min).TrueMod(max - min) + min;
+	}
+
+	/// <inheritdoc cref="Wrap(int, int, int)"/>
+	public static long Wrap(this long value, long min, long max) {
+
+		// Range of 0 -- easy return
+		if (min == max) return min;
+
+		// Swap min and max so that min < max
+		if (min > max) (max, min) = (min, max);
+
+		return (value - min).TrueMod(max - min) + min;
+	}
+
+	/// <inheritdoc cref="Wrap(int, int, int)"/>
+	public static BigInteger Wrap(this BigInteger value, BigInteger min, BigInteger max) {
 
 		// Range of 0 -- easy return
 		if (min == max) return min;
