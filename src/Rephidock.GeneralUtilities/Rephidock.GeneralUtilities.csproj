@@ -13,6 +13,8 @@
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       - Added (extension) Random.Chance
+      - Added (extension) Random.GetItem&lt;T&gt; and equivalent IReadOnlyList&lt;T&gt;.PickRandom, also exists for ReadOnlySpan
+      - Added (extension) Random.GetDifferentItems&lt;T&gt; and equivalent IReadOnlyCollection&lt;T&gt;.PickMultipleDifferent
     </PackageReleaseNotes>
   </PropertyGroup>
   
