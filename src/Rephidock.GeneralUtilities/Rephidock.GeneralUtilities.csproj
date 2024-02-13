@@ -12,6 +12,7 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
+      - Added (extension) Random.Chance
     </PackageReleaseNotes>
   </PropertyGroup>
   

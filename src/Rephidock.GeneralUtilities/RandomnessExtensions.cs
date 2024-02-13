@@ -25,6 +25,16 @@ public static class RandomnessExtensions {
 
 		// Convert and return
 		return BitConverter.ToInt32(seedBytes);
+
+	}
+
+	/// <summary>
+	/// Returns <see langword="true"/> with %-chance (0 to 1 both inclusive)
+	/// </summary>
+	/// <param name="rng">The random number generator</param>
+	/// <param name="chance">The chance of <see langword="true"/> being returned</param>
+	public static bool Chance(this Random rng, double chance) {
+		return rng.NextDouble() < chance;
 	}
 
 }
