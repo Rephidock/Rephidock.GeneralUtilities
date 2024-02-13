@@ -3,7 +3,7 @@
    <PropertyGroup>
     <Title>Rephidock.GeneralUtilities</Title>
     <Authors>Rephidock</Authors>
-    <Version>0.2.0</Version>
+    <Version>0.3.0-alpha.0+dev</Version>
     <Description>A package with general utilities that may be useful</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,14 +12,6 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      - Added (extension) Random.NextUInt31
-      - Added (extension) IEnumerable&lt;T&gt;.JoinString
-      - Added (extension) Type.IsSubcalssOrSelfOf
-      - Added (extension) int.TrueMod equivalents for float and double
-      - Added (extension) int.Wrap and equivalent for float and double
-      - Added (extension) float.DegToRad and float.RadToDeg, with equivalent for double
-      - Added MoreMath.AngleDifference
-      - EnumConverter documentation clarification
     </PackageReleaseNotes>
   </PropertyGroup>
   
