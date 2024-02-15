@@ -7,7 +7,7 @@
     <Description>A package with general utilities that may be useful</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>general;utils;helper</PackageTags>
+    <PackageTags>general;utils;helper;math;random</PackageTags>
     <PackageProjectUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
