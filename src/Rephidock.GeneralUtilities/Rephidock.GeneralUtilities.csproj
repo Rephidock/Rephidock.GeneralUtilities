@@ -14,8 +14,8 @@
     <PackageReleaseNotes>
       - (breaking) Moved RandomnessExtensions to .Randomness namespace
       - Added (extension) Random.Chance
-      - Added (extension) Random.GetItem&lt;T&gt; and equivalent IReadOnlyList&lt;T&gt;.PickRandom, also exists for ReadOnlySpan
-      - Added (extension) Random.GetDifferentItems&lt;T&gt; and equivalent IReadOnlyCollection&lt;T&gt;.PickMultipleDifferent
+      - Added (extensions) Random.GetItem&lt;T&gt; and equivalent IReadOnlyList&lt;T&gt;.PickRandom, also exists for ReadOnlySpan
+      - Added (extensions) Random.GetDifferentItems&lt;T&gt; and equivalent IReadOnlyCollection&lt;T&gt;.PickMultipleDifferent
       - Added MoreMath method overloads for long and BigInteger
     </PackageReleaseNotes>
   </PropertyGroup>
