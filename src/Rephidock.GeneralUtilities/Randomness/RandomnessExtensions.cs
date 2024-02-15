@@ -121,4 +121,35 @@ public static class RandomnessExtensions {
 
 	#endregion
 
+	#region //// Shuffle
+
+	/// <summary>
+	/// Shuffles a list in-place (mutates the array).
+	/// </summary>
+	/// <param name="rng">The random number generator</param>
+	/// <param name="values">The values to shuffle</param>
+	/// <remarks>Performes Durstenfeld's version of Fisher–Yates shuffle</remarks>
+	public static void Shuffle<T>(this Random rng, IList<T> values) {
+
+		// i from (length − 1) till 1
+		for (int i = values.Count - 1; i >= 1; i--) {
+
+			// Pick random j, such that 0 <= j <= i
+			int j = rng.Next(0, i + 1);
+
+			// Swap values at i and j
+			(values[j], values[i]) = (values[i], values[j]);	
+		}
+
+	}
+
+	/// <inheritdoc cref="Shuffle{T}(Random, IList{T})"/>
+	/// <returns>The list operated on.</returns>
+	public static IList<T> Shuffle<T>(this IList<T> values, Random rng) {
+		rng.Shuffle(values);
+		return values;
+	}
+
+#endregion
+
 }
