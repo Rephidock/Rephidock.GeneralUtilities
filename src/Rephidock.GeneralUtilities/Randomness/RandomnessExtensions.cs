@@ -150,6 +150,57 @@ public static class RandomnessExtensions {
 		return values;
 	}
 
+	/// <summary>
+	/// <para>
+	/// Shuffles the given list and also
+	/// gives the mapping of old indexes to new indexes.
+	/// </para>
+	/// <para>
+	/// Suffles in-place (mutates the list).
+	/// </para>
+	/// </summary>
+	/// <param name="values">List to shuffle</param>
+	/// <param name="rng">The random number generator</param>
+	public static ShuffleIndexMap ShuffleRemap<T>(this IList<T> values, Random rng) {
+
+		// Create a shuffle
+		ShuffleIndexMap oldToNew = new(values.Count, rng);
+
+		// Apply the shuffle
+		oldToNew.ApplyTo(values);
+
+		// Return
+		return oldToNew;
+	}
+
+	/// <inheritdoc cref="ShuffleRemap{T}(IList{T}, Random)"/>
+	public static ShuffleIndexMap ShuffleRemap<T>(this Random rng, IList<T> values) {
+		return ShuffleRemap(values, rng);
+	}
+
+	/// <summary>
+	/// <para>
+	/// Shuffles the given span and also
+	/// gives the mapping of old indexes to new indexes.
+	/// </para>
+	/// <para>
+	/// Mutates the span.
+	/// </para>
+	/// </summary>
+	/// <param name="values">Span to shuffle</param>
+	/// <param name="rng">The random number generator</param>
+	public static ShuffleIndexMap ShuffleRemap<T>(this Random rng, Span<T> values) {
+
+		// Create a shuffle
+		ShuffleIndexMap oldToNew = new(values.Length, rng);
+
+		// Apply the shuffle
+		oldToNew.ApplyTo(values);
+
+		// Return
+		return oldToNew;
+	}
+
 #endregion
 
 }
