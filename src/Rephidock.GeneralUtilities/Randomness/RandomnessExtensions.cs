@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace Rephidock.GeneralUtilities;
+namespace Rephidock.GeneralUtilities.Randomness;
 
 
 /// <summary>

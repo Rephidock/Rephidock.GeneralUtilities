@@ -12,6 +12,7 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
+      - (breaking) Moved RandomnessExtensions to .Randomness namespace
       - Added (extension) Random.Chance
       - Added (extension) Random.GetItem&lt;T&gt; and equivalent IReadOnlyList&lt;T&gt;.PickRandom, also exists for ReadOnlySpan
       - Added (extension) Random.GetDifferentItems&lt;T&gt; and equivalent IReadOnlyCollection&lt;T&gt;.PickMultipleDifferent
