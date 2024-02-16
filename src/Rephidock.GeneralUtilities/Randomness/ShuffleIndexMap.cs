@@ -20,7 +20,7 @@ public class ShuffleIndexMap : IReadOnlyCollection<KeyValuePair<int, int>> {
 	#region //// Storage
 	
 	/// <summary>An array which translates old indexes to new indexes</summary>
-	readonly int[] oldToNew;
+	readonly protected int[] oldToNew;
 
 	/// <inheritdoc/>
 	public int Count => oldToNew.Length;
