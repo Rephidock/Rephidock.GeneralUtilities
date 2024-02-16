@@ -44,22 +44,22 @@ public static class RandomnessExtensions {
 	/// <typeparam name="T">The type of the item</typeparam>
 	/// <param name="items">List of items to pick from</param>
 	/// <param name="rng">Random number generator</param>
-	public static T PickRandom<T>(this IReadOnlyList<T> items, Random rng) {
+	/// <inheritdoc cref="PickRandom{T}(IReadOnlyList{T}, Random)"/>
+	public static T GetItem<T>(this Random rng, IReadOnlyList<T> items) {
 		if (items.Count == 0) throw new ArgumentException("Cannot pick items from empty list", nameof(items));
 		return items[rng.Next(0, items.Count)];
 	}
 
-	/// <inheritdoc cref="PickRandom{T}(IReadOnlyList{T}, Random)"/>
-	public static T PickRandom<T>(this ReadOnlySpan<T> items, Random rng) {
+	/// <inheritdoc cref="GetItem{T}(Random, IReadOnlyList{T})"/>
+	public static T GetItem<T>(this Random rng, ReadOnlySpan<T> items) {
 		if (items.Length == 0) throw new ArgumentException("Cannot pick items from empty span", nameof(items));
 		return items[rng.Next(0, items.Length)];
 	}
 
-	/// <inheritdoc cref="PickRandom{T}(IReadOnlyList{T}, Random)"/>
-	public static T GetItem<T>(this Random rng, IReadOnlyList<T> items) => items.PickRandom(rng);
-
-	/// <inheritdoc cref="PickRandom{T}(IReadOnlyList{T}, Random)"/>
-	public static T GetItem<T>(this Random rng, ReadOnlySpan<T> items) => items.PickRandom(rng);
+	/// <inheritdoc cref="GetItem{T}(Random, IReadOnlyList{T})"/>
+	public static T PickRandom<T>(this IReadOnlyList<T> items, Random rng) {
+		return rng.GetItem(items);
+	}
 
 	#endregion
 
