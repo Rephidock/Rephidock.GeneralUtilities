@@ -10,19 +10,18 @@
 
 ### Arithmetic
 
-| Method                          | Summary                                            |
+| Extension Methods               | Summary                                            |
 | ------------------------------- | -------------------------------------------------- |
 | (extension) `int.TrueMod`[1]    | Performs a modulo operation (`%` is remainder)     |
 | (extension) `int.Wrap`[1]       | Wraps value into given range                       |
-| (extension) `float.DegToRad`[2] | Converts angle in degrees to radians               |
-| (extension) `float.RadToDeg`[2] | Converts angle in radians to degrees               |
+| (extension) `float.DegToRad`[1] | Converts angle in degrees to radians               |
+| (extension) `float.RadToDeg`[1] | Converts angle in radians to degrees               |
 | `MoreMath.Lerp`                 | Linearly interpolates between 2 values             |
 | `MoreMath.ReverseLerp`          | Inverse of `Lerp` (returns lerp amount form value) |
 | `MoreMath.TabShift`             | Returns column position of a character after tab   |
 | `MoreMath.AngleDifference`      | Calculates the shortest distance between 2 angles  |
 
-[1]: Also exists for `float` and `double`
-[2]: Also exists for `double`
+[1]: Extension also exists for other numeric types
 
 
 
@@ -32,12 +31,37 @@
 | ------------------------------------ | ------------------------------------ |
 | (static) `EnumConverter<TEnum,TInt>` | A generic enum <-> integer converter |
 
-| Method                                  | Summary                                            |
-| --------------------------------------- | -------------------------------------------------- |
-| (extension) `T.Yield<T>`                | Wraps anything in a `IEnumerable<T>`               |
-| (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`                 |
-| (extension) `Random.NextUInt31`         | Returns a random int in range of [0, int.MaxValue] |
-| (extension) `Type.IsSubcalssOrSelfOf`   | Checks if a type is base type or subclass of it    |
+| Method                                  | Summary                                         |
+| --------------------------------------- | ----------------------------------------------- |
+| (extension) `T.Yield<T>`                | Wraps anything in a `IEnumerable<T>`            |
+| (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`              |
+| (extension) `Type.IsSubcalssOrSelfOf`   | Checks if a type is base type or subclass of it |
+
+
+
+### `.Randomness` namespace
+
+The `.Randomness` namespace relates to `System.Random`
+
+| Class             | Summary                                                    |
+| ----------------- | ---------------------------------------------------------- |
+| `ShuffleIndexMap` | The index map of a shuffle (to track where items ended up) |
+
+| Extension methods          | Summary                                                   |
+| -------------------------- | --------------------------------------------------------- |
+| `Random.NextUInt31`        | Returns a random int in range of [0, int.MaxValue]        |
+| `Random.Chance`            | Returns `true` with %-chance                              |
+| `Random.GetItem`           | Returns a random item from a list or span                 |
+| `Random.GetDifferentItems` | Returns multiple different random items from a collection |
+| `Random.Shuffle`           | Shuffles given items in-place                             |
+| `Random.ShuffleRemap`      | Shuffles given items in-place and returns and index map   |
+
+The following methods also exist and are extensions on collection interfaces to allow fluent syntax:
+
+- `IReadOnlyList<T>.PickRandom` is equivalent to `Random.GetItem`
+- `IReadOnlyCollection<T>.PickMultipleDifferent` is equivalent to `Random.GetDifferentItems`
+- `IList<T>.Shuffle` is equivalent to `Random.Shuffle`
+- `IList<T>.ShuffleRemap` is equivalent to `Random.ShuffleRemap`
 
 
 
