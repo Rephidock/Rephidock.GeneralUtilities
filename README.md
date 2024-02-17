@@ -10,7 +10,7 @@
 
 ### Arithmetic
 
-| Methods                          | Summary                                            |
+| Method                           | Summary                                            |
 | -------------------------------- | -------------------------------------------------- |
 | (extension) `int.TrueMod`[^1]    | Performs a modulo operation (`%` is remainder)     |
 | (extension) `int.Wrap`[^1]       | Wraps value into given range                       |
@@ -47,7 +47,7 @@ The `.Randomness` namespace relates to `System.Random`
 | ----------------- | ---------------------------------------------------------- |
 | `ShuffleIndexMap` | The index map of a shuffle (to track where items ended up) |
 
-| Extension methods          | Summary                                                   |
+| Extension method           | Summary                                                   |
 | -------------------------- | --------------------------------------------------------- |
 | `Random.NextUInt31`        | Returns a random int in range of [0, int.MaxValue]        |
 | `Random.Chance`            | Returns `true` with %-chance                              |
