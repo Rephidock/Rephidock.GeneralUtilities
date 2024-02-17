@@ -73,6 +73,7 @@ public static class RandomnessExtensions {
 	/// <param name="items">The collection to pick items from</param>
 	/// <param name="count">The number of items to pick</param>
 	/// <param name="rng">Random number generator</param>
+	/// <remarks>Uses Reservoir sampling</remarks>
 	/// <returns>An array of picked items in the order they were in collection.</returns>
 	public static T[] PickMultipleDifferent<T>(this IReadOnlyCollection<T> items, int count, Random rng) {
 
@@ -92,17 +93,18 @@ public static class RandomnessExtensions {
 
 		if (count == 0) return result;
 
+		// Use PickRandom if possible
 		if (count == 1 && items is IReadOnlyList<T> list) {
 			result[0] = list.PickRandom(rng);
 			return result;
 		}
 
-		// Selection sampling
+		// Selection sampling, special case of Reservoir sampling
 		int leftToPick = count;
 		int itemsLeft = items.Count;
 		foreach (T item in items) {
 
-			if (rng.Chance(leftToPick / itemsLeft)) {
+			if (rng.Chance((double)leftToPick / itemsLeft)) {
 				result[count - leftToPick] = item;
 				leftToPick--;
 				if (leftToPick < 1) break;
@@ -201,6 +203,6 @@ public static class RandomnessExtensions {
 		return oldToNew;
 	}
 
-#endregion
+	#endregion
 
 }
