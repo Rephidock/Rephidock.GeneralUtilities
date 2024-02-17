@@ -10,7 +10,7 @@
 
 ### Arithmetic
 
-| Extension Methods                | Summary                                            |
+| Methods                          | Summary                                            |
 | -------------------------------- | -------------------------------------------------- |
 | (extension) `int.TrueMod`[^1]    | Performs a modulo operation (`%` is remainder)     |
 | (extension) `int.Wrap`[^1]       | Wraps value into given range                       |
