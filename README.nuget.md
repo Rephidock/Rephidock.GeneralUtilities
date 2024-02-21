@@ -4,6 +4,8 @@
 
  A package with general utilities that may be useful.
 
+**IMPORTANT NOTICE:** Current branch `netframework35` is an experimental unlisted branch for compiling project to .net framework 3.5. This compilation does not have all features be supported.
+
 ## Contents
 
 
