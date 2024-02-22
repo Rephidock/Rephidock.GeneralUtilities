@@ -12,10 +12,10 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      - Added (extension) int.DigitalRoot and equivalent for other integer types
-      - Added BasesMath.CountAllAccending
       - (breaking) Moved BigInteger MoreMath overloads into BigIntMath
+      - Added (extension) int.DigitalRoot with equivalents for long and BigIntegher
       - Added (extension) BigInteger.Sqrt
+      - Added BasesMath.CountAllAccending
       - Tiny internal doc fix
     </PackageReleaseNotes>
   </PropertyGroup>
