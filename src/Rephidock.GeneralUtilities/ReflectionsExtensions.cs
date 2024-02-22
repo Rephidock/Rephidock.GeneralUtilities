@@ -28,14 +28,16 @@ public static class ReflectionExtensions {
 	public static bool IsSubcalssOrSelfOf(this Type derivedType, Type baseType) {
 
 		// Guards
-		ArgumentNullException.ThrowIfNull(baseType, nameof(baseType));
+		if (baseType == null) {
+			throw new ArgumentNullException(nameof(baseType));
+		}
 
 		if (baseType.IsInterface) {
 			throw new NotSupportedException($"{nameof(baseType)} cannot be an interface");
 		}
 
 		// Check loop
-		while (derivedType is not null) {
+		while (derivedType != null) {
 
 			// Check type equality
 			if (derivedType == baseType) {

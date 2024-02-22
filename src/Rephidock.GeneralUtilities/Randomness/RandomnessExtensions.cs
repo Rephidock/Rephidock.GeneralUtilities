@@ -78,7 +78,9 @@ public static class RandomnessExtensions {
 	public static T[] PickMultipleDifferent<T>(this IReadOnlyCollection<T> items, int count, Random rng) {
 
 		// Guards
-		ArgumentNullException.ThrowIfNull(items, nameof(items));
+		if (items == null) {
+			throw new ArgumentNullException(nameof(items));
+		}
 
 		if (count < 0) {
 			throw new ArgumentException("Cannot pick a negative number of items from a collection", nameof(count));
@@ -94,8 +96,9 @@ public static class RandomnessExtensions {
 		if (count == 0) return result;
 
 		// Use PickRandom if possible
-		if (count == 1 && items is IReadOnlyList<T> list) {
-			result[0] = list.PickRandom(rng);
+		IList<T> itemsAsList = items as IList<T>;
+		if (count == 1 && itemsAsList != null) {
+			result[0] = itemsAsList.PickRandom(rng);
 			return result;
 		}
 

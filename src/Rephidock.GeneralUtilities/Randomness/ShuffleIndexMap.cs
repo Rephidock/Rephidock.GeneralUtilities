@@ -72,7 +72,7 @@ public class ShuffleIndexMap : IReadOnlyCollection<KeyValuePair<int, int>> {
 	public void ApplyTo<T>(IList<T> values) {
 
 		// Safe guards
-		ArgumentNullException.ThrowIfNull(values);
+		if (values == null) throw new ArgumentNullException(nameof(values));
 
 		// Apply mapping
 		T[] oldList = values.ToArray();
