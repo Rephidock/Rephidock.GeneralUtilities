@@ -44,7 +44,6 @@ public static class RandomnessExtensions {
 	/// <typeparam name="T">The type of the item</typeparam>
 	/// <param name="items">List of items to pick from</param>
 	/// <param name="rng">Random number generator</param>
-	/// <inheritdoc cref="PickRandom{T}(IReadOnlyList{T}, Random)"/>
 	public static T GetItem<T>(this Random rng, IReadOnlyList<T> items) {
 		if (items.Count == 0) throw new ArgumentException("Cannot pick items from empty list", nameof(items));
 		return items[rng.Next(0, items.Count)];
