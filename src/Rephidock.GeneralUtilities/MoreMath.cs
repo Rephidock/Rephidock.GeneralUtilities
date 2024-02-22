@@ -84,7 +84,7 @@ public static class MoreMath {
 
 	/// <inheritdoc cref="Lerp(float, float, float)"/>
 	public static int Lerp(int start, int end, float amount) {
-		return (int)MathF.Round(Lerp((float)start, end, amount));
+		return (int)Math.Round(Lerp((double)start, end, amount));
 	}
 
 	/// <inheritdoc cref="Lerp(float, float, float)"/>
@@ -280,14 +280,14 @@ public static class MoreMath {
 	/// </summary>
 	/// <param name="angleDegrees">Angle measued in degrees</param>
 	/// <returns>Angle measured in radians</returns>
-	public static float DegToRad(this float angleDegrees) => angleDegrees / 180f * MathF.PI;
+	public static float DegToRad(this float angleDegrees) => angleDegrees / 180f * ((float)Math.PI);
 
 	/// <summary>
 	/// Converts angle measured in radians to angle measured in degrees
 	/// </summary>
 	/// <param name="angleRadians">Angle measued in radians</param>
 	/// <returns>Angle measured in degrees</returns>
-	public static float RadToDeg(this float angleRadians) => angleRadians / MathF.PI * 180f;
+	public static float RadToDeg(this float angleRadians) => angleRadians / ((float)Math.PI) * 180f;
 
 	/// <inheritdoc cref="DegToRad(float)"/>
 	public static double DegToRad(this double angleDegrees) => angleDegrees / 180d * Math.PI;
@@ -306,11 +306,11 @@ public static class MoreMath {
 	/// <param name="angleSourceRadians">First angle, measured in radians</param>
 	/// <param name="angleDestinationRadians">Second angle, measured in radians</param>
 	/// <remarks>
-	/// Returned distance is in range of <c>[-<see cref="MathF.PI"/>, <see cref="MathF.PI"/>)</c>.
+	/// Returned distance is in range of <c>[-<see cref="Math.PI"/>, <see cref="Math.PI"/>)</c>.
 	/// </remarks>
 	/// <returns>Shortest distance between two angles.</returns>
 	public static float AngleDifference(float angleSourceRadians, float angleDestinationRadians) {
-		return (angleDestinationRadians - angleSourceRadians).Wrap(-MathF.PI, MathF.PI);
+		return (angleDestinationRadians - angleSourceRadians).Wrap(-(float)Math.PI, (float)Math.PI);
 	}
 
 	/// <inheritdoc cref="AngleDifference(float, float)"/>

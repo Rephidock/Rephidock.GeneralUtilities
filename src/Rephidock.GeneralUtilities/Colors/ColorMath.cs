@@ -19,13 +19,13 @@ public static class ColorMath {
 		// Because multiplication from 0 to 1
 		float oldAFloat = oldColor.A / 255f;
 		float newAFloat = newColor.A / 255f;
-		float reverseNewAFloat = Math.Clamp(1 - newAFloat, 0, 1);
+		float reverseNewAFloat = MoreMath.Clamp(1 - newAFloat, 0, 1);
 
 		float resultingAFloat = newAFloat + oldAFloat * reverseNewAFloat;
-		int resultingA = (int)MathF.Round(resultingAFloat * 255);
-		int resultingR = (int)MathF.Round(newAFloat * newColor.R + oldColor.R * oldAFloat * reverseNewAFloat);
-		int resultingG = (int)MathF.Round(newAFloat * newColor.G + oldColor.G * oldAFloat * reverseNewAFloat);
-		int resultingB = (int)MathF.Round(newAFloat * newColor.B + oldColor.B * oldAFloat * reverseNewAFloat);
+		int resultingA = (int)Math.Round(resultingAFloat * 255);
+		int resultingR = (int)Math.Round(newAFloat * newColor.R + oldColor.R * oldAFloat * reverseNewAFloat);
+		int resultingG = (int)Math.Round(newAFloat * newColor.G + oldColor.G * oldAFloat * reverseNewAFloat);
+		int resultingB = (int)Math.Round(newAFloat * newColor.B + oldColor.B * oldAFloat * reverseNewAFloat);
 
 		return Color.FromArgb(resultingA, resultingR, resultingG, resultingB);
 	}
@@ -37,7 +37,7 @@ public static class ColorMath {
 	/// <inheritdoc cref="MoreMath.Lerp(float, float, float)"/>
 	public static Color LerpColor(Color start, Color end, float amount) {
 
-		amount = Math.Clamp(amount, 0f, 1f);
+		amount = MoreMath.Clamp(amount, 0f, 1f);
 
 		return Color.FromArgb(
 			MoreMath.Lerp(start.A, end.A, amount),
