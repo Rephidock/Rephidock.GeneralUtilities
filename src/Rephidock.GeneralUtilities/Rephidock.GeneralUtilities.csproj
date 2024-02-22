@@ -13,6 +13,7 @@
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       - Added (extension) int.DigitalRoot and equivalent for other integer types
+      - Added BasesMath.CountAllAccending
       - Tiny internal doc fix
     </PackageReleaseNotes>
   </PropertyGroup>
