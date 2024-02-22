@@ -28,12 +28,13 @@
 
 Some methods also exist for `BigInteger`:
 
-| Method                               | Summary         |
-| ------------------------------------ | --------------- |
-| (extension) `BigInteger.TrueMod `    | *Same as above* |
-| (extension) `BigInteger.Wrap`        | *Same as above* |
-| (extension) `BigInteger.DigitalRoot` | *Same as above* |
-| `BigIntMath.Lerp`                    | *Same as above* |
+| Method                               | Summary                               |
+| ------------------------------------ | ------------------------------------- |
+| (extension) `BigInteger.Sqrt`        | Returns a square root of `BigInteger` |
+| (extension) `BigInteger.TrueMod `    | *Same as above*                       |
+| (extension) `BigInteger.Wrap`        | *Same as above*                       |
+| (extension) `BigInteger.DigitalRoot` | *Same as above*                       |
+| `BigIntMath.Lerp`                    | *Same as above*                       |
 
 
 

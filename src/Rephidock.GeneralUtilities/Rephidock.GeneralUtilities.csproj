@@ -15,6 +15,7 @@
       - Added (extension) int.DigitalRoot and equivalent for other integer types
       - Added BasesMath.CountAllAccending
       - (breaking) Moved BigInteger MoreMath overloads into BigIntMath
+      - Added (extension) BigInteger.Sqrt
       - Tiny internal doc fix
     </PackageReleaseNotes>
   </PropertyGroup>

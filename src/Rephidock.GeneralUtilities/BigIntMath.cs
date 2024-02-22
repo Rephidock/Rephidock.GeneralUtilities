@@ -11,6 +11,19 @@ namespace Rephidock.GeneralUtilities;
 /// </summary>
 public static class BigIntMath {
 
+	/// <summary>
+	/// <para>
+	/// Returns a square root of a given <see cref="BigInteger"/>.
+	/// </para>
+	/// <para>
+	/// IMPORTANT: Has its precision and magnitude limits due to
+	/// conversion to <see cref="double"/>.
+	/// </para>
+	/// </summary>
+	public static double Sqrt(this BigInteger n) => Math.Pow(Math.E, BigInteger.Log(n) / 2);
+
+	#region //// From MoreMath
+
 	/// <inheritdoc cref="MoreMath.Lerp(float, float, float)"/>
 	/// <remarks>
 	/// Beware of preceision loss, as this method converts between
@@ -68,5 +81,7 @@ public static class BigIntMath {
 	/// <inheritdoc cref="MoreMath.DigitalRoot(int, int)"/>
 	/// <remarks>Calculated digital root using default base of 10</remarks>
 	public static BigInteger DigitalRoot(this BigInteger value) => value.DigitalRoot(10);
+
+	#endregion
 
 }
