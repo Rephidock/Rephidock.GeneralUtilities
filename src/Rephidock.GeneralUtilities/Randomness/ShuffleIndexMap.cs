@@ -73,18 +73,7 @@ public class ShuffleIndexMap : IReadOnlyCollection<KeyValuePair<int, int>> {
 
 		// Safe guards
 		if (values == null) throw new ArgumentNullException(nameof(values));
-
-		// Apply mapping
-		T[] oldList = values.ToArray();
-		for (int i = 0; i < oldToNew.Length; i++) {
-			values[oldToNew[i]] = oldList[i];
-		}
-
-	}
-
-	/// <inheritdoc cref="ApplyTo{T}(IList{T})"/>
-	public void ApplyTo<T>(Span<T> values) {
-
+		
 		// Apply mapping
 		T[] oldList = values.ToArray();
 		for (int i = 0; i < oldToNew.Length; i++) {

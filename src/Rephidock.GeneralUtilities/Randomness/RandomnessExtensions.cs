@@ -18,14 +18,14 @@ public static class RandomnessExtensions {
 	public static int NextUInt31(this Random rng) {
 
 		// Generate random bytes
-		Span<byte> seedBytes = stackalloc byte[4];
+		byte[] seedBytes = new byte[4];
 		rng.NextBytes(seedBytes);
 
 		// Strip the int32 sign bit
 		seedBytes[3] &= 0b0111_1111;
 
 		// Convert and return
-		return BitConverter.ToInt32(seedBytes);
+		return BitConverter.ToInt32(seedBytes, 0);
 
 	}
 
@@ -48,12 +48,6 @@ public static class RandomnessExtensions {
 	public static T GetItem<T>(this Random rng, IReadOnlyList<T> items) {
 		if (items.Count == 0) throw new ArgumentException("Cannot pick items from empty list", nameof(items));
 		return items[rng.Next(0, items.Count)];
-	}
-
-	/// <inheritdoc cref="GetItem{T}(Random, IReadOnlyList{T})"/>
-	public static T GetItem<T>(this Random rng, ReadOnlySpan<T> items) {
-		if (items.Length == 0) throw new ArgumentException("Cannot pick items from empty span", nameof(items));
-		return items[rng.Next(0, items.Length)];
 	}
 
 	/// <inheritdoc cref="GetItem{T}(Random, IReadOnlyList{T})"/>
@@ -143,7 +137,9 @@ public static class RandomnessExtensions {
 			int j = rng.Next(0, i + 1);
 
 			// Swap values at i and j
-			(values[j], values[i]) = (values[i], values[j]);	
+			var temp = values[j];
+			values[j] = values[i];
+			values[i] = temp;
 		}
 
 	}
@@ -181,29 +177,6 @@ public static class RandomnessExtensions {
 	/// <inheritdoc cref="ShuffleRemap{T}(IList{T}, Random)"/>
 	public static ShuffleIndexMap ShuffleRemap<T>(this Random rng, IList<T> values) {
 		return ShuffleRemap(values, rng);
-	}
-
-	/// <summary>
-	/// <para>
-	/// Shuffles the given span and also
-	/// gives the mapping of old indexes to new indexes.
-	/// </para>
-	/// <para>
-	/// Mutates the span.
-	/// </para>
-	/// </summary>
-	/// <param name="values">Span to shuffle</param>
-	/// <param name="rng">The random number generator</param>
-	public static ShuffleIndexMap ShuffleRemap<T>(this Random rng, Span<T> values) {
-
-		// Create a shuffle
-		ShuffleIndexMap oldToNew = new(values.Length, rng);
-
-		// Apply the shuffle
-		oldToNew.ApplyTo(values);
-
-		// Return
-		return oldToNew;
 	}
 
 	#endregion

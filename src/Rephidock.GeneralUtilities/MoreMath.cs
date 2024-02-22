@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Numerics;
 
 
 namespace Rephidock.GeneralUtilities { 
@@ -98,15 +97,6 @@ public static class MoreMath {
 		return (byte)Lerp((int)start, end, amount);
 	}
 
-	/// <inheritdoc cref="Lerp(float, float, float)"/>
-	/// <remarks>
-	/// Beware of preceision loss, as this method converts between
-	/// <see cref="BigInteger"/> and <see cref="double"/>
-	/// </remarks>
-	public static BigInteger Lerp(BigInteger start, BigInteger end, double amount) {
-		return (BigInteger)Math.Round(Lerp((double)start, (double)end, amount));
-	}
-
 	/// <summary>
 	/// <para>
 	/// An operation inverse to <see cref="Lerp(float, float, float)"/>.
@@ -195,16 +185,6 @@ public static class MoreMath {
 		return remainder < 0 ? remainder + modulo : remainder;
 	}
 
-	/// <inheritdoc cref="TrueMod(int, int)"/>
-	public static BigInteger TrueMod(this BigInteger value, BigInteger modulo) {
-
-		if (modulo == 0) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
-		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
-
-		BigInteger remainder = value % modulo;
-		return remainder < 0 ? remainder + modulo : remainder;
-	}
-
 	#endregion
 
 	#region //// Wrap
@@ -234,7 +214,11 @@ public static class MoreMath {
 		if (min == max) return min;
 
 		// Swap min and max so that min < max
-		if (min > max) (max, min) = (min, max);
+		if (min > max) {
+			var temp = min;
+			min = max;
+			max = temp;
+		}
 
 		return (value - min).TrueMod(max - min) + min;
 	}
@@ -246,7 +230,11 @@ public static class MoreMath {
 		if (min == max) return min;
 
 		// Swap min and max so that min < max
-		if (min > max) (max, min) = (min, max);
+		if (min > max) {
+			var temp = min;
+			min = max;
+			max = temp;
+		}
 
 		return (value - min).TrueMod(max - min) + min;
 	}
@@ -258,7 +246,11 @@ public static class MoreMath {
 		if (min == max) return min;
 
 		// Swap min and max so that min < max
-		if (min > max) (max, min) = (min, max);
+		if (min > max) {
+			var temp = min;
+			min = max;
+			max = temp;
+		}
 
 		return (value - min).TrueMod(max - min) + min;
 	}
@@ -270,19 +262,11 @@ public static class MoreMath {
 		if (min == max) return min;
 
 		// Swap min and max so that min < max
-		if (min > max) (max, min) = (min, max);
-
-		return (value - min).TrueMod(max - min) + min;
-	}
-
-	/// <inheritdoc cref="Wrap(int, int, int)"/>
-	public static BigInteger Wrap(this BigInteger value, BigInteger min, BigInteger max) {
-
-		// Range of 0 -- easy return
-		if (min == max) return min;
-
-		// Swap min and max so that min < max
-		if (min > max) (max, min) = (min, max);
+		if (min > max) {
+			var temp = min;
+			min = max;
+			max = temp;
+		}
 
 		return (value - min).TrueMod(max - min) + min;
 	}
