@@ -40,11 +40,11 @@ Some methods also exist for `BigInteger`:
 
 ### Arbitrary Base Representation
 
-Uses `BasesMath` to perform operations with digits with arbitrary base, represented as arrays of digit values:
+Uses `RadixMath` to perform operations with digits with arbitrary base, represented as arrays of digit values:
 
 | Method                        | Summary                                          |
 | ----------------------------- | ------------------------------------------------ |
-| `BasesMath.CountAllAccending` | Enumerates all numbers with a given places count |
+| `RadixMath.CountAllAccending` | Enumerates all numbers with a given places count |
 
 
 

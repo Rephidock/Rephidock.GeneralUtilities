@@ -220,39 +220,39 @@ public static class MoreMath {
 	/// </summary>
 	/// <exception cref="ArgumentException">
 	/// <paramref name="value"/> is negative or
-	/// <paramref name="rootBase"/> is smaller than 2
+	/// <paramref name="radix"/> is smaller than 2
 	/// </exception>
-	public static int DigitalRoot(this int value, int rootBase = 10) {
+	public static int DigitalRoot(this int value, int radix = 10) {
 
 		// Guards
 		if (value < 0) {
 			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
 		}
 
-		if (rootBase < 2) {
-			throw new ArgumentException("Integer base must be at least 2", nameof(rootBase));
+		if (radix < 2) {
+			throw new ArgumentException("Integer base must be at least 2", nameof(radix));
 		}
 
 		// Digital root
 		if (value == 0) return 0;
-		return 1 + ((value - 1) % (rootBase - 1));
+		return 1 + ((value - 1) % (radix - 1));
 	}
 
 	/// <inheritdoc cref="DigitalRoot(int, int)"/>
-	public static long DigitalRoot(this long value, long rootBase = 10) {
+	public static long DigitalRoot(this long value, long radix = 10) {
 
 		// Guards
 		if (value < 0) {
 			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
 		}
 
-		if (rootBase < 2) {
-			throw new ArgumentException("Integer base must be at least 2", nameof(rootBase));
+		if (radix < 2) {
+			throw new ArgumentException("Integer base must be at least 2", nameof(radix));
 		}
 
 		// Digital root
 		if (value == 0) return 0;
-		return 1 + ((value - 1) % (rootBase - 1));
+		return 1 + ((value - 1) % (radix - 1));
 	}
 
 	#endregion

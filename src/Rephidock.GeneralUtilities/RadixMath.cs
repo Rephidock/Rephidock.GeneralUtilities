@@ -10,7 +10,7 @@ namespace Rephidock.GeneralUtilities;
 /// Provides methods to operate on numbers
 /// in arbitrary bases
 /// </summary>
-public static class BasesMath {
+public static class RadixMath {
 
 	/// <summary>
 	/// <para>
@@ -24,21 +24,21 @@ public static class BasesMath {
 	/// Digit at the end of the array is incremented first.
 	/// </para>
 	/// </summary>
-	/// <param name="base">The base of the counter (exclusive maxim value of individual digits)</param>
+	/// <param name="radix">The base of the counter (exclusive maxim value of individual digits)</param>
 	/// <param name="places">The number of the digits in the counter</param>
 	/// <exception cref="ArgumentException">
-	/// <paramref name="base"/> is smaller than 2 or
+	/// <paramref name="radix"/> is smaller than 2 or
 	/// <paramref name="places"/> is smaller than 1
 	/// </exception>
-	public static IEnumerable<ushort[]> CountAllAccending(ushort @base, int places) {
+	public static IEnumerable<ushort[]> CountAllAccending(ushort radix, int places) {
 
 		// Guards
 		if (places < 1) {
 			throw new ArgumentException("There must be at least one place in the counter", nameof(places));
 		}
 
-		if (@base < 2) {
-			throw new ArgumentException("Base must be at least 2", nameof(@base));
+		if (radix < 2) {
+			throw new ArgumentException("Base must be at least 2", nameof(radix));
 		}
 
 		// Create current with all 0 
@@ -55,7 +55,7 @@ public static class BasesMath {
 			for (int i = places - 1; i >= 0; i--) {
 
 				// Carry the carry to the next place
-				if (currentCount[i] == @base - 1) {
+				if (currentCount[i] == radix - 1) {
 					currentCount[i] = 0;
 					continue;
 				}

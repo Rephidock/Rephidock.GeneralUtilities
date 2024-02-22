@@ -7,7 +7,7 @@ using Xunit;
 namespace Rephidock.GeneralUtilities.Tests;
 
 
-public sealed class BasesMathTests {
+public sealed class RadixMathTests {
 
 	#region //// CountAllAccending
 
@@ -55,7 +55,7 @@ public sealed class BasesMathTests {
 		IEnumerable<ushort[]> expected = expectedCounterResults[expectedKey];
 
 		// Act
-		IEnumerable<ushort[]> actual = BasesMath.CountAllAccending(@base, places);
+		IEnumerable<ushort[]> actual = RadixMath.CountAllAccending(@base, places);
 
 		// Assert
 		Assert.Equal(expected, actual);
@@ -76,7 +76,7 @@ public sealed class BasesMathTests {
 											.Select(n => new ushort[] { (ushort)n });
 
 		// Act
-		IEnumerable<ushort[]> actual = BasesMath.CountAllAccending(@base, 1);
+		IEnumerable<ushort[]> actual = RadixMath.CountAllAccending(@base, 1);
 
 		// Assert
 		Assert.Equal(expected, actual);

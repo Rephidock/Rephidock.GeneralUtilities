@@ -62,20 +62,20 @@ public static class BigIntMath {
 
 
 	/// <inheritdoc cref="MoreMath.DigitalRoot(int, int)"/>
-	public static BigInteger DigitalRoot(this BigInteger value, BigInteger rootBase) {
+	public static BigInteger DigitalRoot(this BigInteger value, BigInteger radix) {
 
 		// Guards
 		if (value < 0) {
 			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
 		}
 
-		if (rootBase < 2) {
-			throw new ArgumentException("Integer base must be at least 2", nameof(rootBase));
+		if (radix < 2) {
+			throw new ArgumentException("Integer base must be at least 2", nameof(radix));
 		}
 
 		// Digital root
 		if (value == 0) return 0;
-		return 1 + ((value - 1) % (rootBase - 1));
+		return 1 + ((value - 1) % (radix - 1));
 	}
 
 	/// <inheritdoc cref="MoreMath.DigitalRoot(int, int)"/>
