@@ -42,16 +42,15 @@ public static class RandomnessExtensions {
 
 	/// <summary>Returns a random item form a list or span</summary>
 	/// <typeparam name="T">The type of the item</typeparam>
-	/// <param name="items">List of items to pick from</param>
+	/// <param name="items">List of items to pick from. Not mutated.</param>
 	/// <param name="rng">Random number generator</param>
-	/// <inheritdoc cref="PickRandom{T}(IReadOnlyList{T}, Random)"/>
-	public static T GetItem<T>(this Random rng, IReadOnlyList<T> items) {
+	public static T GetItem<T>(this Random rng, IList<T> items) {
 		if (items.Count == 0) throw new ArgumentException("Cannot pick items from empty list", nameof(items));
 		return items[rng.Next(0, items.Count)];
 	}
 
-	/// <inheritdoc cref="GetItem{T}(Random, IReadOnlyList{T})"/>
-	public static T PickRandom<T>(this IReadOnlyList<T> items, Random rng) {
+	/// <inheritdoc cref="GetItem{T}(Random, IList{T})"/>
+	public static T PickRandom<T>(this IList<T> items, Random rng) {
 		return rng.GetItem(items);
 	}
 
@@ -64,12 +63,12 @@ public static class RandomnessExtensions {
 	/// Retains order the items were in.
 	/// </summary>
 	/// <typeparam name="T">The type of items in the collection</typeparam>
-	/// <param name="items">The collection to pick items from</param>
+	/// <param name="items">The collection to pick items from. Not mutated.</param>
 	/// <param name="count">The number of items to pick</param>
 	/// <param name="rng">Random number generator</param>
 	/// <remarks>Uses Reservoir sampling</remarks>
 	/// <returns>An array of picked items in the order they were in collection.</returns>
-	public static T[] PickMultipleDifferent<T>(this IReadOnlyCollection<T> items, int count, Random rng) {
+	public static T[] PickMultipleDifferent<T>(this ICollection<T> items, int count, Random rng) {
 
 		// Guards
 		if (items == null) {
@@ -113,8 +112,8 @@ public static class RandomnessExtensions {
 		return result;
 	}
 
-	/// <inheritdoc cref="PickMultipleDifferent{T}(IReadOnlyCollection{T}, int, Random)"/>
-	public static T[] GetDifferentItems<T>(this Random rng, IReadOnlyCollection<T> collection, int count) {
+	/// <inheritdoc cref="PickMultipleDifferent{T}(ICollection{T}, int, Random)"/>
+	public static T[] GetDifferentItems<T>(this Random rng, ICollection<T> collection, int count) {
 		return collection.PickMultipleDifferent(count, rng);
 	}
 

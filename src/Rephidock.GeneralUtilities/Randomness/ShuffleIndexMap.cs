@@ -15,7 +15,7 @@ namespace Rephidock.GeneralUtilities.Randomness {
 /// <remarks>
 /// Is an abstraction over a shuffled array of indexes.
 /// </remarks>
-public class ShuffleIndexMap : IReadOnlyCollection<KeyValuePair<int, int>> {
+public class ShuffleIndexMap : IEnumerable<KeyValuePair<int, int>> {
 
 	#region //// Storage
 	
