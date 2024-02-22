@@ -15,16 +15,17 @@ public static class ReflectionExtensions {
 	/// <paramref name="baseType"/> or a subclass of it.
 	/// </para>
 	/// <para>
-	/// Also supports generic type definitions and enums.
+	/// Also supports generic type definitions.
 	/// Does not support interfaces.
+	/// (netframework3.5) Does not support enums.
 	/// </para>
 	/// </summary>
 	/// <remarks>
 	/// For array types return true only on type equality.
 	/// </remarks>
 	/// <exception cref="ArgumentNullException"><paramref name="baseType"/> is null</exception>
-	/// <exception cref="NotSupportedException"><paramref name="baseType"/> is an interface</exception>
-	public static bool IsSubcalssOrSelfOf(this Type? derivedType, Type baseType) {
+	/// <exception cref="NotSupportedException"><paramref name="baseType"/> is an interface or (netframework35) <paramref name="derivedType"/> is an enum</exception>
+	public static bool IsSubcalssOrSelfOf(this Type derivedType, Type baseType) {
 
 		// Guards
 		ArgumentNullException.ThrowIfNull(baseType, nameof(baseType));
@@ -48,8 +49,7 @@ public static class ReflectionExtensions {
 
 			// Find enum base
 			if (derivedType.IsEnum) {
-				derivedType = derivedType.GetEnumUnderlyingType();
-				continue;
+				throw new NotSupportedException("Enums are not supported in netframework35 branch of this method");
 			}
 
 			// Find base

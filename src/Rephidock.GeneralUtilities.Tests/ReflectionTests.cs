@@ -140,24 +140,21 @@ public sealed class ReflectionTests {
 	}
 
 	[Theory]
-	[InlineData(typeof(IntEnum), typeof(IntEnum), true)]
-	[InlineData(typeof(IntEnum), typeof(int), true)]
-	[InlineData(typeof(UIntEnum), typeof(uint), true)]
-	[InlineData(typeof(int), typeof(IntEnum), false)]
-	[InlineData(typeof(uint), typeof(UIntEnum), false)]
-	[InlineData(typeof(UIntEnum), typeof(int), false)]
-	[InlineData(typeof(IntEnum), typeof(uint), false)]
-	[InlineData(typeof(IntEnum), typeof(UIntEnum), false)]
-	[InlineData(typeof(UIntEnum), typeof(IntEnum), false)]
-	public void IsSubcalssOrSelfOf_Enum_CorrectReturn(Type derivedType, Type baseType, bool expected) {
+	[InlineData(typeof(IntEnum), typeof(int))]
+	[InlineData(typeof(UIntEnum), typeof(uint))]
+	[InlineData(typeof(UIntEnum), typeof(int))]
+	[InlineData(typeof(IntEnum), typeof(uint))]
+	[InlineData(typeof(IntEnum), typeof(UIntEnum))]
+	[InlineData(typeof(UIntEnum), typeof(IntEnum))]
+	public void IsSubcalssOrSelfOf_EnumAndNotSelf_ThrowsNotSupported(Type derivedType, Type baseType) {
 
 		// Arrange
 
 		// Act
-		bool result = derivedType.IsSubcalssOrSelfOf(baseType);
+		void ThrowingCode() => derivedType.IsSubcalssOrSelfOf(baseType);
 
 		// Assert
-		Assert.Equal(expected, result);
+		Assert.Throws<NotSupportedException>(ThrowingCode);
 	}
 
 	[Theory]
@@ -165,7 +162,6 @@ public sealed class ReflectionTests {
 	[InlineData(typeof(FromBase))]
 	[InlineData(typeof(object))]
 	[InlineData(typeof(int))]
-	[InlineData(typeof(IntEnum))]
 	[InlineData(typeof(object[]))]
 	[InlineData(typeof(Base[]))]
 	[InlineData(typeof(List<>))]
