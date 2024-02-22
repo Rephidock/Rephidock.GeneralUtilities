@@ -22,17 +22,20 @@ public static class GeneralEnumerableExtensions {
 	}
 
 	/// <summary>
-	/// Fulently performs <see cref="string.Join{T}(string?, IEnumerable{T})"/>
+	/// Fulently performs (netframework35) <see cref="string.Join(string, string[])"/>
 	/// </summary>
-	public static string JoinString<TSource>(this IEnumerable<TSource> items, string separator) {
+	public static string JoinString(this string[] items, string separator) {
 		return string.Join(separator, items);
 	}
 
-	/// <summary>
-	/// Fulently performs <see cref="string.Join{T}(char, IEnumerable{T})"/>
-	/// </summary>
+	/// <inheritdoc cref="JoinString{TSource}(IEnumerable{TSource}, string)"/>
+	public static string JoinString<TSource>(this IEnumerable<TSource> items, string separator) {
+		return items.Select(item => item.ToString()).ToArray().JoinString(separator);
+	}
+
+	/// <inheritdoc cref="JoinString{TSource}(IEnumerable{TSource}, string)"/>
 	public static string JoinString<TSource>(this IEnumerable<TSource> items, char separator) {
-		return string.Join(separator, items);
+		return items.JoinString(separator.ToString());
 	}
 
 }

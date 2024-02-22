@@ -42,7 +42,7 @@ public class ShuffleIndexMap : IEnumerable<KeyValuePair<int, int>> {
 
 		// 0-length
 		if (size == 0) {
-			oldToNew = Array.Empty<int>();
+			oldToNew = new int[0];
 			return;
 		}
 

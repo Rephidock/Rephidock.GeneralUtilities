@@ -20,7 +20,7 @@ namespace Rephidock.GeneralUtilities {
 /// <typeparam name="TEnum">Enum to convert</typeparam>
 /// <typeparam name="TInt">Base integer type of the enum</typeparam>
 public static class EnumConverter<TEnum, TInt>
-	where TEnum : struct, Enum 
+	where TEnum : struct 
 	where TInt : struct
 {
 

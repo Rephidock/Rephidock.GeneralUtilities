@@ -22,7 +22,7 @@ public static class RandomnessExtensions {
 		rng.NextBytes(seedBytes);
 
 		// Strip the int32 sign bit
-		seedBytes[3] &= 0b0111_1111;
+		seedBytes[3] &= 127; //0b0111_1111;
 
 		// Convert and return
 		return BitConverter.ToInt32(seedBytes, 0);
@@ -164,7 +164,7 @@ public static class RandomnessExtensions {
 	public static ShuffleIndexMap ShuffleRemap<T>(this IList<T> values, Random rng) {
 
 		// Create a shuffle
-		ShuffleIndexMap oldToNew = new(values.Count, rng);
+		var oldToNew = new ShuffleIndexMap(values.Count, rng);
 
 		// Apply the shuffle
 		oldToNew.ApplyTo(values);
