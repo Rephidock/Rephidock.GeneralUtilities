@@ -2,7 +2,7 @@
 using System.Drawing;
 
 
-namespace Rephidock.GeneralUtilities.Colors;
+namespace Rephidock.GeneralUtilities.Colors {
 
 
 /// <summary>
@@ -46,5 +46,7 @@ public static class ColorMath {
 			MoreMath.Lerp(start.B, end.G, amount)
 		);
 	}
+
+}
 
 }

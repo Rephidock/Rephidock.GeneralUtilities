@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 
 
-namespace Rephidock.GeneralUtilities;
+namespace Rephidock.GeneralUtilities {
 
 
 /// <summary>
@@ -56,5 +56,7 @@ public static class EnumConverter<TEnum, TInt>
 
 		return result;
 	}
+
+}
 
 }

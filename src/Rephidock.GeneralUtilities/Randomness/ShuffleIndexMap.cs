@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Rephidock.GeneralUtilities.Randomness;
+namespace Rephidock.GeneralUtilities.Randomness {
 
 
 /// <summary>
@@ -121,5 +121,7 @@ public class ShuffleIndexMap : IReadOnlyCollection<KeyValuePair<int, int>> {
 	IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
 	#endregion
+
+}
 
 }

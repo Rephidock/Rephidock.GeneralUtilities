@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Rephidock.GeneralUtilities;
+namespace Rephidock.GeneralUtilities {
 
 
 /// <summary>
@@ -59,5 +59,7 @@ public static class ReflectionExtensions {
 		return false;
 
 	}
+
+}
 
 }

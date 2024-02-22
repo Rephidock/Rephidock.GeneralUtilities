@@ -2,7 +2,7 @@
 using System.Drawing;
 
 
-namespace Rephidock.GeneralUtilities.Colors;
+namespace Rephidock.GeneralUtilities.Colors {
 
 
 /// <summary>
@@ -22,5 +22,7 @@ public static class ColorExtensions {
 	/// <summary>Returns the given color with 0 alpha component.</summary>
 	/// <param name="color">Color to make transparent</param>
 	public static Color Transparent(this Color color) => color.WithAlpha(0);
+
+}
 
 }

@@ -2,7 +2,7 @@
 using System.Numerics;
 
 
-namespace Rephidock.GeneralUtilities;
+namespace Rephidock.GeneralUtilities { 
 
 
 /// <summary>
@@ -338,5 +338,7 @@ public static class MoreMath {
 	}
 
 	#endregion
+
+}
 
 }

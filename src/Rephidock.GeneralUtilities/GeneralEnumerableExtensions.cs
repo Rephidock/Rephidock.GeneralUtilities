@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Rephidock.GeneralUtilities;
+namespace Rephidock.GeneralUtilities {
 
 
 /// <summary>
@@ -34,5 +34,7 @@ public static class GeneralEnumerableExtensions {
 	public static string JoinString<TSource>(this IEnumerable<TSource> items, char separator) {
 		return string.Join(separator, items);
 	}
+
+}
 
 }

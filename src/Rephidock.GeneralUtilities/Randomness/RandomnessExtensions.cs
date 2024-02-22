@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace Rephidock.GeneralUtilities.Randomness;
+namespace Rephidock.GeneralUtilities.Randomness {
 
 
 /// <summary>
@@ -204,5 +204,7 @@ public static class RandomnessExtensions {
 	}
 
 	#endregion
+
+}
 
 }
