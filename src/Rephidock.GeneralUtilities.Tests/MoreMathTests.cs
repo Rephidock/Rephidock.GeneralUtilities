@@ -189,6 +189,64 @@ public sealed class MoreMathTests {
 
 	#endregion
 
+	#region //// Digital Root
+
+	[Theory]
+	[InlineData(0, 0)]
+	[InlineData(1, 1)]
+	[InlineData(2, 2)]
+	[InlineData(5, 5)]
+	[InlineData(8, 8)]
+	[InlineData(9, 9)]
+	[InlineData(10, 1)]
+	[InlineData(100, 1)]
+	[InlineData(1000, 1)]
+	[InlineData(11, 2)]
+	[InlineData(18, 9)]
+	[InlineData(19, 1)]
+	[InlineData(331, 7)]
+	[InlineData(28585, 1)]
+	[InlineData(28584, 9)]
+	public void DigitalRoot_UseInDefaultBase_CorrectReturn(int value, int expectedResult) {
+
+		// Arrange
+
+		// Act
+		int actualResult = value.DigitalRoot();
+
+		// Assert
+		Assert.Equal(expectedResult, actualResult);
+	}
+
+	[Theory]
+	[InlineData(0, 2, 0)]
+	[InlineData(0b1001, 2, 1)]
+	[InlineData(0b11010001, 2, 1)]
+	[InlineData(0b10000000, 2, 1)]
+	[InlineData(0, 3, 0)]
+	[InlineData(4, 3, 2)]
+	[InlineData(5, 3, 1)]
+	[InlineData(0, 4, 0)]
+	[InlineData(10, 11, 10)]
+	[InlineData(11, 12, 11)]
+	[InlineData(11, 11, 1)]
+	[InlineData(0x00, 16, 0)]
+	[InlineData(0xa8, 16, 0x3)]
+	[InlineData(0xb8, 16, 0x4)]
+	[InlineData(0xff, 16, 0xf)]
+	public void DigitalRoot_UseInADifferentBase_CorrectReturn(int value, int rootBase, int expectedResult) {
+
+		// Arrange
+
+		// Act
+		int actualResult = value.DigitalRoot(rootBase);
+
+		// Assert
+		Assert.Equal(expectedResult, actualResult);
+	}
+
+	#endregion
+
 	#region //// Deg <-> Rad
 
 	[Theory]

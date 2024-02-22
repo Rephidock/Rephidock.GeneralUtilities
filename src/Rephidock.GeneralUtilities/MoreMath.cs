@@ -243,6 +243,69 @@ public static class MoreMath {
 
 	#endregion
 
+	#region //// Digital Root
+
+	/// <summary>
+	/// Calculates the digital root of a number.
+	/// Digital root is calculated by taking the sum of all of
+	/// the number's digits, and then that sum, until the result is a single digit.
+	/// </summary>
+	public static int DigitalRoot(this int value, int rootBase = 10) {
+
+		// Guards
+		if (value < 0) {
+			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
+		}
+
+		if (rootBase < 2) {
+			throw new ArgumentException("Integer base must be at least 2", nameof(rootBase));
+		}
+
+		// Digital root
+		if (value == 0) return 0;
+		return 1 + ((value - 1) % (rootBase - 1));
+	}
+
+	/// <inheritdoc cref="DigitalRoot(int, int)"/>
+	public static long DigitalRoot(this long value, long rootBase = 10) {
+
+		// Guards
+		if (value < 0) {
+			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
+		}
+
+		if (rootBase < 2) {
+			throw new ArgumentException("Integer base must be at least 2", nameof(rootBase));
+		}
+
+		// Digital root
+		if (value == 0) return 0;
+		return 1 + ((value - 1) % (rootBase - 1));
+	}
+
+	/// <inheritdoc cref="DigitalRoot(int, int)"/>
+	public static BigInteger DigitalRoot(this BigInteger value, BigInteger rootBase) {
+
+		// Guards
+		if (value < 0) {
+			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
+		}
+
+		if (rootBase < 2) {
+			throw new ArgumentException("Integer base must be at least 2", nameof(rootBase));
+		}
+
+		// Digital root
+		if (value == 0) return 0;
+		return 1 + ((value - 1) % (rootBase - 1));
+	}
+
+	/// <inheritdoc cref="DigitalRoot(int, int)"/>
+	/// <remarks>Calculated digital root using default base of 10</remarks>
+	public static BigInteger DigitalRoot(this BigInteger value) => value.DigitalRoot(10);
+
+	#endregion
+
 	#region //// Deg <-> Rad
 
 	/// <summary>
