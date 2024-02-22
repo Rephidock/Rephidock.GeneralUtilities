@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Numerics;
 
 
 namespace Rephidock.GeneralUtilities;
@@ -50,15 +49,6 @@ public static class MoreMath {
 	/// <inheritdoc cref="Lerp(float, float, float)"/>
 	public static byte Lerp(byte start, byte end, float amount) {
 		return (byte)Lerp((int)start, end, amount);
-	}
-
-	/// <inheritdoc cref="Lerp(float, float, float)"/>
-	/// <remarks>
-	/// Beware of preceision loss, as this method converts between
-	/// <see cref="BigInteger"/> and <see cref="double"/>
-	/// </remarks>
-	public static BigInteger Lerp(BigInteger start, BigInteger end, double amount) {
-		return (BigInteger)Math.Round(Lerp((double)start, (double)end, amount));
 	}
 
 	/// <summary>
@@ -149,16 +139,6 @@ public static class MoreMath {
 		return remainder < 0 ? remainder + modulo : remainder;
 	}
 
-	/// <inheritdoc cref="TrueMod(int, int)"/>
-	public static BigInteger TrueMod(this BigInteger value, BigInteger modulo) {
-
-		if (modulo == 0) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
-		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
-
-		BigInteger remainder = value % modulo;
-		return remainder < 0 ? remainder + modulo : remainder;
-	}
-
 	#endregion
 
 	#region //// Wrap
@@ -229,18 +209,6 @@ public static class MoreMath {
 		return (value - min).TrueMod(max - min) + min;
 	}
 
-	/// <inheritdoc cref="Wrap(int, int, int)"/>
-	public static BigInteger Wrap(this BigInteger value, BigInteger min, BigInteger max) {
-
-		// Range of 0 -- easy return
-		if (min == max) return min;
-
-		// Swap min and max so that min < max
-		if (min > max) (max, min) = (min, max);
-
-		return (value - min).TrueMod(max - min) + min;
-	}
-
 	#endregion
 
 	#region //// Digital Root
@@ -286,27 +254,6 @@ public static class MoreMath {
 		if (value == 0) return 0;
 		return 1 + ((value - 1) % (rootBase - 1));
 	}
-
-	/// <inheritdoc cref="DigitalRoot(int, int)"/>
-	public static BigInteger DigitalRoot(this BigInteger value, BigInteger rootBase) {
-
-		// Guards
-		if (value < 0) {
-			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
-		}
-
-		if (rootBase < 2) {
-			throw new ArgumentException("Integer base must be at least 2", nameof(rootBase));
-		}
-
-		// Digital root
-		if (value == 0) return 0;
-		return 1 + ((value - 1) % (rootBase - 1));
-	}
-
-	/// <inheritdoc cref="DigitalRoot(int, int)"/>
-	/// <remarks>Calculated digital root using default base of 10</remarks>
-	public static BigInteger DigitalRoot(this BigInteger value) => value.DigitalRoot(10);
 
 	#endregion
 
