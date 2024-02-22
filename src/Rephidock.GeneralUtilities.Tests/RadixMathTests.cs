@@ -55,7 +55,9 @@ public sealed class RadixMathTests {
 		IEnumerable<ushort[]> expected = expectedCounterResults[expectedKey];
 
 		// Act
-		IEnumerable<ushort[]> actual = RadixMath.CountAllAccending(@base, places);
+		IEnumerable<ushort[]> actual = RadixMath
+										.CountAllAccending(@base, places)
+										.Select(num => num.Digits);
 
 		// Assert
 		Assert.Equal(expected, actual);
@@ -76,7 +78,9 @@ public sealed class RadixMathTests {
 											.Select(n => new ushort[] { (ushort)n });
 
 		// Act
-		IEnumerable<ushort[]> actual = RadixMath.CountAllAccending(@base, 1);
+		IEnumerable<ushort[]> actual = RadixMath
+										.CountAllAccending(@base, 1)
+										.Select(num => num.Digits);
 
 		// Assert
 		Assert.Equal(expected, actual);
