@@ -25,10 +25,10 @@
   </ItemGroup>
   
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net35</TargetFrameworks>
+    <LangVersion>6</LangVersion>
     <RootNamespace>Rephidock.GeneralUtilities</RootNamespace>
     <ImplicitUsings>disable</ImplicitUsings>
-    <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
