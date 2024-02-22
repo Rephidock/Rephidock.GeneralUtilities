@@ -11,6 +11,52 @@ namespace Rephidock.GeneralUtilities;
 /// </summary>
 public static class MoreMath {
 
+	#region //// (netframework35) Clamp
+
+	/// <summary>
+	/// (netframework35)
+	/// Returns <paramref name="value"/> clamped to the
+	/// inclusive range of <paramref name="min"/> and <paramref name="max"/>.
+	/// </summary>
+	/// <param name="value">The value to clamp</param>
+	/// <param name="min">The lower inclusive bound</param>
+	/// <param name="max">The upper inclusive bound</param>
+	public static int Clamp(int value, int min, int max) {
+		if (value < min) return min;
+		if (value > max) return max;
+		return value;
+	}
+
+	/// <inheritdoc cref="Clamp(int, int, int)"/>
+	public static float Clamp(float value, float min, float max) {
+		if (value < min) return min;
+		if (value > max) return max;
+		return value;
+	}
+
+	/// <inheritdoc cref="Clamp(int, int, int)"/>
+	public static double Clamp(double value, double min, double max) {
+		if (value < min) return min;
+		if (value > max) return max;
+		return value;
+	}
+
+	/// <inheritdoc cref="Clamp(int, int, int)"/>
+	public static byte Clamp(byte value, byte min, byte max) {
+		if (value < min) return min;
+		if (value > max) return max;
+		return value;
+	}
+
+	/// <inheritdoc cref="Clamp(int, int, int)"/>
+	public static long Clamp(long value, long min, long max) {
+		if (value < min) return min;
+		if (value > max) return max;
+		return value;
+	}
+
+	#endregion
+
 	#region //// Lerp, ReverseLerp
 
 	/// <summary>

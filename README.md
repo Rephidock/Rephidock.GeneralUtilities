@@ -12,16 +12,17 @@
 
 ### Arithmetic
 
-| Extension Methods                | Summary                                            |
-| -------------------------------- | -------------------------------------------------- |
-| (extension) `int.TrueMod`[^1]    | Performs a modulo operation (`%` is remainder)     |
-| (extension) `int.Wrap`[^1]       | Wraps value into given range                       |
-| (extension) `float.DegToRad`[^1] | Converts angle in degrees to radians               |
-| (extension) `float.RadToDeg`[^1] | Converts angle in radians to degrees               |
-| `MoreMath.Lerp`                  | Linearly interpolates between 2 values             |
-| `MoreMath.ReverseLerp`           | Inverse of `Lerp` (returns lerp amount form value) |
-| `MoreMath.TabShift`              | Returns column position of a character after tab   |
-| `MoreMath.AngleDifference`       | Calculates the shortest distance between 2 angles  |
+| Extension Methods                 | Summary                                            |
+| --------------------------------- | -------------------------------------------------- |
+| (extension) `int.TrueMod`[^1]     | Performs a modulo operation (`%` is remainder)     |
+| (extension) `int.Wrap`[^1]        | Wraps value into given range                       |
+| (extension) `float.DegToRad`[^1]  | Converts angle in degrees to radians               |
+| (extension) `float.RadToDeg`[^1]  | Converts angle in radians to degrees               |
+| (netframework35) `MoreMath.Clamp` | Returns value clamped to inclusive range           |
+| `MoreMath.Lerp`                   | Linearly interpolates between 2 values             |
+| `MoreMath.ReverseLerp`            | Inverse of `Lerp` (returns lerp amount form value) |
+| `MoreMath.TabShift`               | Returns column position of a character after tab   |
+| `MoreMath.AngleDifference`        | Calculates the shortest distance between 2 angles  |
 
 [^1]: Extension also exists for other numeric types
 
