@@ -4,7 +4,7 @@
 
  A package with general utilities that may be useful.
 
-**IMPORTANT NOTICE:** Current branch `netframework35` is an experimental unlisted branch for compiling project to .net framework 3.5. This compilation does not have all features be supported.
+**IMPORTANT NOTICE:** Current branch `netframework35` is an experimental branch for compiling project to .net framework 3.5. This compilation does not have all features be supported.
 
 ## Contents
 
@@ -61,8 +61,8 @@ The `.Randomness` namespace relates to `System.Random`
 
 The following methods also exist and are extensions on collection interfaces to allow fluent syntax:
 
-- `IReadOnlyList<T>.PickRandom` is equivalent to `Random.GetItem`
-- `IReadOnlyCollection<T>.PickMultipleDifferent` is equivalent to `Random.GetDifferentItems`
+- `IList<T>.PickRandom` is equivalent to `Random.GetItem`
+- `ICollection<T>.PickMultipleDifferent` is equivalent to `Random.GetDifferentItems`
 - `IList<T>.Shuffle` is equivalent to `Random.Shuffle`
 - `IList<T>.ShuffleRemap` is equivalent to `Random.ShuffleRemap`
 
