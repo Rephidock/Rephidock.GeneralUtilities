@@ -250,6 +250,10 @@ public static class MoreMath {
 	/// Digital root is calculated by taking the sum of all of
 	/// the number's digits, and then that sum, until the result is a single digit.
 	/// </summary>
+	/// <exception cref="ArgumentException">
+	/// <paramref name="value"/> is negative or
+	/// <paramref name="rootBase"/> is smaller than 2
+	/// </exception>
 	public static int DigitalRoot(this int value, int rootBase = 10) {
 
 		// Guards
