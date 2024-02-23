@@ -16,7 +16,8 @@
       - Added (extension) int.DigitalRoot with equivalents for long and BigIntegher
       - Added (extension) BigInteger.Sqrt
       - Added RadixMath.CountAllAccending
-      - Tiny internal doc fix
+      - Added (extension) int.ToDigits with equivalents for long and BigIntegher
+      - Tiny internal doc fixes
     </PackageReleaseNotes>
   </PropertyGroup>
   

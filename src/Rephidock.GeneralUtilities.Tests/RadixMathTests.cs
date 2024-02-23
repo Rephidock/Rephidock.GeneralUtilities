@@ -84,4 +84,107 @@ public sealed class RadixMathTests {
 
 	#endregion
 
+	#region //// ToDigits
+
+	[Theory]
+	[InlineData(4627, 10, new ushort[] { 4, 6, 2, 7 })]
+	[InlineData(0x73f8da, 16, new ushort[] { 7, 3, 0xf, 8, 0xd, 0xa})]
+	[InlineData(32, 2, new ushort[] { 1, 0, 0, 0, 0, 0 })]
+	[InlineData(5, 3, new ushort[] { 1, 2 })]
+	[InlineData(11, 3, new ushort[] { 1, 0, 2 })]
+	[InlineData(6537, 6537, new ushort[] { 1, 0 })]
+	[InlineData(6536, 6537, new ushort[] { 6536 })]
+	public void ToDigits_ConvertPositive_CorrectReturn(int value, ushort radix, ushort[] expected) {
+
+		// Arrange
+
+		// Act
+		ushort[] actual = RadixMath.ToDigits(value, radix);
+
+		// Assert
+		Assert.Equal(expected, actual);
+	}
+
+	[Theory]
+	[InlineData(-4627, 10)]
+	[InlineData(-0x73f8da, 16)]
+	[InlineData(-32, 2)]
+	[InlineData(-5, 3)]
+	[InlineData(-11, 3)]
+	[InlineData(-6537, 6537)]
+	[InlineData(-6536, 6537)]
+	public void ToDigits_ConvertNegative_ReturnsSameAsPositive(int value, ushort radix) {
+
+		// Arrange
+		ushort[] expected = RadixMath.ToDigits(-value, radix);
+
+		// Act
+		ushort[] actual = RadixMath.ToDigits(value, radix);
+
+		// Assert
+		Assert.Equal(expected, actual);
+	}
+
+	[Theory]
+	[InlineData(2)]
+	[InlineData(4)]
+	[InlineData(16)]
+	[InlineData(89)]
+	[InlineData(99)]
+	[InlineData(ushort.MaxValue)]
+	public void ToDigits_ConvertZero_ReturnsArrayOfSingleZero(ushort radix) {
+
+		// Arrange
+		ushort[] expected = new ushort[] { 0 };
+
+		// Act
+		ushort[] actual = RadixMath.ToDigits(0, radix);
+
+		// Assert
+		Assert.Equal(expected, actual);
+	}
+
+	[Theory]
+	[InlineData(4627, 10, 0, new ushort[] { 4, 6, 2, 7 })]
+	[InlineData(0x73f8da, 16, 8, new ushort[] { 0, 0, 7, 3, 0xf, 8, 0xd, 0xa })]
+	[InlineData(32, 2, 3, new ushort[] { 1, 0, 0, 0, 0, 0 })]
+	[InlineData(32, 2, 8, new ushort[] { 0, 0, 1, 0, 0, 0, 0, 0 })]
+	[InlineData(5, 3, 3, new ushort[] { 0, 1, 2 })]
+	[InlineData(11, 3, 3, new ushort[] { 1, 0, 2 })]
+	[InlineData(6536, 6537, 0, new ushort[] { 6536 })]
+	[InlineData(6536, 6537, 1, new ushort[] { 6536 })]
+	[InlineData(6536, 6537, 2, new ushort[] { 0, 6536 })]
+	[InlineData(6536, 6537, 7, new ushort[] { 0, 0, 0, 0, 0, 0, 6536 })]
+	public void ToDigits_ConvertPositiveWithPadding_CorrectReturn(int value, ushort radix, int length, ushort[] expected) {
+
+		// Arrange
+
+		// Act
+		ushort[] actual = RadixMath.ToDigits(value, radix, length);
+
+		// Assert
+		Assert.Equal(expected, actual);
+	}
+
+	[Theory]
+	[InlineData(2, 5)]
+	[InlineData(4, 3)]
+	[InlineData(16, 1)]
+	[InlineData(65, 31)]
+	[InlineData(ushort.MaxValue, 99)]
+	public void ToDigits_ConvertZeroWithPadding_ReturnsArrayOfZerosOfCorrectLength(ushort radix, int length) {
+
+		// Arrange
+		int value = 0;
+		ushort[] expected = Enumerable.Repeat((ushort)0, length).ToArray();
+
+		// Act
+		ushort[] actual = RadixMath.ToDigits(value, radix, length);
+
+		// Assert
+		Assert.Equal(expected, actual);
+	}
+
+	#endregion
+
 }

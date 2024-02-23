@@ -22,8 +22,6 @@
 | `MoreMath.TabShift`               | Returns column position of a character after tab   |
 | `MoreMath.AngleDifference`        | Calculates the shortest distance between 2 angles  |
 
-[^1]: Extension also exists for other numeric types
-
 
 
 Some methods also exist for `BigInteger`:
@@ -34,6 +32,7 @@ Some methods also exist for `BigInteger`:
 | (extension) `BigInteger.TrueMod `    | *Same as above*                       |
 | (extension) `BigInteger.Wrap`        | *Same as above*                       |
 | (extension) `BigInteger.DigitalRoot` | *Same as above*                       |
+| (extension) `BigInteger.ToDigits`    | *Same as below*                       |
 | `BigIntMath.Lerp`                    | *Same as above*                       |
 
 
@@ -42,9 +41,10 @@ Some methods also exist for `BigInteger`:
 
 Uses `RadixMath` to perform operations with digits with arbitrary base, represented as arrays of digit values:
 
-| Method                        | Summary                                          |
-| ----------------------------- | ------------------------------------------------ |
-| `RadixMath.CountAllAccending` | Enumerates all numbers with a given places count |
+| Method                         | Summary                                          |
+| ------------------------------ | ------------------------------------------------ |
+| (extension) `int.ToDigits`[^1] | Converts a value to an array of digits           |
+| `RadixMath.CountAllAccending`  | Enumerates all numbers with a given places count |
 
 
 
@@ -98,3 +98,7 @@ The `.Color` namespace relates to `System.Drawing.Color`
 | (extension) `Color.Transparent` | Returns source `Color` with alpha of 0           |
 | `ColorMath.LerpColor`           | Linearly interpolates between 2 colors           |
 | `ColorMath.AlphaBlend`          | Blend 2 colors with alpha-1-minus-alpha blending |
+
+
+
+[^1]: Extension also exists for other numeric types

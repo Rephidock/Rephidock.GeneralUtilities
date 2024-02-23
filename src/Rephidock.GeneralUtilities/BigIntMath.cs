@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Numerics;
 
 
@@ -7,7 +8,7 @@ namespace Rephidock.GeneralUtilities;
 
 /// <summary>
 /// Provides static methods for some
-/// arithmetic functions.
+/// arithmetic functions for BigInteger.
 /// </summary>
 public static class BigIntMath {
 
@@ -22,7 +23,7 @@ public static class BigIntMath {
 	/// </summary>
 	public static double Sqrt(this BigInteger n) => Math.Pow(Math.E, BigInteger.Log(n) / 2);
 
-	#region //// From MoreMath
+	#region //// Source clone from MoreMath
 
 	/// <inheritdoc cref="MoreMath.Lerp(float, float, float)"/>
 	/// <remarks>
@@ -81,6 +82,45 @@ public static class BigIntMath {
 	/// <inheritdoc cref="MoreMath.DigitalRoot(int, int)"/>
 	/// <remarks>Calculated digital root using default base of 10</remarks>
 	public static BigInteger DigitalRoot(this BigInteger value) => value.DigitalRoot(10);
+
+	#endregion
+
+	#region //// Source clone from RadixMath
+
+	/// <inheritdoc cref="RadixMath.ToDigits(int, ushort, int)"/>
+	public static ushort[] ToDigits(this BigInteger value, ushort radix, int padToPlaces = -1) {
+
+		// Guards
+		if (radix < 2) {
+			throw new ArgumentException("Base must be at least 2", nameof(radix));
+		}
+
+		// Take absolute
+		if (value < 0) value = -value;
+
+		// Get digits
+		List<ushort> digitsStartingFromUnits = new(padToPlaces > 0 ? padToPlaces : 4);
+
+		do {
+			digitsStartingFromUnits.Add((ushort)(value % radix));
+			value /= radix;
+		} while (value > 0);
+
+		// Pad digits
+		int prepadCount = padToPlaces - digitsStartingFromUnits.Count;
+		for (; prepadCount > 0; prepadCount--) {
+			digitsStartingFromUnits.Add(0);
+		}
+
+		// Create array and return
+		ushort[] result = new ushort[digitsStartingFromUnits.Count];
+		int lastI = digitsStartingFromUnits.Count - 1;
+		for (int i = 0; i <= lastI; i++) {
+			result[i] = digitsStartingFromUnits[lastI - i];
+		}
+
+		return result;
+	}
 
 	#endregion
 

@@ -13,6 +13,57 @@ namespace Rephidock.GeneralUtilities;
 public static class RadixMath {
 
 	/// <summary>
+	/// Converts a value to an arbitaray base,
+	/// returning arrays of digits in that base,
+	/// units place last.
+	/// </summary>
+	/// <param name="value">The value to convert. If negative, absolute is used.</param>
+	/// <param name="radix">The base of the returned number</param>
+	/// <param name="padToPlaces">
+	/// <para>The number of places to prepad the number to with zeros.</para>
+	/// <para>The resulting array can be larger if there are not enough digits.</para>
+	/// </param>
+	/// <exception cref="ArgumentException"><paramref name="radix"/> is below 2</exception>
+	public static ushort[] ToDigits(this long value, ushort radix, int padToPlaces = -1) {
+
+		// Guards
+		if (radix < 2) {
+			throw new ArgumentException("Base must be at least 2", nameof(radix));
+		}
+
+		// Take absolute
+		if (value < 0) value = -value;
+
+		// Get digits
+		List<ushort> digitsStartingFromUnits = new(padToPlaces > 0 ? padToPlaces : 4);
+
+		do {
+			digitsStartingFromUnits.Add((ushort)(value % radix));
+			value /= radix;
+		} while (value > 0);
+
+		// Pad digits
+		int prepadCount = padToPlaces - digitsStartingFromUnits.Count;
+		for (; prepadCount > 0; prepadCount--) {
+			digitsStartingFromUnits.Add(0);
+		}
+
+		// Create array and return
+		ushort[] result = new ushort[digitsStartingFromUnits.Count];
+		int lastI = digitsStartingFromUnits.Count - 1;
+		for (int i = 0; i <= lastI; i++) {
+			result[i] = digitsStartingFromUnits[lastI - i];
+		}
+
+		return result;
+	}
+
+	/// <inheritdoc cref="ToDigits(long, ushort, int)"/>
+	public static ushort[] ToDigits(this int value, ushort radix, int padToPlaces = -1) {
+		return ToDigits((long)value, radix, padToPlaces);
+	}
+
+	/// <summary>
 	/// <para>
 	/// Enumerates all positive numbers in an arbitaray base
 	/// up to a given digit length,
