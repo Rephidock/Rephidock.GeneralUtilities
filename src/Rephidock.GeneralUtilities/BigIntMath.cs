@@ -83,6 +83,36 @@ public static class BigIntMath {
 	/// <remarks>Calculated digital root using default base of 10</remarks>
 	public static BigInteger DigitalRoot(this BigInteger value) => value.DigitalRoot(10);
 
+
+	/// <inheritdoc cref="MoreMath.GetFactors(int)"/>
+	public static IEnumerable<BigInteger> GetFactors(this BigInteger n) {
+
+		// Zero, one, negative one
+		if (n >= -1 && n <= 1) {
+			yield return n;
+			yield break;
+		}
+
+		// Negative
+		if (n < 0) {
+			yield return -1;
+			n = -n;
+		}
+
+		// Main loop
+		BigInteger factor = 2;
+		while (factor <= n) {
+
+			while (n % factor == 0) {
+				yield return factor;
+				n /= factor;
+			}
+
+			factor++;
+		}
+
+	}
+
 	#endregion
 
 	#region //// Source clone from RadixMath

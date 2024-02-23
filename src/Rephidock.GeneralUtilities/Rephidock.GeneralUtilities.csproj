@@ -13,8 +13,9 @@
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       - (breaking) Moved BigInteger MoreMath overloads into BigIntMath
-      - Added (extension) int.DigitalRoot with equivalents for long and BigIntegher
       - Added (extension) BigInteger.Sqrt
+      - Added (extension) int.DigitalRoot with equivalents for long and BigIntegher
+      - Added (extension) int.GetFactors with equivalent for BigInteger
       - Added RadixMath.CountAllAccending
       - Added (extension) int.ToDigits with equivalents for long and BigIntegher
       - Added RadixMath.FromDigits

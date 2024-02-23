@@ -1,6 +1,7 @@
 ﻿using System;
 using Xunit;
 using Rephidock.GeneralUtilities;
+using System.Collections.Generic;
 
 
 namespace Rephidock.GeneralUtilities.Tests;
@@ -240,6 +241,31 @@ public sealed class MoreMathTests {
 
 		// Act
 		int actualResult = value.DigitalRoot(rootBase);
+
+		// Assert
+		Assert.Equal(expectedResult, actualResult);
+	}
+
+	#endregion
+
+	#region //// Factors
+
+	[Theory]
+	[InlineData(0, new int[] { 0 })]
+	[InlineData(1, new int[] { 1 })]
+	[InlineData(-1, new int[] { -1 })]
+	[InlineData(2, new int[] { 2 })]
+	[InlineData(-2, new int[] { -1, 2 })]
+	[InlineData(331, new int[] { 331 })]
+	[InlineData(256, new int[] { 2, 2, 2, 2, 2, 2, 2, 2 })]
+	[InlineData(9610, new int[] { 2, 5, 31, 31 })]
+	[InlineData(134386, new int[] { 2, 7, 29, 331 })]
+	public void GetFactors_SimpleUse_CorrectReturn(int value, int[] expectedResult) {
+
+		// Arrange
+
+		// Act
+		IEnumerable<int> actualResult = value.GetFactors();
 
 		// Assert
 		Assert.Equal(expectedResult, actualResult);

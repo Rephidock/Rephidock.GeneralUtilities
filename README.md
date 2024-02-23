@@ -15,6 +15,7 @@
 | (extension) `int.TrueMod`[^1]     | Performs a modulo operation (`%` is remainder)     |
 | (extension) `int.Wrap`[^1]        | Wraps value into given range                       |
 | (extension) `int.DigitalRoot`[^1] | Calculates digital root (repeated digit sum)       |
+| (extension) `int.GetFactors`      | Returns all factors of an integer                  |
 | (extension) `float.DegToRad`[^1]  | Converts angle in degrees to radians               |
 | (extension) `float.RadToDeg`[^1]  | Converts angle in radians to degrees               |
 | `MoreMath.Lerp`                   | Linearly interpolates between 2 values             |
@@ -32,6 +33,7 @@ Some methods also exist for `BigInteger`:
 | (extension) `BigInteger.TrueMod `    | *Same as above*                       |
 | (extension) `BigInteger.Wrap`        | *Same as above*                       |
 | (extension) `BigInteger.DigitalRoot` | *Same as above*                       |
+| (extension) `BigInteger.GetFactors`  | *Same as above*                       |
 | (extension) `BigInteger.ToDigits`    | *Same as below*                       |
 | `BigIntMath.FromDigits`              | *Same as below*                       |
 | `BigIntMath.Lerp`                    | *Same as above*                       |
@@ -103,4 +105,6 @@ The `.Color` namespace relates to `System.Drawing.Color`
 
 
 
-[^1]: Extension also exists for other numeric types
+[^1]: Extension also exists for other numeric types.
+
+*\* - Extension methods are static methods and can be used as such.*
