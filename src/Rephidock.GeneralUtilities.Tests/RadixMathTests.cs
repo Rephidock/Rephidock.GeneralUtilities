@@ -187,6 +187,26 @@ public sealed class RadixMathTests {
 		Assert.Equal(expected, actual);
 	}
 
+	[Theory]
+	[InlineData(new ushort[] { 0 }, 10, 0)]
+	[InlineData(new ushort[] { 0, 0 }, 17, 0)]
+	[InlineData(new ushort[] { 0, 0, 0, 0, 0, 0, 0, 0 }, 2, 0)]
+	[InlineData(new ushort[] { 0, 0, 4, 6, 2, 7 }, 10, 4627)]
+	[InlineData(new ushort[] { 0, 0, 0, 7, 3, 0xf, 8, 0xd, 0xa }, 16, 0x73f8da)]
+	[InlineData(new ushort[] { 0, 1, 2 }, 3, 5)]
+	[InlineData(new ushort[] { 0, 1, 0 }, 6537, 6537)]
+	[InlineData(new ushort[] { 0, 0, 6536 }, 6537, 6536)]
+	public void FromDigits_ConvertZeroAndPadded_CorrectReturn(ushort[] digits, ushort radix, long expected) {
+
+		// Arrange
+
+		// Act
+		long actualValue = RadixMath.FromDigits(digits, radix);
+
+		// Assert
+		Assert.Equal(expected, actualValue);
+	}
+
 	#endregion
 
 }
