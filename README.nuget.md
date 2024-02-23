@@ -33,6 +33,7 @@ Some methods also exist for `BigInteger`:
 | (extension) `BigInteger.Wrap`        | *Same as above*                       |
 | (extension) `BigInteger.DigitalRoot` | *Same as above*                       |
 | (extension) `BigInteger.ToDigits`    | *Same as below*                       |
+| `BigIntMath.FromDigits`              | *Same as below*                       |
 | `BigIntMath.Lerp`                    | *Same as above*                       |
 
 
@@ -44,6 +45,7 @@ Uses `RadixMath` to perform operations with digits with arbitrary base, represen
 | Method                        | Summary                                          |
 | ----------------------------- | ------------------------------------------------ |
 | (extension) `int.ToDigits`[1] | Converts a value to an array of digits           |
+| `RadixMath.FromDigits`        | Converts an array of digits to a value           |
 | `RadixMath.CountAllAccending` | Enumerates all numbers with a given places count |
 
 

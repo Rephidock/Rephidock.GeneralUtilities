@@ -84,7 +84,7 @@ public sealed class RadixMathTests {
 
 	#endregion
 
-	#region //// ToDigits
+	#region //// ToDigits, FromDigits
 
 	[Theory]
 	[InlineData(4627, 10, new ushort[] { 4, 6, 2, 7 })]
@@ -94,15 +94,17 @@ public sealed class RadixMathTests {
 	[InlineData(11, 3, new ushort[] { 1, 0, 2 })]
 	[InlineData(6537, 6537, new ushort[] { 1, 0 })]
 	[InlineData(6536, 6537, new ushort[] { 6536 })]
-	public void ToDigits_ConvertPositive_CorrectReturn(int value, ushort radix, ushort[] expected) {
+	public void ToDigitsFromDigits_ConvertPositive_CorrectReturn(int value, ushort radix, ushort[] digits) {
 
 		// Arrange
 
 		// Act
-		ushort[] actual = RadixMath.ToDigits(value, radix);
+		ushort[] actualDigits = RadixMath.ToDigits(value, radix);
+		long actualValue = RadixMath.FromDigits(digits, radix);
 
 		// Assert
-		Assert.Equal(expected, actual);
+		Assert.Equal(digits, actualDigits);
+		Assert.Equal(value, actualValue);
 	}
 
 	[Theory]

@@ -64,6 +64,39 @@ public static class RadixMath {
 	}
 
 	/// <summary>
+	/// Converts an array of digits in a given base,
+	/// units place last, to an integer value.
+	/// </summary>
+	/// <param name="digits">The digits to convert, units place last</param>
+	/// <param name="radix">The base of the returned number</param>
+	/// <exception cref="ArgumentException"><paramref name="radix"/> is below 2</exception>
+	/// <exception cref="OverflowException">Resulting value is too big for a <see cref="long"/></exception>
+	public static long FromDigits(this ushort[] digits, ushort radix) {
+
+		// Guards
+		if (radix < 2) {
+			throw new ArgumentException("Base must be at least 2", nameof(radix));
+		}
+
+		// Add up all the digits with respective powers of radix
+		long result = 0;
+		checked {
+			long currentMultiplier = 1;
+
+			for (int i = digits.Length - 1; i >= 0; i--) {
+
+				// Add value to the result
+				result += digits[i] * currentMultiplier;
+
+				// Updte multiplier
+				currentMultiplier *= radix;
+			}
+		}
+
+		return result;
+	}
+
+	/// <summary>
 	/// <para>
 	/// Enumerates all positive numbers in an arbitaray base
 	/// up to a given digit length,

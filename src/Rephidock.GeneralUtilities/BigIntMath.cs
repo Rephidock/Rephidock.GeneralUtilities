@@ -122,6 +122,34 @@ public static class BigIntMath {
 		return result;
 	}
 
+	/// <inheritdoc cref="RadixMath.FromDigits(ushort[], ushort)"/>
+	/// <remarks>
+	/// Use of <see cref="BigInteger"/> means that
+	/// <see cref="OverflowException"/> is not thrown for larger numbers.
+	/// </remarks>
+	public static BigInteger FromDigits(this ushort[] digits, ushort radix) {
+
+		// Guards
+		if (radix < 2) {
+			throw new ArgumentException("Base must be at least 2", nameof(radix));
+		}
+
+		// Add up all the digits with respective powers of radix
+		BigInteger result = 0;
+		BigInteger currentMultiplier = 1;
+
+		for (int i = digits.Length - 1; i >= 0; i--) {
+
+			// Add value to the result
+			result += digits[i] * currentMultiplier;
+
+			// Updte multiplier
+			currentMultiplier *= radix;
+		}
+
+		return result;
+	}
+
 	#endregion
 
 }

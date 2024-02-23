@@ -17,6 +17,7 @@
       - Added (extension) BigInteger.Sqrt
       - Added RadixMath.CountAllAccending
       - Added (extension) int.ToDigits with equivalents for long and BigIntegher
+      - Added RadixMath.FromDigits
       - Tiny internal doc fixes
     </PackageReleaseNotes>
   </PropertyGroup>
