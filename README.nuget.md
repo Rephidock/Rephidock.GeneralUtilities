@@ -42,7 +42,7 @@ Some methods also exist for `BigInteger`:
 
 ### Arbitrary Base Representation
 
-Uses `RadixMath` to perform operations with digits with arbitrary base, represented as arrays of digit values:
+Use `RadixMath` to perform operations with digits with arbitrary base, represented as arrays of digit values:
 
 | Method                        | Summary                                          |
 | ----------------------------- | ------------------------------------------------ |
