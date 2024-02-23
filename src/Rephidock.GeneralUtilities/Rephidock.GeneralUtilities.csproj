@@ -30,7 +30,7 @@
     <RootNamespace>Rephidock.GeneralUtilities</RootNamespace>
     <ImplicitUsings>disable</ImplicitUsings>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
   
 </Project>
