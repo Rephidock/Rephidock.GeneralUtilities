@@ -12,19 +12,46 @@
 
 ### Arithmetic
 
-| Extension Methods                 | Summary                                            |
+| Method                            | Summary                                            |
 | --------------------------------- | -------------------------------------------------- |
+| (netframework35) `MoreMath.Clamp` | Returns value clamped to inclusive range           |
 | (extension) `int.TrueMod`[1]      | Performs a modulo operation (`%` is remainder)     |
 | (extension) `int.Wrap`[1]         | Wraps value into given range                       |
+| (extension) `int.DigitalRoot`[1]  | Calculates digital root (repeated digit sum)       |
+| (extension) `int.GetFactors`      | Returns all factors of an integer                  |
 | (extension) `float.DegToRad`[1]   | Converts angle in degrees to radians               |
 | (extension) `float.RadToDeg`[1]   | Converts angle in radians to degrees               |
-| (netframework35) `MoreMath.Clamp` | Returns value clamped to inclusive range           |
 | `MoreMath.Lerp`                   | Linearly interpolates between 2 values             |
 | `MoreMath.ReverseLerp`            | Inverse of `Lerp` (returns lerp amount form value) |
 | `MoreMath.TabShift`               | Returns column position of a character after tab   |
 | `MoreMath.AngleDifference`        | Calculates the shortest distance between 2 angles  |
 
-[1]: Extension also exists for other numeric types
+
+
+Some methods also exist for `BigInteger`:
+
+| Method                               | Summary                               |
+| ------------------------------------ | ------------------------------------- |
+| (extension) `BigInteger.Sqrt`        | Returns a square root of `BigInteger` |
+| (extension) `BigInteger.TrueMod `    | *Same as above*                       |
+| (extension) `BigInteger.Wrap`        | *Same as above*                       |
+| (extension) `BigInteger.DigitalRoot` | *Same as above*                       |
+| (extension) `BigInteger.GetFactors`  | *Same as above*                       |
+| (extension) `BigInteger.ToDigits`    | *Same as below*                       |
+| `BigIntMath.FromDigits`              | *Same as below*                       |
+| `BigIntMath.Lerp`                    | *Same as above*                       |
+
+
+
+### Arbitrary Base Representation
+
+Use `RadixMath` to perform operations with digits with arbitrary base, represented as arrays of digit values:
+
+| Method                        | Summary                                          |
+| ----------------------------- | ------------------------------------------------ |
+| (extension) `int.ToDigits`[1] | Converts a value to an array of digits           |
+| `RadixMath.FromDigits`        | Converts an array of digits to a value           |
+| `RadixMath.CountAllAccending` | Enumerates all numbers with a given places count |
 
 
 
@@ -50,7 +77,7 @@ The `.Randomness` namespace relates to `System.Random`
 | ----------------- | ---------------------------------------------------------- |
 | `ShuffleIndexMap` | The index map of a shuffle (to track where items ended up) |
 
-| Extension methods          | Summary                                                   |
+| Extension method           | Summary                                                   |
 | -------------------------- | --------------------------------------------------------- |
 | `Random.NextUInt31`        | Returns a random int in range of [0, int.MaxValue]        |
 | `Random.Chance`            | Returns `true` with %-chance                              |
@@ -78,3 +105,9 @@ The `.Color` namespace relates to `System.Drawing.Color`
 | (extension) `Color.Transparent` | Returns source `Color` with alpha of 0           |
 | `ColorMath.LerpColor`           | Linearly interpolates between 2 colors           |
 | `ColorMath.AlphaBlend`          | Blend 2 colors with alpha-1-minus-alpha blending |
+
+
+
+[1]: Extension also exists for other numeric types.
+
+*\* - Extension methods are static methods and can be used as such.*
