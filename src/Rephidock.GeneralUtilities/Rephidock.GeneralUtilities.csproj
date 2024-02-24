@@ -3,7 +3,7 @@
    <PropertyGroup>
     <Title>Rephidock.GeneralUtilities</Title>
     <Authors>Rephidock</Authors>
-    <Version>0.3.0+framework35</Version>
+    <Version>1.0.0+framework35</Version>
     <Description>A package with general utilities that may be useful</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -12,8 +12,11 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      - Made chances for .net framework 3.5 compatabilty
-      - Added MoreMath.Clamp
+      - Added (extension) int.DigitalRoot with equivalent for long
+      - Added (extension) int.GetFactors
+      - Added RadixMath.CountAllAccending
+      - Added (extension) int.ToDigits with equivalents for long
+      - Added RadixMath.FromDigits
     </PackageReleaseNotes>
   </PropertyGroup>
   

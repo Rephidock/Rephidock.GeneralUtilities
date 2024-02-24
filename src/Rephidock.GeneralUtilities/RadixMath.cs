@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Rephidock.GeneralUtilities;
+namespace Rephidock.GeneralUtilities {
 
 
 /// <summary>
@@ -35,7 +35,7 @@ public static class RadixMath {
 		if (value < 0) value = -value;
 
 		// Get digits
-		List<ushort> digitsStartingFromUnits = new(padToPlaces > 0 ? padToPlaces : 4);
+		List<ushort> digitsStartingFromUnits = new List<ushort>(padToPlaces > 0 ? padToPlaces : 4);
 
 		do {
 			digitsStartingFromUnits.Add((ushort)(value % radix));
@@ -160,3 +160,4 @@ public static class RadixMath {
 
 }
 
+}

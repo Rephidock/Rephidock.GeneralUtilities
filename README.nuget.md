@@ -28,21 +28,6 @@
 
 
 
-Some methods also exist for `BigInteger`:
-
-| Method                               | Summary                               |
-| ------------------------------------ | ------------------------------------- |
-| (extension) `BigInteger.Sqrt`        | Returns a square root of `BigInteger` |
-| (extension) `BigInteger.TrueMod `    | *Same as above*                       |
-| (extension) `BigInteger.Wrap`        | *Same as above*                       |
-| (extension) `BigInteger.DigitalRoot` | *Same as above*                       |
-| (extension) `BigInteger.GetFactors`  | *Same as above*                       |
-| (extension) `BigInteger.ToDigits`    | *Same as below*                       |
-| `BigIntMath.FromDigits`              | *Same as below*                       |
-| `BigIntMath.Lerp`                    | *Same as above*                       |
-
-
-
 ### Arbitrary Base Representation
 
 Use `RadixMath` to perform operations with digits with arbitrary base, represented as arrays of digit values:
