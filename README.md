@@ -4,7 +4,7 @@
 
  A package with general utilities that may be useful.
 
-**IMPORTANT NOTICE:** Current branch `netframework35` is an experimental branch for compiling project to .net framework 3.5. This compilation does not have all features be supported.
+**IMPORTANT NOTICE:** Current branch `netframework35` is an experimental branch for compiling project to .net framework 3.5. This compilation does not have all features be supported. `nodrawing` branch additionally removed references to `System.Drawing`.
 
 ## Contents
 
@@ -78,19 +78,6 @@ The following methods also exist and are extensions on collection interfaces to 
 - `ICollection<T>.PickMultipleDifferent` is equivalent to `Random.GetDifferentItems`
 - `IList<T>.Shuffle` is equivalent to `Random.Shuffle`
 - `IList<T>.ShuffleRemap` is equivalent to `Random.ShuffleRemap`
-
-
-
-### `.Color` namespace
-
-The `.Color` namespace relates to `System.Drawing.Color`
-
-| Method                          | Summary                                          |
-| ------------------------------- | ------------------------------------------------ |
-| (extension) `Color.WithAlpha`   | Returns source `Color` with given alpha          |
-| (extension) `Color.Transparent` | Returns source `Color` with alpha of 0           |
-| `ColorMath.LerpColor`           | Linearly interpolates between 2 colors           |
-| `ColorMath.AlphaBlend`          | Blend 2 colors with alpha-1-minus-alpha blending |
 
 
 
