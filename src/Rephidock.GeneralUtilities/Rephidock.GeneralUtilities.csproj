@@ -4,6 +4,7 @@
     <Title>Rephidock.GeneralUtilities</Title>
     <Authors>Rephidock</Authors>
     <Version>1.0.0+framework35</Version>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Description>A package with general utilities that may be useful</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
