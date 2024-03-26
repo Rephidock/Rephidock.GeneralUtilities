@@ -3,7 +3,7 @@
    <PropertyGroup>
     <Title>Rephidock.GeneralUtilities</Title>
     <Authors>Rephidock</Authors>
-    <Version>1.0.0</Version>
+    <Version>1.1.0+alpha.0</Version>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Description>A package with general utilities that may be useful</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
@@ -13,14 +13,6 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      - (breaking) Moved BigInteger MoreMath overloads into BigIntMath
-      - Added (extension) BigInteger.Sqrt
-      - Added (extension) int.DigitalRoot with equivalents for long and BigIntegher
-      - Added (extension) int.GetFactors with equivalent for BigInteger
-      - Added RadixMath.CountAllAccending
-      - Added (extension) int.ToDigits with equivalents for long and BigIntegher
-      - Added RadixMath.FromDigits
-      - Tiny internal doc fixes
     </PackageReleaseNotes>
   </PropertyGroup>
   
