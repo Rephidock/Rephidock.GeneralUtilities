@@ -22,17 +22,43 @@ public static class GeneralEnumerableExtensions {
 	}
 
 	/// <summary>
-	/// Fulently performs <see cref="string.Join{T}(string?, IEnumerable{T})"/>
+	/// Joins elements into a single delimited string.
+	/// (Fulently performs <see cref="string.Join{T}(string?, IEnumerable{T})"/>)
 	/// </summary>
 	public static string JoinString<TSource>(this IEnumerable<TSource> items, string separator) {
 		return string.Join(separator, items);
 	}
 
 	/// <summary>
-	/// Fulently performs <see cref="string.Join{T}(char, IEnumerable{T})"/>
+	/// Joins elements into a single delimited string.
+	/// (Fulently performs <see cref="string.Join{T}(char, IEnumerable{T})"/>)
 	/// </summary>
 	public static string JoinString<TSource>(this IEnumerable<TSource> items, char separator) {
 		return string.Join(separator, items);
+	}
+
+	/// <summary>
+	/// Joins a sequence of characters into a string.
+	/// (Fluent way to call <see cref="string.Concat{T}(IEnumerable{T})"/>)
+	/// </summary>
+	public static string JoinString(this IEnumerable<char> characters) {
+		return string.Concat(characters);
+	}
+
+	/// <summary>
+	/// Joins an array of characters into a string.
+	/// (Fluent way to call <see cref="string(char[])"/>)
+	/// </summary>
+	public static string JoinString(this char[] characters) {
+		return new string(characters);
+	}
+
+	/// <summary>
+	/// Joins part of an array of characters into a string.
+	/// (Fluent way to call <see cref="string(char[], int, int)"/>)
+	/// </summary>
+	public static string JoinString(this char[] characters, int startIndex, int length) {
+		return new string(characters, startIndex, length);
 	}
 
 }
