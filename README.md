@@ -48,7 +48,7 @@ Use `RadixMath` to perform operations with digits with arbitrary base, represent
 | ------------------------------ | ------------------------------------------------ |
 | (extension) `int.ToDigits`[^1] | Converts a value to an array of digits           |
 | `RadixMath.FromDigits`         | Converts an array of digits to a value           |
-| `RadixMath.CountAllAccending`  | Enumerates all numbers with a given places count |
+| `RadixMath.CountAllAscending`  | Enumerates all numbers with a given places count |
 
 
 
@@ -62,7 +62,7 @@ Use `RadixMath` to perform operations with digits with arbitrary base, represent
 | --------------------------------------- | ----------------------------------------------- |
 | (extension) `T.Yield<T>`                | Wraps anything in a `IEnumerable<T>`            |
 | (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`              |
-| (extension) `Type.IsSubcalssOrSelfOf`   | Checks if a type is base type or subclass of it |
+| (extension) `Type.IsSubclassOrSelfOf`   | Checks if a type is base type or subclass of it |
 
 
 

@@ -14,6 +14,7 @@
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       - Added (extensions) IEnumerable&lt;char&gt;.JoinSting() and char[].JoinSting()
+      - Fixed typos in method names. Old methods still exist but are marked obsolete.
       - Doc fixes
     </PackageReleaseNotes>
   </PropertyGroup>

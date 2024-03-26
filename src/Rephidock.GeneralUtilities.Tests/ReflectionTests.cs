@@ -56,7 +56,7 @@ public sealed class ReflectionTests {
 		// Arrange
 
 		// Act
-		bool result = derivedType.IsSubcalssOrSelfOf(baseType);
+		bool result = derivedType.IsSubclassOrSelfOf(baseType);
 
 		// Assert
 		Assert.Equal(expected, result);
@@ -93,7 +93,7 @@ public sealed class ReflectionTests {
 		// Arrange
 
 		// Act
-		bool result = derivedType.IsSubcalssOrSelfOf(baseType);
+		bool result = derivedType.IsSubclassOrSelfOf(baseType);
 
 		// Assert
 		Assert.Equal(expected, result);
@@ -114,7 +114,7 @@ public sealed class ReflectionTests {
 		// Arrange
 
 		// Act
-		bool result = derivedType.IsSubcalssOrSelfOf(baseType);
+		bool result = derivedType.IsSubclassOrSelfOf(baseType);
 
 		// Assert
 		Assert.Equal(expected, result);
@@ -133,7 +133,7 @@ public sealed class ReflectionTests {
 		// Arrange
 
 		// Act
-		bool result = derivedType.IsSubcalssOrSelfOf(baseType);
+		bool result = derivedType.IsSubclassOrSelfOf(baseType);
 
 		// Assert
 		Assert.Equal(expected, result);
@@ -154,7 +154,7 @@ public sealed class ReflectionTests {
 		// Arrange
 
 		// Act
-		bool result = derivedType.IsSubcalssOrSelfOf(baseType);
+		bool result = derivedType.IsSubclassOrSelfOf(baseType);
 
 		// Assert
 		Assert.Equal(expected, result);
@@ -177,7 +177,7 @@ public sealed class ReflectionTests {
 		// Arrange
 
 		// Act
-		bool result = derivedType.IsSubcalssOrSelfOf(typeof(object));
+		bool result = derivedType.IsSubclassOrSelfOf(typeof(object));
 
 		// Assert
 		Assert.True(result);
