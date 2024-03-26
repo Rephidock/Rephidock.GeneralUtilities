@@ -129,7 +129,7 @@ public static class RandomnessExtensions {
 	/// </summary>
 	/// <param name="rng">The random number generator</param>
 	/// <param name="values">The values to shuffle</param>
-	/// <remarks>Performes Durstenfeld's version of Fisher–Yates shuffle</remarks>
+	/// <remarks>Performs Durstenfeld's version of Fisher–Yates shuffle</remarks>
 	public static void Shuffle<T>(this Random rng, IList<T> values) {
 
 		// i from (length − 1) till 1
@@ -157,7 +157,7 @@ public static class RandomnessExtensions {
 	/// gives the mapping of old indexes to new indexes.
 	/// </para>
 	/// <para>
-	/// Suffles in-place (mutates the list).
+	/// Shuffles in-place (mutates the list).
 	/// </para>
 	/// </summary>
 	/// <param name="values">List to shuffle</param>

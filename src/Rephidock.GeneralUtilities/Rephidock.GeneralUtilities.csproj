@@ -14,6 +14,7 @@
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       - Added (extensions) IEnumerable&lt;char&gt;.JoinSting() and char[].JoinSting()
+      - Doc fixes
     </PackageReleaseNotes>
   </PropertyGroup>
   

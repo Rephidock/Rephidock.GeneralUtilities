@@ -147,8 +147,8 @@ public static class MoreMath {
 	/// <summary>
 	/// <para>
 	/// Wraps value into given range:
-	/// values below the range are wraped into it from the end and
-	/// values above are wraped into it from the start
+	/// values below the range are wrapped into it from the end and
+	/// values above are wrapped into it from the start
 	/// </para>
 	/// <para>
 	/// Can be thought of as a generilized version of <c>TrueMod</c>, as
@@ -262,7 +262,7 @@ public static class MoreMath {
 
 	/// <summary>
 	/// <para>
-	/// Returns all integer factors of the number in accending order.
+	/// Returns all integer factors of the number in ascending order.
 	/// </para>
 	/// <para>
 	/// If <paramref name="n"/> is <c>0</c>, <c>0</c> is returned.
@@ -304,16 +304,16 @@ public static class MoreMath {
 	#region //// Deg <-> Rad
 
 	/// <summary>
-	/// Converts angle measured in degress to angle measured in radians
+	/// Converts angle measured in degrees to angle measured in radians
 	/// </summary>
-	/// <param name="angleDegrees">Angle measued in degrees</param>
+	/// <param name="angleDegrees">Angle measured in degrees</param>
 	/// <returns>Angle measured in radians</returns>
 	public static float DegToRad(this float angleDegrees) => angleDegrees / 180f * MathF.PI;
 
 	/// <summary>
 	/// Converts angle measured in radians to angle measured in degrees
 	/// </summary>
-	/// <param name="angleRadians">Angle measued in radians</param>
+	/// <param name="angleRadians">Angle measured in radians</param>
 	/// <returns>Angle measured in degrees</returns>
 	public static float RadToDeg(this float angleRadians) => angleRadians / MathF.PI * 180f;
 

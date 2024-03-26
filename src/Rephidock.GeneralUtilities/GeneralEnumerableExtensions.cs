@@ -23,7 +23,7 @@ public static class GeneralEnumerableExtensions {
 
 	/// <summary>
 	/// Joins elements into a single delimited string.
-	/// (Fulently performs <see cref="string.Join{T}(string?, IEnumerable{T})"/>)
+	/// (Fluently performs <see cref="string.Join{T}(string?, IEnumerable{T})"/>)
 	/// </summary>
 	public static string JoinString<TSource>(this IEnumerable<TSource> items, string separator) {
 		return string.Join(separator, items);
@@ -31,7 +31,7 @@ public static class GeneralEnumerableExtensions {
 
 	/// <summary>
 	/// Joins elements into a single delimited string.
-	/// (Fulently performs <see cref="string.Join{T}(char, IEnumerable{T})"/>)
+	/// (Fluently performs <see cref="string.Join{T}(char, IEnumerable{T})"/>)
 	/// </summary>
 	public static string JoinString<TSource>(this IEnumerable<TSource> items, char separator) {
 		return string.Join(separator, items);

@@ -11,7 +11,7 @@ namespace Rephidock.GeneralUtilities;
 /// Created for use with enums as generics.
 /// </para>
 /// <para>
-/// Checks integers to be defined enum enteries.
+/// Checks integers to be defined enum entries.
 /// </para>
 /// </summary>
 /// <remarks>

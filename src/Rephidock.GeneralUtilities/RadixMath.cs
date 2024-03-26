@@ -13,14 +13,14 @@ namespace Rephidock.GeneralUtilities;
 public static class RadixMath {
 
 	/// <summary>
-	/// Converts a value to an arbitaray base,
+	/// Converts a value to an arbitrary base,
 	/// returning arrays of digits in that base,
 	/// units place last.
 	/// </summary>
 	/// <param name="value">The value to convert. If negative, absolute is used.</param>
 	/// <param name="radix">The base of the returned number</param>
 	/// <param name="padToPlaces">
-	/// <para>The number of places to prepad the number to with zeros.</para>
+	/// <para>The number of places to pre-pad the number to with zeros.</para>
 	/// <para>The resulting array can be larger if there are not enough digits.</para>
 	/// </param>
 	/// <exception cref="ArgumentException"><paramref name="radix"/> is below 2</exception>
@@ -98,7 +98,7 @@ public static class RadixMath {
 
 	/// <summary>
 	/// <para>
-	/// Enumerates all positive numbers in an arbitaray base
+	/// Enumerates all positive numbers in an arbitrary base
 	/// up to a given digit length,
 	/// returning arrays of digits in that base,
 	/// units place last.

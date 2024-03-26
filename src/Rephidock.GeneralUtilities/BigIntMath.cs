@@ -27,7 +27,7 @@ public static class BigIntMath {
 
 	/// <inheritdoc cref="MoreMath.Lerp(float, float, float)"/>
 	/// <remarks>
-	/// Beware of preceision loss, as this method converts between
+	/// Beware of precision loss, as this method converts between
 	/// <see cref="BigInteger"/> and <see cref="double"/>
 	/// </remarks>
 	public static BigInteger Lerp(BigInteger start, BigInteger end, double amount) {
