@@ -3,7 +3,7 @@
    <PropertyGroup>
     <Title>Rephidock.GeneralUtilities</Title>
     <Authors>Rephidock</Authors>
-    <Version>1.1.0+alpha.0</Version>
+    <Version>1.1.0</Version>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Description>A package with general utilities that may be useful</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
