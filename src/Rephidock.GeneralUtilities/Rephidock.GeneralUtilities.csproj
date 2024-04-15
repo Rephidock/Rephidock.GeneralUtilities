@@ -13,7 +13,8 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      - Potentially lowered BigIntMath.Lerp precision loss on big values
+      - Potentially lowered BigIntMath.Lerp precision loss for big values
+      - Added GeneralEnumerableExtensions.SplitIntoSegments for "splitting" array into ArraySegments
     </PackageReleaseNotes>
   </PropertyGroup>
   

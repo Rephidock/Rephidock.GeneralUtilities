@@ -63,6 +63,7 @@ Use `RadixMath` to perform operations with digits with arbitrary base, represent
 | (extension) `T.Yield<T>`                | Wraps anything in a `IEnumerable<T>`            |
 | (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`              |
 | (extension) `char[].JoinString`         | A fluent way to call string constructor         |
+| (extension) `T[].SplitIntoSegments`     | "Splits" array into `ArraySegment<T>`s          |
 | (extension) `Type.IsSubclassOrSelfOf`   | Checks if a type is base type or subclass of it |
 
 

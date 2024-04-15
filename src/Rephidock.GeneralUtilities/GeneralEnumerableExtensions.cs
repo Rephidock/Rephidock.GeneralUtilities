@@ -61,4 +61,50 @@ public static class GeneralEnumerableExtensions {
 		return new string(characters, startIndex, length);
 	}
 
+	/// <summary>
+	/// <para>
+	/// Creates a sequence of <see cref="ArraySegment{T}"/>s based on
+	/// a given array and delimiters.
+	/// </para>
+	/// <para>
+	/// Note that a segment is only a view on the source array.
+	/// </para>
+	/// </summary>
+	/// <param name="array">The array to split.</param>
+	/// <param name="separators">The delimiters to split by.</param>
+	public static IEnumerable<ArraySegment<T>> SplitIntoSegments<T>(this T[] array, params T[] separators) {
+
+		int lastSeparatorIndex = -1;
+		for (int i = 0; i < array.Length; i++) {
+
+			// See if current character is a separator 
+			bool foundSeparator = false;
+			for (int sepI = 0; sepI < separators.Length; sepI++) {
+
+				if (Array.IndexOf(separators, array[i]) >= 0) {
+					foundSeparator = true;
+					break;
+				}
+
+			}
+
+			if (!foundSeparator) continue;
+			
+			// If it is - create new segment
+			int start = lastSeparatorIndex + 1;
+			int count = i - start;
+			lastSeparatorIndex = i;
+			yield return new ArraySegment<T>(array, start, count);
+
+		}
+
+		// Create final segment till the end of the array
+		{
+			int start = lastSeparatorIndex + 1;
+			int count = array.Length - start;
+			yield return new ArraySegment<T>(array, start, count);
+		}
+
+	}
+
 }
