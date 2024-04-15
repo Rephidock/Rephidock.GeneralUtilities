@@ -15,6 +15,7 @@
     <PackageReleaseNotes>
       - Potentially lowered BigIntMath.Lerp precision loss for big values
       - Added GeneralEnumerableExtensions.SplitIntoSegments for "splitting" array into ArraySegments
+      - Added ColorMath.AlphaBlend overload that works on (r,g,b,a) tuples of floats.
     </PackageReleaseNotes>
   </PropertyGroup>
   
