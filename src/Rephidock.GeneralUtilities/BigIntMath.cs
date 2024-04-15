@@ -27,11 +27,13 @@ public static class BigIntMath {
 
 	/// <inheritdoc cref="MoreMath.Lerp(float, float, float)"/>
 	/// <remarks>
-	/// Beware of precision loss, as this method converts between
-	/// <see cref="BigInteger"/> and <see cref="double"/>
+	/// Possible precision loss, as this method converts between
+	/// <see cref="BigInteger"/> and <see cref="double"/>.
 	/// </remarks>
 	public static BigInteger Lerp(BigInteger start, BigInteger end, double amount) {
-		return (BigInteger)Math.Round(MoreMath.Lerp((double)start, (double)end, amount));
+		double differenceDouble = (double)(end - start);
+		BigInteger offset = (BigInteger)Math.Round(amount * differenceDouble);
+		return offset + start;
 	}
 
 
