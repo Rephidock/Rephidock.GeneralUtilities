@@ -3,7 +3,7 @@
    <PropertyGroup>
     <Title>Rephidock.GeneralUtilities</Title>
     <Authors>Rephidock</Authors>
-    <Version>1.1.0</Version>
+    <Version>1.2.0-alpha.0</Version>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Description>A package with general utilities that may be useful</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
@@ -13,9 +13,6 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      - Added (extensions) IEnumerable&lt;char&gt;.JoinSting() and char[].JoinSting()
-      - Fixed typos in method names. Old methods still exist but are marked obsolete.
-      - Doc fixes
     </PackageReleaseNotes>
   </PropertyGroup>
   
