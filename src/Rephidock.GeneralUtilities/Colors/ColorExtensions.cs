@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if SYSTEM_DRAWING_COLOR_ENABLED
+
+using System;
 using System.Drawing;
 
 
@@ -24,3 +26,5 @@ public static class ColorExtensions {
 	public static Color Transparent(this Color color) => color.WithAlpha(0);
 
 }
+
+#endif

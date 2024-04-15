@@ -33,6 +33,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <DefineConstants>$(DefineConstants);SYSTEM_DRAWING_COLOR_ENABLED</DefineConstants>
   </PropertyGroup>
   
 </Project>
