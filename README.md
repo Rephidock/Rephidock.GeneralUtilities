@@ -68,6 +68,15 @@ Use `RadixMath` to perform operations with digits with arbitrary base, represent
 
 
 
+This package also implements some methods that were added in .NET7 as extensions for .NET6
+
+| Extension Method for .NET6             | Summary                              |
+| -------------------------------------- | ------------------------------------ |
+| `IList<T>.AsReadOnly`                  | Constructs a `ReadOnlyCollection<T>` |
+| `IDictionary<TKey, TValue>.AsReadOnly` | Constructs a `ReadOnlyDictionary<T>` |
+
+
+
 ### `.Randomness` namespace
 
 The `.Randomness` namespace relates to `System.Random`
