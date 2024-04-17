@@ -14,7 +14,6 @@
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       - Added GeneralEnumerableExtensions.SplitIntoSegments for "splitting" array into ArraySegments
-      - Added ColorMath.AlphaBlend overload that works on (r,g,b,a) tuples of floats.
       - Added IList&lt;T&gt;.AsReadOnly extension for older versions
     </PackageReleaseNotes>
   </PropertyGroup>
