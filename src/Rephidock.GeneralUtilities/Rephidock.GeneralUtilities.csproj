@@ -3,7 +3,7 @@
    <PropertyGroup>
     <Title>Rephidock.GeneralUtilities</Title>
     <Authors>Rephidock</Authors>
-    <Version>1.0.0+framework35</Version>
+    <Version>1.2.0+framework35</Version>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Description>A package with general utilities that may be useful</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
@@ -13,11 +13,9 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      - Added (extension) int.DigitalRoot with equivalent for long
-      - Added (extension) int.GetFactors
-      - Added RadixMath.CountAllAccending
-      - Added (extension) int.ToDigits with equivalents for long
-      - Added RadixMath.FromDigits
+      - Added GeneralEnumerableExtensions.SplitIntoSegments for "splitting" array into ArraySegments
+      - Added ColorMath.AlphaBlend overload that works on (r,g,b,a) tuples of floats.
+      - Added IDictionary&lt;TKey, TValue&gt;.AsReadOnly and IList&lt;T&gt;.AsReadOnly extension for net6
     </PackageReleaseNotes>
   </PropertyGroup>
   
@@ -35,6 +33,7 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <DefineConstants>$(DefineConstants);SYSTEM_DRAWING_COLOR_ENABLED</DefineConstants>
   </PropertyGroup>
   
 </Project>

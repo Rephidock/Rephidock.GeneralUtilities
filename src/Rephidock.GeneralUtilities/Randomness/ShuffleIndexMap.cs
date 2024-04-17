@@ -54,7 +54,7 @@ public class ShuffleIndexMap : IEnumerable<KeyValuePair<int, int>> {
 
 	}
 
-	/// <summary>Generates a random mapping that can be used for suffling.</summary>
+	/// <summary>Generates a random mapping that can be used for shuffling.</summary>
 	/// <param name="size">Number of indexes in the shuffle</param>
 	/// <param name="rng">The random number generator</param>
 	/// <exception cref="ArgumentException"><paramref name="size"/> is negative</exception>

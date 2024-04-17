@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if SYSTEM_DRAWING_COLOR_ENABLED
+
+using System;
 using System.Drawing;
 
 
@@ -13,7 +15,7 @@ public static class ColorExtensions {
 	/// <summary>
 	/// Returns the given color with a changed alpha component.
 	/// </summary>
-	/// <param name="color">Color to chnage alpha of</param>
+	/// <param name="color">Color to change alpha of</param>
 	/// <param name="alpha">The alpha value to set</param>
 	public static Color WithAlpha(this Color color, byte alpha) {
 		return Color.FromArgb(alpha, color.R, color.G, color.B);
@@ -26,3 +28,4 @@ public static class ColorExtensions {
 }
 
 }
+#endif

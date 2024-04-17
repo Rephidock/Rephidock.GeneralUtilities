@@ -1,5 +1,8 @@
 ﻿using System;
+
+#if SYSTEM_DRAWING_COLOR_ENABLED
 using System.Drawing;
+#endif
 
 
 namespace Rephidock.GeneralUtilities.Colors {
@@ -10,10 +13,12 @@ namespace Rephidock.GeneralUtilities.Colors {
 /// </summary>
 public static class ColorMath {
 
-	/// <summary>Blend 2 colors with alpha-1-minus-alpha blending.</summary>
+#if SYSTEM_DRAWING_COLOR_ENABLED
+
+	/// <summary>Blends 2 colors with alpha-1-minus-alpha blending.</summary>
 	/// <param name="oldColor">The old color (existing on the canvas)</param>
 	/// <param name="newColor">The new color (drawn on top)</param>
-	/// <returns>A new blended color.</returns>
+	/// <returns>A new blended color</returns>
 	public static Color AlphaBlend(Color oldColor, Color newColor) {
 
 		// Because multiplication from 0 to 1
@@ -29,6 +34,30 @@ public static class ColorMath {
 
 		return Color.FromArgb(resultingA, resultingR, resultingG, resultingB);
 	}
+
+#endif
+
+	/// <summary>Blends 2 colors with alpha-1-minus-alpha blending.</summary>
+	/// <param name="oldColor">The old color (existing on the canvas)</param>
+	/// <param name="newColor">The new color (drawn on top)</param>
+	/// <remarks>
+	/// This overload handles tuples of (red, green, blue, alpha) values.
+	/// Each channel is a <see cref="float"/>> in range from 0 to 1.
+	/// </remarks>
+	/// <returns>A new blended color</returns>
+	public static (float r, float g, float b, float a) AlphaBlend(
+		(float r, float g, float b, float a) oldColor,
+		(float r, float g, float b, float a) newColor
+	) {
+		float reverseNewAFloat = 1 - newColor.a;
+		float resultingA = newColor.a + oldColor.a * reverseNewAFloat;
+		float resultingR = newColor.a * newColor.r + oldColor.r * oldColor.a * reverseNewAFloat;
+		float resultingG = newColor.a * newColor.g + oldColor.g * oldColor.a * reverseNewAFloat;
+		float resultingB = newColor.a * newColor.b + oldColor.b * oldColor.a * reverseNewAFloat;
+		return (resultingR, resultingG, resultingB, resultingA);
+	}
+
+#if SYSTEM_DRAWING_COLOR_ENABLED
 
 	/// <summary>
 	/// Linearly interpolates between 2 colors.
@@ -46,6 +75,8 @@ public static class ColorMath {
 			MoreMath.Lerp(start.B, end.G, amount)
 		);
 	}
+
+#endif
 
 }
 

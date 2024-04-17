@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ComponentModel;
 
 
 namespace Rephidock.GeneralUtilities {
@@ -13,14 +14,14 @@ namespace Rephidock.GeneralUtilities {
 public static class RadixMath {
 
 	/// <summary>
-	/// Converts a value to an arbitaray base,
+	/// Converts a value to an arbitrary base,
 	/// returning arrays of digits in that base,
 	/// units place last.
 	/// </summary>
 	/// <param name="value">The value to convert. If negative, absolute is used.</param>
 	/// <param name="radix">The base of the returned number</param>
 	/// <param name="padToPlaces">
-	/// <para>The number of places to prepad the number to with zeros.</para>
+	/// <para>The number of places to pre-pad the number to with zeros.</para>
 	/// <para>The resulting array can be larger if there are not enough digits.</para>
 	/// </param>
 	/// <exception cref="ArgumentException"><paramref name="radix"/> is below 2</exception>
@@ -98,7 +99,7 @@ public static class RadixMath {
 
 	/// <summary>
 	/// <para>
-	/// Enumerates all positive numbers in an arbitaray base
+	/// Enumerates all positive numbers in an arbitrary base
 	/// up to a given digit length,
 	/// returning arrays of digits in that base,
 	/// units place last.
@@ -114,7 +115,7 @@ public static class RadixMath {
 	/// <paramref name="radix"/> is smaller than 2 or
 	/// <paramref name="places"/> is smaller than 1
 	/// </exception>
-	public static IEnumerable<ushort[]> CountAllAccending(ushort radix, int places) {
+	public static IEnumerable<ushort[]> CountAllAscending(ushort radix, int places) {
 
 		// Guards
 		if (places < 1) {
@@ -156,6 +157,13 @@ public static class RadixMath {
 
 		}
 
+	}
+
+	/// <inheritdoc cref="CountAllAscending(ushort, int)"/>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	[Obsolete("Method is obsolete due to a spelling error. Use CountAllAscending instead.")]
+	public static IEnumerable<ushort[]> CountAllAccending(ushort radix, int places) {
+		return CountAllAscending(radix, places);
 	}
 
 }

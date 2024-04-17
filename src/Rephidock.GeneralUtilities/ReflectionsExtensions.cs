@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 
 namespace Rephidock.GeneralUtilities {
@@ -25,7 +26,7 @@ public static class ReflectionExtensions {
 	/// </remarks>
 	/// <exception cref="ArgumentNullException"><paramref name="baseType"/> is null</exception>
 	/// <exception cref="NotSupportedException"><paramref name="baseType"/> is an interface or (netframework35) <paramref name="derivedType"/> is an enum</exception>
-	public static bool IsSubcalssOrSelfOf(this Type derivedType, Type baseType) {
+	public static bool IsSubclassOrSelfOf(this Type? derivedType, Type baseType) {
 
 		// Guards
 		if (baseType == null) {
@@ -60,6 +61,13 @@ public static class ReflectionExtensions {
 
 		return false;
 
+	}
+
+	/// <inheritdoc cref="IsSubclassOrSelfOf(Type?, Type)"/>
+	[EditorBrowsable(EditorBrowsableState.Never)]
+	[Obsolete("Method is obsolete due to a spelling error. Use IsSubclassOrSelfOf instead.")]
+	public static bool IsSubcalssOrSelfOf(this Type? derivedType, Type baseType) {
+		return IsSubclassOrSelfOf(derivedType, baseType);
 	}
 
 }
