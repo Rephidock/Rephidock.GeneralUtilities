@@ -29,7 +29,9 @@ public static class GeneralEnumerableExtensions {
 		return string.Join(separator, items);
 	}
 
-	/// <inheritdoc cref="JoinString{TSource}(IEnumerable{TSource}, string)"/>
+	/// <summary>
+	/// Joins elements into a single delimited string.
+	/// </summary>
 	public static string JoinString<TSource>(this IEnumerable<TSource> items, string separator) {
 		return items.Select(item => item.ToString()).ToArray().JoinString(separator);
 	}
