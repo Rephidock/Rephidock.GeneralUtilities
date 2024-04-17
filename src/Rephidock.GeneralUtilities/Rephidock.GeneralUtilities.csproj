@@ -15,7 +15,7 @@
     <PackageReleaseNotes>
       - Added GeneralEnumerableExtensions.SplitIntoSegments for "splitting" array into ArraySegments
       - Added ColorMath.AlphaBlend overload that works on (r,g,b,a) tuples of floats.
-      - Added IDictionary&lt;TKey, TValue&gt;.AsReadOnly and IList&lt;T&gt;.AsReadOnly extension for net6
+      - Added IList&lt;T&gt;.AsReadOnly extension for older versions
     </PackageReleaseNotes>
   </PropertyGroup>
   

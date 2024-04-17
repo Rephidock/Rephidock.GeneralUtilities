@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 
-namespace Rephidock.GeneralUtilities;
+namespace Rephidock.GeneralUtilities {
 
 
 /// <summary>
@@ -25,6 +25,7 @@ public static class ReadOnlyExtensions {
 		return new ReadOnlyCollection<T>(list);
 	}
 
+/*
 	/// <summary>
 	/// Returns a readonly <see cref="ReadOnlyDictionary{TKey, TValue}"/>
 	/// wrapper for the given dictionary.
@@ -38,5 +39,8 @@ public static class ReadOnlyExtensions {
 	where TKey : notnull {
 		return new ReadOnlyDictionary<TKey, TValue>(dictionary);
 	}
+*/
+
+}
 
 }
