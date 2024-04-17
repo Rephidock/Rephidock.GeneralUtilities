@@ -41,10 +41,9 @@ public static class GeneralEnumerableExtensions {
 
 	/// <summary>
 	/// Joins a sequence of characters into a string.
-	/// (Fluent way to call <see cref="string.Concat{T}(IEnumerable{T})"/>)
 	/// </summary>
 	public static string JoinString(this IEnumerable<char> characters) {
-		return string.Concat(characters);
+		return new string(characters.ToArray());
 	}
 
 	/// <summary>
