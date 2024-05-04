@@ -92,7 +92,7 @@ The `.Randomness` namespace relates to `System.Random`
 | `Random.GetItem`           | Returns a random item from a list or span                 |
 | `Random.GetDifferentItems` | Returns multiple different random items from a collection |
 | `Random.Shuffle`           | Shuffles given items in-place                             |
-| `Random.ShuffleRemap`      | Shuffles given items in-place and returns and index map   |
+| `Random.ShuffleRemap`      | Shuffles given items in-place and returns an index map    |
 
 The following methods also exist and are extensions on collection interfaces to allow fluent syntax:
 
