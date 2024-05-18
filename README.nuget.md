@@ -10,45 +10,31 @@
 
 ### Arithmetic
 
-| Method                           | Summary                                            |
-| -------------------------------- | -------------------------------------------------- |
-| (extension) `int.TrueMod`[1]     | Performs a modulo operation (`%` is remainder)     |
-| (extension) `int.Wrap`[1]        | Wraps value into given range                       |
-| (extension) `int.DigitalRoot`[1] | Calculates digital root (repeated digit sum)       |
-| (extension) `int.GetFactors`     | Returns all factors of an integer                  |
-| (extension) `float.DegToRad`[1]  | Converts angle in degrees to radians               |
-| (extension) `float.RadToDeg`[1]  | Converts angle in radians to degrees               |
-| `MoreMath.Lerp`                  | Linearly interpolates between 2 values             |
-| `MoreMath.ReverseLerp`           | Inverse of `Lerp` (returns lerp amount form value) |
-| `MoreMath.TabShift`              | Returns column position of a character after tab   |
-| `MoreMath.AngleDifference`       | Calculates the shortest distance between 2 angles  |
+| Method                                | Summary                                            |
+| ------------------------------------- | -------------------------------------------------- |
+| (extension) `int.TrueMod`\[1]\[2]     | Performs a modulo operation (`%` is remainder)     |
+| (extension) `int.Wrap`\[1]\[2]        | Wraps value into given range                       |
+| (extension) `int.DigitalRoot`\[1]\[2] | Calculates digital root (repeated digit sum)       |
+| (extension) `int.GetFactors`\[2]      | Returns all factors of an integer                  |
+| (extension) `float.DegToRad`\[1]      | Converts angle in degrees to radians               |
+| (extension) `float.RadToDeg`\[1]      | Converts angle in radians to degrees               |
+| (extension) `BigInteger.Sqrt`         | Returns a square root of `BigInteger`              |
+| `MoreMath.Lerp`                       | Linearly interpolates between 2 values             |
+| `BigIntMath.Lerp`                     | *Same as above but for `BigInteger`*               |
+| `MoreMath.ReverseLerp`                | Inverse of `Lerp` (returns lerp amount form value) |
+| `MoreMath.TabShift`                   | Returns column position of a character after tab   |
+| `MoreMath.AngleDifference`            | Calculates the shortest distance between 2 angles  |
 
 
-
-Some methods also exist for `BigInteger`:
-
-| Method                               | Summary                               |
-| ------------------------------------ | ------------------------------------- |
-| (extension) `BigInteger.Sqrt`        | Returns a square root of `BigInteger` |
-| (extension) `BigInteger.TrueMod `    | *Same as above*                       |
-| (extension) `BigInteger.Wrap`        | *Same as above*                       |
-| (extension) `BigInteger.DigitalRoot` | *Same as above*                       |
-| (extension) `BigInteger.GetFactors`  | *Same as above*                       |
-| (extension) `BigInteger.ToDigits`    | *Same as below*                       |
-| `BigIntMath.FromDigits`              | *Same as below*                       |
-| `BigIntMath.Lerp`                    | *Same as above*                       |
-
-
-
-### Arbitrary Base Representation
 
 Use `RadixMath` to perform operations with digits with arbitrary base, represented as arrays of digit values:
 
-| Method                        | Summary                                          |
-| ----------------------------- | ------------------------------------------------ |
-| (extension) `int.ToDigits`[1] | Converts a value to an array of digits           |
-| `RadixMath.FromDigits`        | Converts an array of digits to a value           |
-| `RadixMath.CountAllAscending` | Enumerates all numbers with a given places count |
+| Method                             | Summary                                          |
+| ---------------------------------- | ------------------------------------------------ |
+| (extension) `int.ToDigits`\[1]\[2] | Converts a value to an array of digits           |
+| `RadixMath.FromDigits`             | Converts an array of digits to a value           |
+| `BigIntMath.FromDigits`            | *Same as below*                                  |
+| `RadixMath.CountAllAscending`      | Enumerates all numbers with a given places count |
 
 
 
@@ -65,6 +51,7 @@ Use `RadixMath` to perform operations with digits with arbitrary base, represent
 | (extension) `char[].JoinString`         | A fluent way to call string constructor         |
 | (extension) `T[].SplitIntoSegments`     | "Splits" array into `ArraySegment<T>`s          |
 | (extension) `Type.IsSubclassOrSelfOf`   | Checks if a type is base type or subclass of it |
+| (extension) `MethodInfo.IsOverride`     | Checks if a method is an override               |
 
 
 
@@ -116,6 +103,7 @@ The `.Color` namespace relates to `System.Drawing.Color`
 
 
 
-[1]: Extension also exists for other numeric types.
+\[1]: Extension also exists for other numeric types.
+\[2]: Extension also exists for `BigInteger`.
 
 *\* - Extension methods are static methods and can be used as such.*

@@ -3,7 +3,7 @@
    <PropertyGroup>
     <Title>Rephidock.GeneralUtilities</Title>
     <Authors>Rephidock</Authors>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Description>A package with general utilities that may be useful</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
@@ -13,10 +13,7 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      - Potentially lowered BigIntMath.Lerp precision loss for big values
-      - Added GeneralEnumerableExtensions.SplitIntoSegments for "splitting" array into ArraySegments
-      - Added ColorMath.AlphaBlend overload that works on (r,g,b,a) tuples of floats.
-      - Added IDictionary&lt;TKey, TValue&gt;.AsReadOnly and IList&lt;T&gt;.AsReadOnly extension for net6
+      - Added MethodInfo.IsOverride extension method
     </PackageReleaseNotes>
   </PropertyGroup>
   
