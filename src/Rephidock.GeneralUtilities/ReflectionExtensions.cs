@@ -64,7 +64,7 @@ public static class ReflectionExtensions {
 
 	/// <summary>
 	/// Returns true if given <see cref="MethodInfo"/>'s base definition
-	/// is not in its declaring type (because the method is overridden).
+	/// is not in its declaring type (because the method is an override).
 	/// </summary>
 	/// <remarks>
 	/// Note that implementations of interface methods are not overrides,

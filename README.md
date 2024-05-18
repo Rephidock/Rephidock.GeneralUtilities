@@ -65,6 +65,7 @@ Use `RadixMath` to perform operations with digits with arbitrary base, represent
 | (extension) `char[].JoinString`         | A fluent way to call string constructor         |
 | (extension) `T[].SplitIntoSegments`     | "Splits" array into `ArraySegment<T>`s          |
 | (extension) `Type.IsSubclassOrSelfOf`   | Checks if a type is base type or subclass of it |
+| (extension) `MethodInfo.IsOverride`     | Checks if a method is an override               |
 
 
 

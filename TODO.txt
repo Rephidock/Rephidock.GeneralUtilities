@@ -1,6 +1,0 @@
-TODO:
-- Add MethodInfo.IsOverride to readme
-
-DOING:
-
-TO-TEST:
