@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xunit;
 using Rephidock.GeneralUtilities;
+using System.Reflection;
 
 
 namespace Rephidock.GeneralUtilities.Tests;
@@ -181,6 +182,141 @@ public sealed class ReflectionTests {
 
 		// Assert
 		Assert.True(result);
+	}
+
+	#endregion
+
+	#region //// Inheritance setup for IsOverride
+
+	abstract class AbstractSource {
+
+		public abstract int AbstractPropertySet { set; }
+		public abstract int AbstractPropertyGet { get; }
+		public abstract int AbstractPropertyGetSet { get; set; }
+
+		public abstract void AbstractMethod();
+
+		public virtual int VirtualPropertySet { set { } }
+		public virtual int VirtualPropertyGet { get; }
+		public virtual int VirtualPropertyGetSet { get; set; }
+
+		public virtual void VirtualMethod() { }
+
+		public virtual void MethodToBeHidden() { }
+
+	}
+
+	class Destination : AbstractSource {
+
+		public override int AbstractPropertySet { set { } }
+		public override int AbstractPropertyGet { get; }
+		public override int AbstractPropertyGetSet { get; set; }
+
+		public override void AbstractMethod() { }
+
+		public override int VirtualPropertySet { set { } }
+		public override int VirtualPropertyGet { get; }
+		public override int VirtualPropertyGetSet { get; set; }
+
+		public override void VirtualMethod() { }
+
+		public void NonVirtualMethod() { }
+
+		public override void MethodToBeHidden() { }
+	}
+
+	class DestinationSubclass : Destination {
+
+		public override void VirtualMethod() { }
+
+		public new void NonVirtualMethod() { }
+
+		public new void MethodToBeHidden() { }
+
+	}
+
+	#endregion
+
+	#region //// IsOverride
+
+	[Theory]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.AbstractMethod), false)]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.VirtualMethod), false)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.AbstractMethod), true)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.VirtualMethod), true)]
+	[InlineData(typeof(Destination), nameof(Destination.NonVirtualMethod), false)]
+	[InlineData(typeof(DestinationSubclass), nameof(AbstractSource.VirtualMethod), true)]
+	public void IsOverride_AbstractBase_ReturnsTrueIfOverride(Type type, string methodName, bool expected) {
+
+		// Arrange
+		MethodInfo methodInfo = type.GetMethod(methodName) ?? throw new ArgumentException("Invalid test: method not found");
+
+		// Act
+		bool result = methodInfo.IsOverride();
+
+		// Assert
+		Assert.Equal(expected, result);
+	}
+
+	[Theory]
+	[InlineData(typeof(DestinationSubclass), nameof(AbstractSource.MethodToBeHidden), false)]
+	[InlineData(typeof(DestinationSubclass), nameof(Destination.NonVirtualMethod), false)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.MethodToBeHidden), true)]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.MethodToBeHidden), false)]
+	public void IsOverride_NewMethodToHideOld_ReturnsFalseIfNew(Type type, string methodName, bool expected) {
+
+		// Arrange
+		MethodInfo methodInfo = type.GetMethod(methodName) ?? throw new ArgumentException("Invalid test: method not found");
+
+		// Act
+		bool result = methodInfo.IsOverride();
+
+		// Assert
+		Assert.Equal(expected, result);
+	}
+
+	[Theory]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.AbstractPropertyGet), false)]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.AbstractPropertyGetSet), false)]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.VirtualPropertyGet), false)]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.VirtualPropertyGetSet), false)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.AbstractPropertyGet), true)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.AbstractPropertyGetSet), true)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.VirtualPropertyGet), true)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.VirtualPropertyGetSet), true)]
+	public void IsOverride_PropertyGetter_ReturnsTrueIfOverride(Type type, string methodName, bool expected) {
+
+		// Arrange
+		MethodInfo? methodInfo = type.GetProperty(methodName)?.GetGetMethod();
+		if (methodInfo is null) throw new ArgumentException("Invalid test: method or property not found");
+
+		// Act
+		bool result = methodInfo.IsOverride();
+
+		// Assert
+		Assert.Equal(expected, result);
+	}
+
+	[Theory]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.AbstractPropertySet), false)]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.AbstractPropertyGetSet), false)]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.VirtualPropertySet), false)]
+	[InlineData(typeof(AbstractSource), nameof(AbstractSource.VirtualPropertyGetSet), false)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.AbstractPropertySet), true)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.AbstractPropertyGetSet), true)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.VirtualPropertySet), true)]
+	[InlineData(typeof(Destination), nameof(AbstractSource.VirtualPropertyGetSet), true)]
+	public void IsOverride_PropertySetter_ReturnsTrueIfOverride(Type type, string methodName, bool expected) {
+
+		// Arrange
+		MethodInfo? methodInfo = type.GetProperty(methodName)?.GetSetMethod();
+		if (methodInfo is null) throw new ArgumentException("Invalid test: method or property not found");
+
+		// Act
+		bool result = methodInfo.IsOverride();
+
+		// Assert
+		Assert.Equal(expected, result);
 	}
 
 	#endregion
