@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Reflection;
 
 
 namespace Rephidock.GeneralUtilities;
@@ -59,6 +60,20 @@ public static class ReflectionExtensions {
 
 		return false;
 
+	}
+
+	/// <summary>
+	/// Returns true if given <see cref="MethodInfo"/>'s base definition
+	/// is not in its declaring type (because the method is overridden)
+	/// </summary>
+	/// <exception cref="ArgumentNullException"><paramref name="methodInfo"/> is null</exception>
+	public static bool IsOverride(this MethodInfo methodInfo) {
+
+		// Guards
+		ArgumentNullException.ThrowIfNull(methodInfo);
+
+		// Check
+		return methodInfo.DeclaringType != methodInfo.GetBaseDefinition().DeclaringType;
 	}
 
 	/// <inheritdoc cref="IsSubclassOrSelfOf(Type?, Type)"/>

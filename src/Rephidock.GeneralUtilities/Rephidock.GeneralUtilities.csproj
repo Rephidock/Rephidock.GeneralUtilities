@@ -13,6 +13,7 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
+      - Added MethodInfo.IsOverride extension method
     </PackageReleaseNotes>
   </PropertyGroup>
   
