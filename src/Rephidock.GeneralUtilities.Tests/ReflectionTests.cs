@@ -9,11 +9,11 @@ namespace Rephidock.GeneralUtilities.Tests;
 
 public sealed class ReflectionTests {
 
-	#region //// Inheritance tree setup
+	#region //// Inheritance tree setup for IsSubcalssOrSelfOf
 
 	// Simple first tree
 	class Base { }
-	class FromBase : Base { }
+	abstract class FromBase : Base { }
 	class FromFromBase : FromBase { }
 	class Unrelated { }
 
