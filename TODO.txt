@@ -1,0 +1,9 @@
+TO DO:
+- Make an official framework 3.5 package
+- 2.0: Split packages into multiple packages by namespace
+- 2.0: (maybe) Remove color utilities because everyone uses different color structs
+-- consider making functions on literals
+
+DOING:
+
+TO TEST:
