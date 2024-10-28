@@ -17,14 +17,12 @@
     </PackageReleaseNotes>
   </PropertyGroup>
 
-  <!--
   <ItemGroup>
-    <None Include="..\..\README.nuget.md">
+    <None Include="README.nuget.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
-  -->
 
   <PropertyGroup>
     <TargetFrameworks>net8.0;net6.0</TargetFrameworks>

@@ -17,15 +17,13 @@
       - Split all utilities into separate packages by namespace and functionality. This package is now the parent package.
     </PackageReleaseNotes>
   </PropertyGroup>
-
-  <!--
+  
   <ItemGroup>
     <None Include="..\..\README.nuget.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
-  -->
   
   <ItemGroup>
     <ProjectReference Include="..\Rephidock.GeneralUtilities.Maths\Rephidock.GeneralUtilities.Maths.csproj" />
