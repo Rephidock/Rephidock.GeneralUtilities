@@ -13,7 +13,7 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-    
+      - Removed .Color utilities as different frameworks/engine provide different Color structs
     </PackageReleaseNotes>
   </PropertyGroup>
   
