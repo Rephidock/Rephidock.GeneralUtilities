@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Rephidock.GeneralUtilities;
+namespace Rephidock.GeneralUtilities.Maths;
 
 
 /// <summary>

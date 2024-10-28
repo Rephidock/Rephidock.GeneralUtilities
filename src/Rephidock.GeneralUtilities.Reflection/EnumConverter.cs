@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 
 
-namespace Rephidock.GeneralUtilities;
+namespace Rephidock.GeneralUtilities.Reflection;
 
 
 /// <summary>

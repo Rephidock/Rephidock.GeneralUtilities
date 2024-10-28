@@ -2,7 +2,7 @@
 using System.Reflection;
 
 
-namespace Rephidock.GeneralUtilities;
+namespace Rephidock.GeneralUtilities.Reflection;
 
 
 /// <summary>
