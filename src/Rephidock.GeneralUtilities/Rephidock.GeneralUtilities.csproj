@@ -14,6 +14,7 @@
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       - Removed .Color utilities as different frameworks/engine provide different Color structs.
+      - Removed methods marked obsolete due to spelling errors.
       - Split all utilities into separate packages by namespace and functionality. This package is now the parent package.
     </PackageReleaseNotes>
   </PropertyGroup>

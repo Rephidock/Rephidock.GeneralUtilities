@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ComponentModel;
 
 
 namespace Rephidock.GeneralUtilities;
@@ -157,13 +156,6 @@ public static class RadixMath {
 
 		}
 
-	}
-
-	/// <inheritdoc cref="CountAllAscending(ushort, int)"/>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	[Obsolete("Method is obsolete due to a spelling error. Use CountAllAscending instead.")]
-	public static IEnumerable<ushort[]> CountAllAccending(ushort radix, int places) {
-		return CountAllAscending(radix, places);
 	}
 
 }

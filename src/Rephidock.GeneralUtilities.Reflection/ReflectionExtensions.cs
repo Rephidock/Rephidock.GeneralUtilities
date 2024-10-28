@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Reflection;
 
 
@@ -78,13 +77,6 @@ public static class ReflectionExtensions {
 
 		// Check
 		return methodInfo.DeclaringType != methodInfo.GetBaseDefinition().DeclaringType;
-	}
-
-	/// <inheritdoc cref="IsSubclassOrSelfOf(Type?, Type)"/>
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	[Obsolete("Method is obsolete due to a spelling error. Use IsSubclassOrSelfOf instead.")]
-	public static bool IsSubcalssOrSelfOf(this Type? derivedType, Type baseType) {
-		return IsSubclassOrSelfOf(derivedType, baseType);
 	}
 
 }
