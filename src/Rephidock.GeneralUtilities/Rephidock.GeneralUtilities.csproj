@@ -8,14 +8,14 @@
     <Description>A collection of general utilities useful for other projects</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>general;utils;helper;math;maths;reflection;randomness;enumerable;collections;</PackageTags>
+    <PackageTags>general;utils;helper;math;maths;reflection;randomness;enumerable;linq;collections;</PackageTags>
     <PackageProjectUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
       - Removed .Color utilities as different frameworks/engine provide different Color structs.
       - Removed methods marked obsolete due to spelling errors.
-      - Split all utilities into separate packages by namespace and functionality. This package is now the parent package.
+      - Split *all* utilities into separate namespaces.
     </PackageReleaseNotes>
   </PropertyGroup>
   
@@ -24,13 +24,6 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\Rephidock.GeneralUtilities.Maths\Rephidock.GeneralUtilities.Maths.csproj" />
-    <ProjectReference Include="..\Rephidock.GeneralUtilities.Reflection\Rephidock.GeneralUtilities.Reflection.csproj" />
-    <ProjectReference Include="..\Rephidock.GeneralUtilities.Randomness\Rephidock.GeneralUtilities.Randomness.csproj" />
-    <ProjectReference Include="..\Rephidock.GeneralUtilities.Collections\Rephidock.GeneralUtilities.Collections.csproj" />
   </ItemGroup>
   
   <PropertyGroup>

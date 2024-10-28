@@ -1,2 +1,0 @@
-# GeneralUtilities.Maths
-

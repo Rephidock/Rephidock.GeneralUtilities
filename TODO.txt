@@ -1,7 +1,7 @@
 TO DO:
 - Make an official framework 3.5 package
 - Check maths namespace
-- Make a proper readme for each package
+- Make a proper readme
 
 DOING:
 
