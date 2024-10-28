@@ -13,9 +13,10 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
+    Important: This update contains a lot of breaking changes.
+      - Split *all* utilities into separate namespaces.
       - Removed .Color utilities as different frameworks/engine provide different Color structs.
       - Removed methods marked obsolete due to spelling errors.
-      - Split *all* utilities into separate namespaces.
       - Renamed TrueMod -> PosMod
       - Documentation fixes and tweaks
     </PackageReleaseNotes>
