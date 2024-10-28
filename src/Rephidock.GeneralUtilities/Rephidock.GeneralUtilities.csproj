@@ -19,7 +19,7 @@
       - Removed methods marked obsolete due to spelling errors.
       - Split BigIntMath into relevant classes
       - Renamed TrueMod -&gt; PosMod
-      - Renamed BigInteger.FromDigits to BigInteger.BigIntegerFromDigits due to a name clash.
+      - Renamed ushort[].FromDigits()-&gt;BigInteger to ushort[].BigIntegerFromDigits() due to a name clash.
       - Documentation fixes and tweaks
     </PackageReleaseNotes>
   </PropertyGroup>
