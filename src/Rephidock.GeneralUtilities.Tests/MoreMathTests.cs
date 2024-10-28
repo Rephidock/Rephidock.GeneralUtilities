@@ -1,7 +1,7 @@
 ﻿using System;
-using Xunit;
-using Rephidock.GeneralUtilities;
 using System.Collections.Generic;
+using Rephidock.GeneralUtilities.Maths;
+using Xunit;
 
 
 namespace Rephidock.GeneralUtilities.Tests;

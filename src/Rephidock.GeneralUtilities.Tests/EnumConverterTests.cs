@@ -1,6 +1,6 @@
 ﻿using System;
+using Rephidock.GeneralUtilities.Reflection;
 using Xunit;
-using Rephidock.GeneralUtilities;
 
 
 namespace Rephidock.GeneralUtilities.Tests;

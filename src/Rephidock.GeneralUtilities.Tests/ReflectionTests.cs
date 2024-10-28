@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xunit;
-using Rephidock.GeneralUtilities;
 using System.Reflection;
+using Xunit;
+using Rephidock.GeneralUtilities.Reflection;
 
 
 namespace Rephidock.GeneralUtilities.Tests;
