@@ -16,6 +16,7 @@
       - Removed .Color utilities as different frameworks/engine provide different Color structs.
       - Removed methods marked obsolete due to spelling errors.
       - Split *all* utilities into separate namespaces.
+      - Renamed TrueMod -> PosMod
     </PackageReleaseNotes>
   </PropertyGroup>
   

@@ -59,7 +59,7 @@ public sealed class MoreMathTests {
 
 	#endregion
 
-	#region //// TrueMod
+	#region //// PosMod
 
 	[Theory]
 	[InlineData(0, 2, 0)]
@@ -74,12 +74,12 @@ public sealed class MoreMathTests {
 	[InlineData(0, 1, 0)]
 	[InlineData(1, 1, 0)]
 	[InlineData(-1, 1, 0)]
-	public void TrueMod_SimpleUse_CorrectReturn(int value, int modulo, int expectedResult) {
+	public void PosMod_SimpleUse_CorrectReturn(int value, int modulo, int expectedResult) {
 
 		// Arrange
 
 		// Act
-		int actualResult = value.TrueMod(modulo);
+		int actualResult = value.PosMod(modulo);
 
 		// Assert
 		Assert.Equal(expectedResult, actualResult);
@@ -90,12 +90,12 @@ public sealed class MoreMathTests {
 	[InlineData(1)]
 	[InlineData(-1)]
 	[InlineData(127)]
-	public void TrueMod_ModuloZero_ThrowsArgument(int value) {
+	public void PosMod_ModuloZero_ThrowsArgument(int value) {
 
 		// Arrange
 
 		// Act
-		void ThrowingCode() => value.TrueMod(0);
+		void ThrowingCode() => value.PosMod(0);
 
 		// Assert
 		Assert.Throws<ArgumentException>(ThrowingCode);

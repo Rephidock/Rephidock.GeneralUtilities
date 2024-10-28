@@ -83,13 +83,13 @@ public static class MoreMath {
 		return ((tabColumn / tabSize) + 1) * tabSize;
 	}
 
-	#region //// TrueMod
+	#region //// PosMod
 
 	/// <summary>
 	/// <para>
-	/// Returns the value mod modulo.
+	/// Returns (the positive) <c>value mod modulo</c>.
 	/// Keep in mind that % is the remainder operation.
-	/// The result of mod is never negative, as opposed to remainder.
+	/// The result of this function is always positive or zero, as opposed to remainder.
 	/// </para>
 	/// <para>
 	/// Example differences:
@@ -101,7 +101,7 @@ public static class MoreMath {
 	/// </summary>
 	/// <exception cref="ArgumentException"><paramref name="modulo"/> is 0</exception>
 	/// <exception cref="NotSupportedException"><paramref name="modulo"/> is negative</exception>
-	public static int TrueMod(this int value, int modulo) {
+	public static int PosMod(this int value, int modulo) {
 
 		if (modulo == 0) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
 		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
@@ -110,8 +110,8 @@ public static class MoreMath {
 		return remainder < 0 ? remainder + modulo : remainder;
 	}
 
-	/// <inheritdoc cref="TrueMod(int, int)"/>
-	public static float TrueMod(this float value, float modulo) {
+	/// <inheritdoc cref="PosMod(int, int)"/>
+	public static float PosMod(this float value, float modulo) {
 
 		if (modulo == 0) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
 		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
@@ -120,8 +120,8 @@ public static class MoreMath {
 		return remainder < 0 ? remainder + modulo : remainder;
 	}
 
-	/// <inheritdoc cref="TrueMod(int, int)"/>
-	public static double TrueMod(this double value, double modulo) {
+	/// <inheritdoc cref="PosMod(int, int)"/>
+	public static double PosMod(this double value, double modulo) {
 
 		if (modulo == 0) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
 		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
@@ -130,8 +130,8 @@ public static class MoreMath {
 		return remainder < 0 ? remainder + modulo : remainder;
 	}
 
-	/// <inheritdoc cref="TrueMod(int, int)"/>
-	public static long TrueMod(this long value, long modulo) {
+	/// <inheritdoc cref="PosMod(int, int)"/>
+	public static long PosMod(this long value, long modulo) {
 
 		if (modulo == 0) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
 		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
@@ -151,8 +151,8 @@ public static class MoreMath {
 	/// values above are wrapped into it from the start
 	/// </para>
 	/// <para>
-	/// Can be thought of as a generilized version of <c>TrueMod</c>, as
-	/// <c>x.Wrap(0, y)</c> returns the same result as <c>x.TrueMod(y)</c>
+	/// Can be thought of as a generilized version of <c>PosMod</c>, as
+	/// <c>x.Wrap(0, y)</c> returns the same result as <c>x.PosMod(y)</c>
 	/// </para>
 	/// </summary>
 	/// <param name="value">The value to wrap</param>
@@ -171,7 +171,7 @@ public static class MoreMath {
 		// Swap min and max so that min < max
 		if (min > max) (max, min) = (min, max);
 
-		return (value - min).TrueMod(max - min) + min;
+		return (value - min).PosMod(max - min) + min;
 	}
 
 	/// <inheritdoc cref="Wrap(int, int, int)"/>
@@ -183,7 +183,7 @@ public static class MoreMath {
 		// Swap min and max so that min < max
 		if (min > max) (max, min) = (min, max);
 
-		return (value - min).TrueMod(max - min) + min;
+		return (value - min).PosMod(max - min) + min;
 	}
 
 	/// <inheritdoc cref="Wrap(int, int, int)"/>
@@ -195,7 +195,7 @@ public static class MoreMath {
 		// Swap min and max so that min < max
 		if (min > max) (max, min) = (min, max);
 
-		return (value - min).TrueMod(max - min) + min;
+		return (value - min).PosMod(max - min) + min;
 	}
 
 	/// <inheritdoc cref="Wrap(int, int, int)"/>
@@ -207,7 +207,7 @@ public static class MoreMath {
 		// Swap min and max so that min < max
 		if (min > max) (max, min) = (min, max);
 
-		return (value - min).TrueMod(max - min) + min;
+		return (value - min).PosMod(max - min) + min;
 	}
 
 	#endregion

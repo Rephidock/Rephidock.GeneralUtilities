@@ -38,8 +38,8 @@ public static class BigIntMath {
 
 
 
-	/// <inheritdoc cref="MoreMath.TrueMod(int, int)"/>
-	public static BigInteger TrueMod(this BigInteger value, BigInteger modulo) {
+	/// <inheritdoc cref="MoreMath.PosMod(int, int)"/>
+	public static BigInteger PosMod(this BigInteger value, BigInteger modulo) {
 
 		if (modulo == BigInteger.Zero) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
 		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
@@ -59,7 +59,7 @@ public static class BigIntMath {
 		// Swap min and max so that min < max
 		if (min > max) (max, min) = (min, max);
 
-		return (value - min).TrueMod(max - min) + min;
+		return (value - min).PosMod(max - min) + min;
 	}
 
 
