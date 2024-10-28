@@ -12,7 +12,7 @@ namespace Rephidock.GeneralUtilities.Maths;
 /// </summary>
 public static class MoreMath {
 
-	#region //// Lerp, ReverseLerp
+	#region //// Lerp
 
 	/// <summary>
 	/// Linearly interpolates between 2 points.
@@ -65,24 +65,28 @@ public static class MoreMath {
 		return offset + start;
 	}
 
+	#endregion
+
+	#region //// InverseLerp
+
 	/// <summary>
 	/// <para>
 	/// An operation inverse to <see cref="Lerp(float, float, float)"/>.
 	/// </para>
 	/// <para>
-	/// If <c>r = Lerp(a, b, x)</c> then <c>x = ReverseLerp(a, b, r)</c>.
+	/// If <c>r = Lerp(a, b, x)</c> then <c>x = InverseLerp(a, b, r)</c>.
 	/// </para>
 	/// </summary>
 	/// <param name="start">The start of interpolation</param>
 	/// <param name="end">The end of interpolation</param>
 	/// <param name="value">The result of linear interpolation</param>
 	/// <returns>The amount of interpolation</returns>
-	public static float ReverseLerp(float start, float end, float value) {
+	public static float InverseLerp(float start, float end, float value) {
 		return (value - start) / (end - start);
 	}
 
-	/// <inheritdoc cref="ReverseLerp(float, float, float)"/>
-	public static double ReverseLerp(double start, double end, double value) {
+	/// <inheritdoc cref="InverseLerp(float, float, float)"/>
+	public static double InverseLerp(double start, double end, double value) {
 		return (value - start) / (end - start);
 	}
 

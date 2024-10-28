@@ -103,20 +103,20 @@ public sealed class MoreMathTests {
 
 	#endregion
 
-	#region //// ReverseLerp
+	#region //// InverseLerp
 
 	[Theory]
 	[InlineData(0, 1, 0.5)]
 	[InlineData(0, 12.5, 0.2)]
 	[InlineData(1, 0, 0.8)]
 	[InlineData(99.5, 25, 0.8)]
-	public void ReverseLerp_SimpleUse_InverseOfLerp(float start, float end, float amount) {
+	public void InverseLerp_SimpleUse_InverseOfLerp(float start, float end, float amount) {
 
 		// Arrange
 
 		// Act
 		float lerpResult = MoreMath.Lerp(start, end, amount);
-		float amountFromReverse = MoreMath.ReverseLerp(start, end, lerpResult);
+		float amountFromReverse = MoreMath.InverseLerp(start, end, lerpResult);
 
 		// Assert
 		Assert.Equal(amount, amountFromReverse);
