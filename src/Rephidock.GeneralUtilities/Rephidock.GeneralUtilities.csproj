@@ -17,6 +17,7 @@
       - Removed methods marked obsolete due to spelling errors.
       - Split *all* utilities into separate namespaces.
       - Renamed TrueMod -> PosMod
+      - Documentation fixes and tweaks
     </PackageReleaseNotes>
   </PropertyGroup>
   

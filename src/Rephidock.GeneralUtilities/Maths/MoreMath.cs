@@ -267,7 +267,8 @@ public static class MoreMath {
 	/// <para>
 	/// If <paramref name="n"/> is <c>0</c>, <c>0</c> is returned.
 	/// If <paramref name="n"/> is <c>1</c>, <c>1</c> is returned.
-	/// If <paramref name="n"/> is negative, <c>-1</c> is returned, followed by factors of <c>abs(n)</c>
+	/// If <paramref name="n"/> is <c>-1</c>, <c>-1</c> is returned.
+	/// If <paramref name="n"/> is below <c>-1</c>, <c>-1</c> is returned, followed by factors of <c>abs(n)</c>.
 	/// </para>
 	/// </summary>
 	/// <param name="n">The value to return factors of</param>
