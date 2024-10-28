@@ -1,5 +1,7 @@
 TO DO:
 - Make an official framework 3.5 package
+- Port unported source
+- Make BigInteger.ISqrt
 - Make a proper readme
 
 DOING:
