@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 
 
 namespace Rephidock.GeneralUtilities.Maths;
@@ -52,6 +53,18 @@ public static class MoreMath {
 		return (byte)Lerp((int)start, end, amount);
 	}
 
+	/// <inheritdoc cref="MoreMath.Lerp(float, float, float)"/>
+	/// <remarks>
+	/// Possible precision loss if the bounds differ a lot,
+	/// as this method converts between
+	/// <see cref="BigInteger"/> and <see cref="double"/>.
+	/// </remarks>
+	public static BigInteger Lerp(BigInteger start, BigInteger end, double amount) {
+		double differenceDouble = (double)(end - start);
+		BigInteger offset = (BigInteger)Math.Round(amount * differenceDouble);
+		return offset + start;
+	}
+
 	/// <summary>
 	/// <para>
 	/// An operation inverse to <see cref="Lerp(float, float, float)"/>.
@@ -75,6 +88,8 @@ public static class MoreMath {
 
 	#endregion
 
+	#region //// TabShift
+
 	/// <summary>
 	/// For a given 0-based column position of a tab character (<c>'\t'</c>)
 	/// returns a column position for the next character.
@@ -82,6 +97,8 @@ public static class MoreMath {
 	public static int TabShift(int tabColumn, int tabSize = 4) {
 		return ((tabColumn / tabSize) + 1) * tabSize;
 	}
+
+	#endregion
 
 	#region //// PosMod
 
@@ -137,6 +154,16 @@ public static class MoreMath {
 		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
 
 		long remainder = value % modulo;
+		return remainder < 0 ? remainder + modulo : remainder;
+	}
+
+	/// <inheritdoc cref="PosMod(int, int)"/>
+	public static BigInteger PosMod(this BigInteger value, BigInteger modulo) {
+
+		if (modulo == BigInteger.Zero) throw new ArgumentException("x mod 0 is undefined", nameof(modulo));
+		if (modulo < 0) throw new NotSupportedException("Negative modulo is not supported.");
+
+		BigInteger remainder = value % modulo;
 		return remainder < 0 ? remainder + modulo : remainder;
 	}
 
@@ -210,6 +237,18 @@ public static class MoreMath {
 		return (value - min).PosMod(max - min) + min;
 	}
 
+	/// <inheritdoc cref="Wrap(int, int, int)"/>
+	public static BigInteger Wrap(this BigInteger value, BigInteger min, BigInteger max) {
+
+		// Range of 0 -- easy return
+		if (min == max) return min;
+
+		// Swap min and max so that min < max
+		if (min > max) (max, min) = (min, max);
+
+		return (value - min).PosMod(max - min) + min;
+	}
+
 	#endregion
 
 	#region //// Digital Root
@@ -256,6 +295,27 @@ public static class MoreMath {
 		return 1 + ((value - 1) % (radix - 1));
 	}
 
+	/// <inheritdoc cref="DigitalRoot(int, int)"/>
+	public static BigInteger DigitalRoot(this BigInteger value, BigInteger radix) {
+
+		// Guards
+		if (value < 0) {
+			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
+		}
+
+		if (radix < 2) {
+			throw new ArgumentException("Integer base must be at least 2", nameof(radix));
+		}
+
+		// Digital root
+		if (value == 0) return 0;
+		return 1 + ((value - 1) % (radix - 1));
+	}
+
+	/// <inheritdoc cref="DigitalRoot(int, int)"/>
+	/// <remarks>Calculated digital root using default base of 10</remarks>
+	public static BigInteger DigitalRoot(this BigInteger value) => value.DigitalRoot(10);
+
 	#endregion
 
 	#region //// Factors
@@ -288,6 +348,35 @@ public static class MoreMath {
 
 		// Main loop
 		int factor = 2;
+		while (factor <= n) {
+
+			while (n % factor == 0) {
+				yield return factor;
+				n /= factor;
+			}
+
+			factor++;
+		}
+
+	}
+
+	/// <inheritdoc cref="GetFactors(int)"/>
+	public static IEnumerable<BigInteger> GetFactors(this BigInteger n) {
+
+		// Zero, one, negative one
+		if (n >= -1 && n <= 1) {
+			yield return n;
+			yield break;
+		}
+
+		// Negative
+		if (n < 0) {
+			yield return -1;
+			n = -n;
+		}
+
+		// Main loop
+		BigInteger factor = 2;
 		while (factor <= n) {
 
 			while (n % factor == 0) {
@@ -349,6 +438,21 @@ public static class MoreMath {
 	public static double AngleDifference(double angleSourceRadians, double angleDestinationRadians) {
 		return (angleDestinationRadians - angleSourceRadians).Wrap(-Math.PI, Math.PI);
 	}
+
+	#endregion
+
+	#region //// BigInt Sqrt
+
+	/// <summary>
+	/// <para>
+	/// Returns a square root of a given <see cref="BigInteger"/>.
+	/// </para>
+	/// <para>
+	/// IMPORTANT: Has its precision and magnitude limits due to
+	/// conversion to <see cref="double"/>.
+	/// </para>
+	/// </summary>
+	public static double Sqrt(this BigInteger n) => Math.Pow(Math.E, BigInteger.Log(n) / 2);
 
 	#endregion
 

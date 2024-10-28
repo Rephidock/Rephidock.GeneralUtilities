@@ -13,11 +13,13 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
     <PackageReleaseNotes>
-    Important: This update contains a lot of breaking changes.
+      Important: This update contains a lot of breaking changes.
       - Split *all* utilities into separate namespaces.
       - Removed .Color utilities as different frameworks/engine provide different Color structs.
       - Removed methods marked obsolete due to spelling errors.
-      - Renamed TrueMod -> PosMod
+      - Split BigIntMath into relevant classes
+      - Renamed TrueMod -&gt; PosMod
+      - Renamed BigInteger.FromDigits to BigInteger.BigIntegerFromDigits due to a name clash.
       - Documentation fixes and tweaks
     </PackageReleaseNotes>
   </PropertyGroup>

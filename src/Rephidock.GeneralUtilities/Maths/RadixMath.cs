@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 
 namespace Rephidock.GeneralUtilities.Maths;
@@ -157,6 +158,73 @@ public static class RadixMath {
 		}
 
 	}
+
+	#region //// Big Integer source clone
+
+	/// <inheritdoc cref="ToDigits(int, ushort, int)"/>
+	public static ushort[] ToDigits(this BigInteger value, ushort radix, int padToPlaces = -1) {
+
+		// Guards
+		if (radix < 2) {
+			throw new ArgumentException("Base must be at least 2", nameof(radix));
+		}
+
+		// Take absolute
+		if (value < 0) value = -value;
+
+		// Get digits
+		List<ushort> digitsStartingFromUnits = new(padToPlaces > 0 ? padToPlaces : 4);
+
+		do {
+			digitsStartingFromUnits.Add((ushort)(value % radix));
+			value /= radix;
+		} while (value > 0);
+
+		// Pad digits
+		int prepadCount = padToPlaces - digitsStartingFromUnits.Count;
+		for (; prepadCount > 0; prepadCount--) {
+			digitsStartingFromUnits.Add(0);
+		}
+
+		// Create array and return
+		ushort[] result = new ushort[digitsStartingFromUnits.Count];
+		int lastI = digitsStartingFromUnits.Count - 1;
+		for (int i = 0; i <= lastI; i++) {
+			result[i] = digitsStartingFromUnits[lastI - i];
+		}
+
+		return result;
+	}
+
+	/// <inheritdoc cref="FromDigits(ushort[], ushort)"/>
+	/// <remarks>
+	/// Use of <see cref="BigInteger"/> means that
+	/// <see cref="OverflowException"/> is not thrown for larger numbers.
+	/// </remarks>
+	public static BigInteger BigIntegerFromDigits(this ushort[] digits, ushort radix) {
+
+		// Guards
+		if (radix < 2) {
+			throw new ArgumentException("Base must be at least 2", nameof(radix));
+		}
+
+		// Add up all the digits with respective powers of radix
+		BigInteger result = 0;
+		BigInteger currentMultiplier = 1;
+
+		for (int i = digits.Length - 1; i >= 0; i--) {
+
+			// Add value to the result
+			result += digits[i] * currentMultiplier;
+
+			// Updte multiplier
+			currentMultiplier *= radix;
+		}
+
+		return result;
+	}
+
+	#endregion
 
 }
 
