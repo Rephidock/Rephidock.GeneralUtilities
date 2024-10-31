@@ -6,6 +6,5 @@ TO DO:
 - Make a proper readme
 
 DOING:
-- Split MoreMath into specialized math classes, akin to RadixMath
 
 TO TEST:
