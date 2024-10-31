@@ -5,5 +5,6 @@
 This is a source clone of GeneralUtilities downgraded to NET Framework 3.5. Due to drastic differences this needs to be a separate package.
 
 Following items were removed:
+- IDictionary<TKey, TValue>.AsReadOnly()
 
 Following items were added:
