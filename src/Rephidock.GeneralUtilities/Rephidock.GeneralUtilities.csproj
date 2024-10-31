@@ -15,7 +15,6 @@
     <PackageReleaseNotes>
       Important: This update contains a lot of breaking changes.
       - Split *all* utilities into separate namespaces.
-      - Split math methods among more classes (see RadixMath, AngleMath)
       - Removed .Color utilities as different frameworks/engine provide different Color structs.
       - Removed methods marked obsolete due to spelling errors.
       - Split BigIntMath into relevant classes
