@@ -1,65 +1,62 @@
 # GeneralUtilities
 
-[![GitHub Licence Badge](https://img.shields.io/github/license/Rephidock/Rephidock.GeneralUtilities)](https://github.com/Rephidock/Rephidock.GeneralUtilities/blob/main/LICENSE) [![Nuget Version Badge](https://img.shields.io/nuget/v/Rephidock.GeneralUtilities?logo=nuget)](https://www.nuget.org/packages/Rephidock.GeneralUtilities)
+[![GitHub License Badge](https://img.shields.io/github/license/Rephidock/Rephidock.GeneralUtilities)](https://github.com/Rephidock/Rephidock.GeneralUtilities/blob/main/LICENSE) [![Nuget Version Badge](https://img.shields.io/nuget/v/Rephidock.GeneralUtilities?logo=nuget)](https://www.nuget.org/packages/Rephidock.GeneralUtilities)
 
- A package with general utilities that may be useful.
+A collection of general utilities useful for other projects.
 
 ## Contents
 
+All utilities are split into the following sub-namespaces:
+
+### `.Maths` namespace
+
+The package provides utilities for arithmetic, including work with arbitrary bases.
+
+All of the listed methods are static.
+
+Note: extension methods also exit for other numeric types when applicable. Additionally overloads for `BigInteger` exist.
+
+| Method (`MoreMath`)           | Summary                                           |
+| ----------------------------- | ------------------------------------------------- |
+| (extension) `int.PosMod`      | Calculates modulo (`%` but always positive)       |
+| (extension) `int.Wrap`        | Wraps value into given range                      |
+| (extension) `int.GetFactors`  | Returns all prime factors of an integer           |
+| `MoreMath.Lerp`               | Linearly interpolates between 2 values            |
+| `MoreMath.InverseLerp`        | Inverse of `Lerp` (returns lerp %-age form value) |
+| `MoreMath.TabShift`           | Returns column position of a character after tab  |
+| `MoreMath.AngleDifference`    | Calculates the shortest distance between 2 angles |
+| (extension) `float.DegToRad`  | Converts angle in degrees to radians              |
+| (extension) `float.RadToDeg`  | Converts angle in radians to degrees              |
+| (extension) `BigInteger.Sqrt` | Returns a square root of `BigInteger` as `double` |
+
+| Method (`RadixMath`)             | Summary                                          |
+| -------------------------------- | ------------------------------------------------ |
+| (extension) `int.DigitalRoot`    | Calculates digital root (repeated digit sum)     |
+| (extension) `int.ToDigits`       | Converts a value into an array of digits         |
+| `RadixMath.FromDigits`           | Converts an array of digits into a value         |
+| `RadixMath.BigIntegerFromDigits` | Same as `FromDigits` but returns a `BigInteger`  |
+| `RadixMath.CountAllAscending`    | Enumerates all numbers with a given places count |
 
 
-### Arithmetic
 
-| Method                                | Summary                                            |
-| ------------------------------------- | -------------------------------------------------- |
-| (extension) `int.TrueMod`[^1][^2]     | Performs a modulo operation (`%` is remainder)     |
-| (extension) `int.Wrap`[^1][^2]        | Wraps value into given range                       |
-| (extension) `int.DigitalRoot`[^1][^2] | Calculates digital root (repeated digit sum)       |
-| (extension) `int.GetFactors`[^2]      | Returns all factors of an integer                  |
-| (extension) `float.DegToRad`[^1]      | Converts angle in degrees to radians               |
-| (extension) `float.RadToDeg`[^1]      | Converts angle in radians to degrees               |
-| (extension) `BigInteger.Sqrt`         | Returns a square root of `BigInteger`              |
-| `MoreMath.Lerp`                       | Linearly interpolates between 2 values             |
-| `BigIntMath.Lerp`                     | *Same as above but for `BigInteger`*               |
-| `MoreMath.ReverseLerp`                | Inverse of `Lerp` (returns lerp amount form value) |
-| `MoreMath.TabShift`                   | Returns column position of a character after tab   |
-| `MoreMath.AngleDifference`            | Calculates the shortest distance between 2 angles  |
+### `.Collections` namespace
 
+The following methods for work with enumerables exist:
 
-
-Use `RadixMath` to perform operations with digits with arbitrary base, represented as arrays of digit values:
-
-| Method                             | Summary                                          |
-| ---------------------------------- | ------------------------------------------------ |
-| (extension) `int.ToDigits`[^1][^2] | Converts a value to an array of digits           |
-| `RadixMath.FromDigits`             | Converts an array of digits to a value           |
-| `BigIntMath.FromDigits`            | *Same as below*                                  |
-| `RadixMath.CountAllAscending`      | Enumerates all numbers with a given places count |
-
-
-### Other
-
-| Class                                | Summary                              |
-| ------------------------------------ | ------------------------------------ |
-| (static) `EnumConverter<TEnum,TInt>` | A generic enum <-> integer converter |
-
-| Method                                  | Summary                                         |
-| --------------------------------------- | ----------------------------------------------- |
-| (extension) `T.Yield<T>`                | Wraps anything in a `IEnumerable<T>`            |
-| (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`              |
-| (extension) `char[].JoinString`         | A fluent way to call string constructor         |
-| (extension) `T[].SplitIntoSegments`     | "Splits" array into `ArraySegment<T>`s          |
-| (extension) `Type.IsSubclassOrSelfOf`   | Checks if a type is base type or subclass of it |
-| (extension) `MethodInfo.IsOverride`     | Checks if a method is an override               |
-
+| Method (`GeneralEnumerableExtensions`)  | Summary                                 |
+| --------------------------------------- | --------------------------------------- |
+| (extension) `T.Yield<T>`                | Wraps anything in a `IEnumerable<T>`    |
+| (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`      |
+| (extension) `char[].JoinString`         | A fluent way to call string constructor |
+| (extension) `T[].SplitIntoSegments`     | "Splits" array into `ArraySegment<T>`s  |
 
 
 This package also implements some methods that were added in .NET7 as extensions for .NET6
 
-| Extension Method for .NET6             | Summary                              |
-| -------------------------------------- | ------------------------------------ |
-| `IList<T>.AsReadOnly`                  | Constructs a `ReadOnlyCollection<T>` |
-| `IDictionary<TKey, TValue>.AsReadOnly` | Constructs a `ReadOnlyDictionary<T>` |
+| .NET6 Extension Method (`ReadOnlyExtensions`) | Summary                              |
+| --------------------------------------------- | ------------------------------------ |
+| `IList<T>.AsReadOnly`                         | Constructs a `ReadOnlyCollection<T>` |
+| `IDictionary<TKey, TValue>.AsReadOnly`        | Constructs a `ReadOnlyDictionary<T>` |
 
 
 
@@ -71,38 +68,40 @@ The `.Randomness` namespace relates to `System.Random`
 | ----------------- | ---------------------------------------------------------- |
 | `ShuffleIndexMap` | The index map of a shuffle (to track where items ended up) |
 
-| Extension method           | Summary                                                   |
-| -------------------------- | --------------------------------------------------------- |
-| `Random.NextUInt31`        | Returns a random int in range of [0, int.MaxValue]        |
-| `Random.Chance`            | Returns `true` with %-chance                              |
-| `Random.GetItem`           | Returns a random item from a list or span                 |
-| `Random.GetDifferentItems` | Returns multiple different random items from a collection |
-| `Random.Shuffle`           | Shuffles given items in-place                             |
-| `Random.ShuffleRemap`      | Shuffles given items in-place and returns an index map    |
+| Method (`RandomnessExtensions`)        | Summary                                             |
+| -------------------------------------- | --------------------------------------------------- |
+| (extension) `Random.NextUInt31`        | Returns a random int in range of [0, int.MaxValue]  |
+| (extension) `Random.Chance`            | Returns `true` with %-chance                        |
+| (extension) `Random.GetItem`           | Randomly picks an item from a list or span          |
+| (extension) `Random.GetDifferentItems` | Randomly picks multiple different items             |
+| (extension) `Random.Shuffle`           | Shuffles items in-place                             |
+| (extension) `Random.ShuffleRemap`      | Shuffles items in-place & returns `ShuffleIndexMap` |
 
 The following methods also exist and are extensions on collection interfaces to allow fluent syntax:
 
-- `IReadOnlyList<T>.PickRandom` is equivalent to `Random.GetItem`
-- `IReadOnlyCollection<T>.PickMultipleDifferent` is equivalent to `Random.GetDifferentItems`
-- `IList<T>.Shuffle` is equivalent to `Random.Shuffle`
-- `IList<T>.ShuffleRemap` is equivalent to `Random.ShuffleRemap`
+| Collection extension method                    | Above equivalent           |
+| ---------------------------------------------- | -------------------------- |
+| `IReadOnlyList<T>.PickRandom`                  | `Random.GetItem`           |
+| `IReadOnlyCollection<T>.PickMultipleDifferent` | `Random.GetDifferentItems` |
+| `IList<T>.Shuffle`                             | `Random.Shuffle`           |
+| `IList<T>.ShuffleRemap`                        | `Random.ShuffleRemap`      |
 
 
 
-### `.Color` namespace
+### `.Reflection` namespace
 
-The `.Color` namespace relates to `System.Drawing.Color`
+The `.Reflection` namespace contains reflections extensions and a generic enum <-> integer converter.
 
-| Method                          | Summary                                          |
-| ------------------------------- | ------------------------------------------------ |
-| (extension) `Color.WithAlpha`   | Returns source `Color` with given alpha          |
-| (extension) `Color.Transparent` | Returns source `Color` with alpha of 0           |
-| `ColorMath.LerpColor`           | Linearly interpolates between 2 colors           |
-| `ColorMath.AlphaBlend`          | Blend 2 colors with alpha-1-minus-alpha blending |
+| Method (`EnumConverter<TEnum,TInt>`) | Summary                                    |
+| ------------------------------------ | ------------------------------------------ |
+| `EnumConverter<TEnum,TInt>.ToInt`    | Converts an enum value to an integral type |
+| `EnumConverter<TEnum,TInt>.ToEnum`   | Converts an integral value to an enum type |
+
+| Method (`ReflectionExtensions`)       | Summary                                         |
+| ------------------------------------- | ----------------------------------------------- |
+| (extension) `Type.IsSubclassOrSelfOf` | Checks if a type is base type or subclass of it |
+| (extension) `MethodInfo.IsOverride`   | Checks if a method is an override               |
 
 
 
-[^1]: Extension also exists for other numeric types.
-[^2]: Extension also exists for `BigInteger`.
-
-*\* - Extension methods are static methods and can be used as such.*
+*\* - Reminder that extension methods are static methods and can be used as such.*

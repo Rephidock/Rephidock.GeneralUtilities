@@ -1,6 +1,5 @@
 TO DO:
 - Make an official framework 3.5 package
-- Make a proper readme
 
 DOING:
 
