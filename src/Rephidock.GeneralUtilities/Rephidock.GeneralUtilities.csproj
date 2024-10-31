@@ -20,7 +20,8 @@
       - Split BigIntMath into relevant classes
       - Renamed TrueMod -&gt; PosMod
       - Renamed ReverseLerp -&gt; InverseLerp
-      - Renamed ushort[].FromDigits():BigInteger to ushort[].BigIntegerFromDigits() due to a name clash.
+      - RadixMath.FromDigits is no longer an extension method
+      - Renamed BigIntMath.FromDigits():BigInteger to RadixMath.BigIntegerFromDigits() due to a name clash.
       - Moved DigitalRoot to RadixMath. It remains an extension method.
       - Documentation fixes and tweaks
     </PackageReleaseNotes>

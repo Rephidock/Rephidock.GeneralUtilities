@@ -83,7 +83,7 @@ public static class RadixMath {
 	#region //// ToDigits
 
 	/// <summary>
-	/// Converts a value to an arbitrary base,
+	/// Converts a value into an arbitrary base,
 	/// returning arrays of digits in that base,
 	/// units place last.
 	/// </summary>
@@ -174,13 +174,13 @@ public static class RadixMath {
 
 	/// <summary>
 	/// Converts an array of digits in a given base,
-	/// units place last, to an integer value.
+	/// units place last, into an integer value.
 	/// </summary>
 	/// <param name="digits">The digits to convert, units place last</param>
 	/// <param name="radix">The base of the returned number</param>
 	/// <exception cref="ArgumentException"><paramref name="radix"/> is below 2</exception>
 	/// <exception cref="OverflowException">Resulting value is too big for a <see cref="long"/></exception>
-	public static long FromDigits(this ushort[] digits, ushort radix) {
+	public static long FromDigits(ushort[] digits, ushort radix) {
 
 		// Guards
 		if (radix < 2) {
@@ -210,7 +210,7 @@ public static class RadixMath {
 	/// Use of <see cref="BigInteger"/> means that
 	/// <see cref="OverflowException"/> is not thrown for larger numbers.
 	/// </remarks>
-	public static BigInteger BigIntegerFromDigits(this ushort[] digits, ushort radix) {
+	public static BigInteger BigIntegerFromDigits(ushort[] digits, ushort radix) {
 
 		// Guards
 		if (radix < 2) {
