@@ -4,7 +4,7 @@ using Rephidock.GeneralUtilities.Maths;
 using Xunit;
 
 
-namespace Rephidock.GeneralUtilities.Tests;
+namespace Rephidock.GeneralUtilities.Tests.Maths;
 
 
 public sealed class MoreMathTests {

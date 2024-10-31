@@ -5,7 +5,7 @@ using Xunit;
 using Rephidock.GeneralUtilities.Reflection;
 
 
-namespace Rephidock.GeneralUtilities.Tests;
+namespace Rephidock.GeneralUtilities.Tests.Reflection;
 
 
 public sealed class ReflectionTests {

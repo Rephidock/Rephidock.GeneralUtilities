@@ -5,7 +5,7 @@ using Rephidock.GeneralUtilities.Collections;
 using Xunit;
 
 
-namespace Rephidock.GeneralUtilities.Tests;
+namespace Rephidock.GeneralUtilities.Tests.Collections;
 
 
 public sealed class EnumerableExtensionsTests {

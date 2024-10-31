@@ -3,7 +3,7 @@ using Rephidock.GeneralUtilities.Reflection;
 using Xunit;
 
 
-namespace Rephidock.GeneralUtilities.Tests;
+namespace Rephidock.GeneralUtilities.Tests.Reflection;
 
 
 public sealed class EnumConverterTests {

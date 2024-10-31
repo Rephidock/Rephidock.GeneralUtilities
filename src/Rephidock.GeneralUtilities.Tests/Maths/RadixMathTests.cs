@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Xunit;
 using Rephidock.GeneralUtilities.Maths;
+using Xunit;
 
 
-namespace Rephidock.GeneralUtilities.Tests;
+namespace Rephidock.GeneralUtilities.Tests.Maths;
 
 
 public sealed class RadixMathTests {
