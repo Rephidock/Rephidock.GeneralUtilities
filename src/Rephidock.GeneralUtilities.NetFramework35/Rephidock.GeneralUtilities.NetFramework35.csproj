@@ -10,7 +10,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>general;utils;helper;math;maths;reflection;randomness;enumerable;linq;collections;</PackageTags>
     <PackageProjectUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities/tree/main/src/Rephidock.GeneralUtilities.NetFramework35</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
       See release notes of Rephidock.GeneralUtilities
@@ -29,7 +29,6 @@
     <LangVersion>6</LangVersion>
     <RootNamespace>Rephidock.GeneralUtilities</RootNamespace>
     <ImplicitUsings>disable</ImplicitUsings>
-    <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
