@@ -1,5 +1,6 @@
 TO DO:
 - Make an official framework 3.5 package
+- Publish package
 
 DOING:
 
