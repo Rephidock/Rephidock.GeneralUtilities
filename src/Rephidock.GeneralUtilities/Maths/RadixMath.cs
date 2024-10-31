@@ -8,8 +8,8 @@ namespace Rephidock.GeneralUtilities.Maths;
 
 
 /// <summary>
-/// Provides methods to operate on numbers
-/// in arbitrary bases
+/// Provides methods to convert numbers to/from
+/// digit arrays in arbitrary bases.
 /// </summary>
 public static class RadixMath {
 

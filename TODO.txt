@@ -1,11 +1,11 @@
 TO DO:
 - Make an official framework 3.5 package
-- Split MoreMath into specialized math classes, akin to RadixMath
 - Add .Choose and related math functions (e.g. 10 choose 3 = 120)
 - Port unported source
 - Make BigInteger.ISqrt
 - Make a proper readme
 
 DOING:
+- Split MoreMath into specialized math classes, akin to RadixMath
 
 TO TEST:

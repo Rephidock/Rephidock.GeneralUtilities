@@ -15,12 +15,13 @@
     <PackageReleaseNotes>
       Important: This update contains a lot of breaking changes.
       - Split *all* utilities into separate namespaces.
+      - Split math methods among more classes (see RadixMath, AngleMath)
       - Removed .Color utilities as different frameworks/engine provide different Color structs.
       - Removed methods marked obsolete due to spelling errors.
       - Split BigIntMath into relevant classes
-      - Renamed MoreMath.TrueMod -&gt; MoreMath.PosMod
-      - Renamed MoreMath.ReverseLerp -&gt; MoreMath.InverseLerp
-      - Renamed ushort[].FromDigits()-&gt;BigInteger to ushort[].BigIntegerFromDigits() due to a name clash.
+      - Renamed TrueMod -&gt; PosMod
+      - Renamed ReverseLerp -&gt; InverseLerp
+      - Renamed ushort[].FromDigits():BigInteger to ushort[].BigIntegerFromDigits() due to a name clash.
       - Documentation fixes and tweaks
     </PackageReleaseNotes>
   </PropertyGroup>
