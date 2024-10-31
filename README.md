@@ -20,7 +20,7 @@ Note: extension methods also exit for other numeric types when applicable. Addit
 | ----------------------------- | ------------------------------------------------- |
 | (extension) `int.PosMod`      | Calculates modulo (`%` but always positive)       |
 | (extension) `int.Wrap`        | Wraps value into given range                      |
-| (extension) `int.GetFactors`  | Returns all prime factors of an integer           |
+| (extension) `int.GetFactors`  | Performs integer factorization                    |
 | `MoreMath.Lerp`               | Linearly interpolates between 2 values            |
 | `MoreMath.InverseLerp`        | Inverse of `Lerp` (returns lerp %-age form value) |
 | `MoreMath.TabShift`           | Returns column position of a character after tab  |
