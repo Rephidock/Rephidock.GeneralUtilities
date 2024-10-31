@@ -61,5 +61,4 @@ public static class AngleMath {
 
 	#endregion
 
-
 }

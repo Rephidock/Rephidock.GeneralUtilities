@@ -8,10 +8,79 @@ namespace Rephidock.GeneralUtilities.Maths;
 
 
 /// <summary>
-/// Provides methods to convert numbers to/from
-/// digit arrays in arbitrary bases.
+/// Provides methods for convertsion of numbers to/from digit arrays in arbitrary bases
+/// and radix-related maths.
 /// </summary>
 public static class RadixMath {
+
+	#region //// DigitalRoot
+
+	/// <summary>
+	/// Calculates the digital root of a number.
+	/// Digital root is calculated by taking the sum of all of
+	/// the number's digits, and then that sum, until the result is a single digit.
+	/// </summary>
+	/// <exception cref="ArgumentException">
+	/// <paramref name="value"/> is negative or
+	/// <paramref name="radix"/> is smaller than 2
+	/// </exception>
+	public static int DigitalRoot(this int value, int radix = 10) {
+
+		// Guards
+		if (value < 0) {
+			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
+		}
+
+		if (radix < 2) {
+			throw new ArgumentException("Integer base must be at least 2", nameof(radix));
+		}
+
+		// Digital root
+		if (value == 0) return 0;
+		return 1 + ((value - 1) % (radix - 1));
+	}
+
+	/// <inheritdoc cref="DigitalRoot(int, int)"/>
+	public static long DigitalRoot(this long value, long radix = 10) {
+
+		// Guards
+		if (value < 0) {
+			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
+		}
+
+		if (radix < 2) {
+			throw new ArgumentException("Integer base must be at least 2", nameof(radix));
+		}
+
+		// Digital root
+		if (value == 0) return 0;
+		return 1 + ((value - 1) % (radix - 1));
+	}
+
+	/// <inheritdoc cref="DigitalRoot(int, int)"/>
+	public static BigInteger DigitalRoot(this BigInteger value, BigInteger radix) {
+
+		// Guards
+		if (value < 0) {
+			throw new ArgumentException("Digital root of a negative value is undefined", nameof(value));
+		}
+
+		if (radix < 2) {
+			throw new ArgumentException("Integer base must be at least 2", nameof(radix));
+		}
+
+		// Digital root
+		if (value == 0) return 0;
+		return 1 + ((value - 1) % (radix - 1));
+	}
+
+	/// <inheritdoc cref="DigitalRoot(int, int)"/>
+	/// <remarks>Calculated digital root using default base of 10</remarks>
+	public static BigInteger DigitalRoot(this BigInteger value) => value.DigitalRoot(10);
+
+	#endregion
+
+	#region //// ToDigits
 
 	/// <summary>
 	/// Converts a value to an arbitrary base,
@@ -64,6 +133,45 @@ public static class RadixMath {
 		return ToDigits((long)value, radix, padToPlaces);
 	}
 
+	/// <inheritdoc cref="ToDigits(int, ushort, int)"/>
+	public static ushort[] ToDigits(this BigInteger value, ushort radix, int padToPlaces = -1) {
+
+		// Guards
+		if (radix < 2) {
+			throw new ArgumentException("Base must be at least 2", nameof(radix));
+		}
+
+		// Take absolute
+		if (value < 0) value = -value;
+
+		// Get digits
+		List<ushort> digitsStartingFromUnits = new(padToPlaces > 0 ? padToPlaces : 4);
+
+		do {
+			digitsStartingFromUnits.Add((ushort)(value % radix));
+			value /= radix;
+		} while (value > 0);
+
+		// Pad digits
+		int prepadCount = padToPlaces - digitsStartingFromUnits.Count;
+		for (; prepadCount > 0; prepadCount--) {
+			digitsStartingFromUnits.Add(0);
+		}
+
+		// Create array and return
+		ushort[] result = new ushort[digitsStartingFromUnits.Count];
+		int lastI = digitsStartingFromUnits.Count - 1;
+		for (int i = 0; i <= lastI; i++) {
+			result[i] = digitsStartingFromUnits[lastI - i];
+		}
+
+		return result;
+	}
+
+	#endregion
+
+	#region //// FromDigits
+
 	/// <summary>
 	/// Converts an array of digits in a given base,
 	/// units place last, to an integer value.
@@ -96,6 +204,38 @@ public static class RadixMath {
 
 		return result;
 	}
+
+	/// <inheritdoc cref="FromDigits(ushort[], ushort)"/>
+	/// <remarks>
+	/// Use of <see cref="BigInteger"/> means that
+	/// <see cref="OverflowException"/> is not thrown for larger numbers.
+	/// </remarks>
+	public static BigInteger BigIntegerFromDigits(this ushort[] digits, ushort radix) {
+
+		// Guards
+		if (radix < 2) {
+			throw new ArgumentException("Base must be at least 2", nameof(radix));
+		}
+
+		// Add up all the digits with respective powers of radix
+		BigInteger result = 0;
+		BigInteger currentMultiplier = 1;
+
+		for (int i = digits.Length - 1; i >= 0; i--) {
+
+			// Add value to the result
+			result += digits[i] * currentMultiplier;
+
+			// Updte multiplier
+			currentMultiplier *= radix;
+		}
+
+		return result;
+	}
+
+	#endregion
+
+	#region //// Counting
 
 	/// <summary>
 	/// <para>
@@ -157,71 +297,6 @@ public static class RadixMath {
 
 		}
 
-	}
-
-	#region //// Big Integer source clone
-
-	/// <inheritdoc cref="ToDigits(int, ushort, int)"/>
-	public static ushort[] ToDigits(this BigInteger value, ushort radix, int padToPlaces = -1) {
-
-		// Guards
-		if (radix < 2) {
-			throw new ArgumentException("Base must be at least 2", nameof(radix));
-		}
-
-		// Take absolute
-		if (value < 0) value = -value;
-
-		// Get digits
-		List<ushort> digitsStartingFromUnits = new(padToPlaces > 0 ? padToPlaces : 4);
-
-		do {
-			digitsStartingFromUnits.Add((ushort)(value % radix));
-			value /= radix;
-		} while (value > 0);
-
-		// Pad digits
-		int prepadCount = padToPlaces - digitsStartingFromUnits.Count;
-		for (; prepadCount > 0; prepadCount--) {
-			digitsStartingFromUnits.Add(0);
-		}
-
-		// Create array and return
-		ushort[] result = new ushort[digitsStartingFromUnits.Count];
-		int lastI = digitsStartingFromUnits.Count - 1;
-		for (int i = 0; i <= lastI; i++) {
-			result[i] = digitsStartingFromUnits[lastI - i];
-		}
-
-		return result;
-	}
-
-	/// <inheritdoc cref="FromDigits(ushort[], ushort)"/>
-	/// <remarks>
-	/// Use of <see cref="BigInteger"/> means that
-	/// <see cref="OverflowException"/> is not thrown for larger numbers.
-	/// </remarks>
-	public static BigInteger BigIntegerFromDigits(this ushort[] digits, ushort radix) {
-
-		// Guards
-		if (radix < 2) {
-			throw new ArgumentException("Base must be at least 2", nameof(radix));
-		}
-
-		// Add up all the digits with respective powers of radix
-		BigInteger result = 0;
-		BigInteger currentMultiplier = 1;
-
-		for (int i = digits.Length - 1; i >= 0; i--) {
-
-			// Add value to the result
-			result += digits[i] * currentMultiplier;
-
-			// Updte multiplier
-			currentMultiplier *= radix;
-		}
-
-		return result;
 	}
 
 	#endregion
