@@ -8,5 +8,7 @@ Following features were removed:
 - `IDictionary<TKey, TValue>.AsReadOnly()`
 - Type.IsSubclassOrSelfOf`: support for enums
 - Anything relating to `BigInteger`
+- Anything relating to `Span`
+- Forcing of readonly in interfaces
 
 Following features were added:

@@ -4,6 +4,5 @@ TO DO:
 - Publish package
 
 DOING:
-- net35: Copy and downgrade remaining namespaces
 
 TO TEST:
