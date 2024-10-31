@@ -4,7 +4,8 @@
 
 This is a source clone of GeneralUtilities downgraded to NET Framework 3.5. Due to drastic differences this needs to be a separate package.
 
-Following items were removed:
+Following features were removed:
 - IDictionary<TKey, TValue>.AsReadOnly()
+- Type.IsSubclassOrSelfOf: support for enums
 
-Following items were added:
+Following features were added:
