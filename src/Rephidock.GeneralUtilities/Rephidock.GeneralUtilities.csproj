@@ -14,15 +14,15 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
       Important: This update contains a lot of breaking changes.
-      - Split *all* utilities into separate namespaces.
+      - Puts all utilities into separate namespaces.
       - Removed .Color utilities as different frameworks/engine provide different Color structs.
       - Removed methods marked obsolete due to spelling errors.
-      - Split BigIntMath into relevant classes
       - Renamed TrueMod -&gt; PosMod
       - Renamed ReverseLerp -&gt; InverseLerp
-      - RadixMath.FromDigits is no longer an extension method
       - Renamed BigIntMath.FromDigits():BigInteger to RadixMath.BigIntegerFromDigits() due to a name clash.
+      - Split BigIntMath into relevant classes
       - Moved DigitalRoot to RadixMath. It remains an extension method.
+      - RadixMath.FromDigits is no longer an extension method
       - Documentation fixes and tweaks
     </PackageReleaseNotes>
   </PropertyGroup>
