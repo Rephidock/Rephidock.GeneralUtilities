@@ -259,13 +259,17 @@ public static class MoreMath {
 
 	/// <summary>
 	/// <para>
-	/// Returns all integer factors of the number in ascending order.
+	/// Returns all prime factors of an integer in ascending order
+	/// (Performs prime factorization).
 	/// </para>
 	/// <para>
-	/// If <paramref name="n"/> is <c>0</c>, <c>0</c> is returned.
-	/// If <paramref name="n"/> is <c>1</c>, <c>1</c> is returned.
-	/// If <paramref name="n"/> is <c>-1</c>, <c>-1</c> is returned.
-	/// If <paramref name="n"/> is below <c>-1</c>, <c>-1</c> is returned, followed by factors of <c>abs(n)</c>.
+	/// This function was extended to work on all integers.
+	/// Special cases apply if <paramref name="n"/> is below 2.
+	/// </para>
+	/// <para>
+	/// If <paramref name="n"/> is <c>0</c>, <c>1</c> or <c>-1</c>, then <paramref name="n"/> is returned;
+	/// If <paramref name="n"/> is below <c>-1</c>, then <c>-1</c> is returned,
+	/// followed by prime factors of <c>abs(<paramref name="n"/>)</c>.
 	/// </para>
 	/// </summary>
 	/// <param name="n">The value to return factors of</param>
