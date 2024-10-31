@@ -1,5 +1,6 @@
 TO DO:
-- Make an official framework 3.5 package
+- net35: Add IEnumerable<T>.Append, IEnumerable<T>.Prepend
+- net35: Add Lazy<T> 
 - Publish package
 
 DOING:
