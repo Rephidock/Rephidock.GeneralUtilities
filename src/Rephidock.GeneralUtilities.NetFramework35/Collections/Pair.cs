@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 
 namespace Rephidock.GeneralUtilities.Collections {
+	
 
 	/// <summary>
 	/// <para>

@@ -17,3 +17,4 @@ Following features were added from future .NET versions:
 - `IEnumerable<T>`.Append
 - `IEnumerable<T>`.Prepend
 - `Pair<T1,T2>` (in place of `ValueTuple<T1,T2>`)
+- `Lazy<T>` (but more basic)

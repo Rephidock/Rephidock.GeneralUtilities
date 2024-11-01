@@ -1,5 +1,4 @@
 TO DO:
-- net35: Add Lazy<T> 
 - Publish package
 
 DOING:
