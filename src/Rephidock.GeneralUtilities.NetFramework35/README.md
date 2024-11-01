@@ -14,3 +14,5 @@ Following features were removed:
 - Forcing of readonly in interfaces
 
 Following features were added from future .NET versions:
+- `IEnumerable<T>`.Append
+- `IEnumerable<T>`.Prepend
