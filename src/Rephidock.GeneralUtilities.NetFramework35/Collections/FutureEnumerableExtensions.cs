@@ -32,6 +32,35 @@ public static class FutureEnumerableExtensions {
 		foreach (T sourceElement in source) yield return sourceElement;
 	}
 
+	/// <summary>
+	/// Produces a sequence of pairs with elements from the two specified sequences.
+	/// </summary>
+	/// <typeparam name="TFirst">The type of the elements of the first input sequence</typeparam>
+	/// <typeparam name="TSecond">The type of the elements of the second input sequence.</typeparam>
+	/// <param name="first">The first sequence to merge.</param>
+	/// <param name="second">The second sequence to merge.</param>
+	/// <returns>
+	/// An <see cref="IEnumerable{T}"/> that contains merged elements of two input sequences
+	/// </returns>
+	public static IEnumerable<Pair<TFirst, TSecond>> Zip<TFirst, TSecond>(this IEnumerable<TFirst> first, IEnumerable<TSecond> second) {
+
+		// Guards
+		if (null == first) throw new ArgumentNullException("first");
+		if (null == second) throw new ArgumentNullException("second");
+
+		// Enumerate
+		using (var enumFirst = first.GetEnumerator()) {
+			using (var enumSecond = second.GetEnumerator()) {
+
+				while (enumFirst.MoveNext() && enumSecond.MoveNext()) {
+					yield return new Pair<TFirst, TSecond>(enumFirst.Current, enumSecond.Current);
+				}
+
+			}
+		}
+
+	}
+
 }
 
 }
