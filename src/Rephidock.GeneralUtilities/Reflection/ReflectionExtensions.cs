@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Linq;
 using System.Reflection;
 
 
@@ -77,6 +79,31 @@ public static class ReflectionExtensions {
 
 		// Check
 		return methodInfo.DeclaringType != methodInfo.GetBaseDefinition().DeclaringType;
+	}
+
+	/// <summary>
+	/// Casts the elements of an <see cref="IEnumerable"/> to the specified type.
+	/// </summary>
+	/// <remarks>
+	/// Has the same quirks with boxed values as the original 
+	/// <see cref="Enumerable.Cast{TResult}(IEnumerable)"/>
+	/// </remarks>
+	public static IEnumerable Cast(this IEnumerable source, Type targetType) {
+
+		// Guards
+		ArgumentNullException.ThrowIfNull(source, nameof(source));
+		ArgumentNullException.ThrowIfNull(targetType, nameof(targetType));
+
+		// Find the cast method
+		MethodInfo? castMethod =
+			typeof(Enumerable)
+			.GetMethod(nameof(Enumerable.Cast), BindingFlags.Static | BindingFlags.Public)
+			?.MakeGenericMethod(new Type[] { targetType });
+
+		if (castMethod is null) throw new InvalidOperationException("Could not find Enumerable.Cast method.");
+
+		// Perform the cast
+		return (castMethod.Invoke(null, new object[] { source }) as IEnumerable)!;
 	}
 
 }

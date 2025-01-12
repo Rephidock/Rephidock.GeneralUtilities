@@ -101,6 +101,7 @@ The `.Reflection` namespace contains reflections extensions and a generic enum <
 | ------------------------------------- | ----------------------------------------------- |
 | (extension) `Type.IsSubclassOrSelfOf` | Checks if a type is base type or subclass of it |
 | (extension) `MethodInfo.IsOverride`   | Checks if a method is an override               |
+| (extension) `IEnumerable.Cast`        | A Cast overload with a System.Type parameter    |
 
 
 

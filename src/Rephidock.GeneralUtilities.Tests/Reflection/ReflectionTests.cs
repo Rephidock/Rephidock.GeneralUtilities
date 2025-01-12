@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using Xunit;
 using Rephidock.GeneralUtilities.Reflection;
+using System.Linq;
 
 
 namespace Rephidock.GeneralUtilities.Tests.Reflection;
@@ -317,6 +319,44 @@ public sealed class ReflectionTests {
 
 		// Assert
 		Assert.Equal(expected, result);
+	}
+
+	#endregion
+
+	#region //// Cast
+
+	[Fact]
+	public void Cast_ValidCast_CompilesAndRuns() {
+
+		// Arrange
+		IEnumerable baseSequence = Enumerable.Range(0, 100).Select(_ => new FromFromBase());
+
+		// Act
+		IEnumerable castSequence1 = baseSequence.Cast(typeof(Base));
+		IEnumerable castSequence2 = baseSequence.Cast(typeof(object));
+		IEnumerable castSequenceBack = castSequence2.Cast(typeof(FromFromBase));
+
+		// Assert
+		foreach (object? _ in castSequence1) { }
+		foreach (object? _ in castSequence2) { }
+		foreach (object? _ in castSequenceBack) { }
+
+	}
+
+	[Fact]
+	public void Cast_InvalidCast_Throws() {
+
+		// Arrange
+		IEnumerable baseSequence = Enumerable.Range(0, 100).Select(_ => new Base());
+
+		// Act
+		IEnumerable castSequenceInvalid = baseSequence.Cast(typeof(FromFromBase));
+
+		// Assert
+		Assert.Throws<InvalidCastException>(() => {
+			foreach (object? _ in castSequenceInvalid) { }
+		});
+	
 	}
 
 	#endregion
