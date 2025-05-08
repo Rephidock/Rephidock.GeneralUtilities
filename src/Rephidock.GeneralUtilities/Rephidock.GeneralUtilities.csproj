@@ -3,7 +3,7 @@
    <PropertyGroup>
     <Title>Rephidock.GeneralUtilities</Title>
     <Authors>Rephidock</Authors>
-    <Version>2.0.0</Version>
+    <Version>2.1.0</Version>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Description>A collection of general utilities useful for other projects</Description>
     <Copyright>Copyright (c) 2024 Rephidock</Copyright>
@@ -13,17 +13,7 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      Important: This update contains a lot of breaking changes.
-      - Puts all utilities into separate namespaces.
-      - Removed .Color utilities as different frameworks/engine provide different Color structs.
-      - Removed methods marked obsolete due to spelling errors.
-      - Renamed TrueMod -&gt; PosMod
-      - Renamed ReverseLerp -&gt; InverseLerp
-      - Renamed BigIntMath.FromDigits():BigInteger to RadixMath.BigIntegerFromDigits() due to a name clash.
-      - Split BigIntMath into relevant classes
-      - Moved DigitalRoot to RadixMath. It remains an extension method.
-      - RadixMath.FromDigits is no longer an extension method
-      - Documentation fixes and tweaks
+      - Added IEnumerable.Cast that takes a System.Type parameter
     </PackageReleaseNotes>
   </PropertyGroup>
   
