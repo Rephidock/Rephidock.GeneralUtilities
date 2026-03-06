@@ -182,7 +182,7 @@ public static class MoreMath {
 	/// values above are wrapped into it from the start
 	/// </para>
 	/// <para>
-	/// Can be thought of as a generilized version of <c>PosMod</c>, as
+	/// Can be thought of as a generalized version of <c>PosMod</c>, as
 	/// <c>x.Wrap(0, y)</c> returns the same result as <c>x.PosMod(y)</c>
 	/// </para>
 	/// </summary>

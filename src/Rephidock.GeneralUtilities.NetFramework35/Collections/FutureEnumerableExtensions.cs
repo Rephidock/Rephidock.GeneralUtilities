@@ -25,7 +25,7 @@ public static class FutureEnumerableExtensions {
 	/// <summary>Prepends a value to the start of the sequence.</summary>
 	/// <typeparam name="T"></typeparam>
 	/// <param name="source">Sequence of values to prepend to</param>
-	/// <param name="item">The value to prened</param>
+	/// <param name="item">The value to prepend</param>
 	/// <returns>A new sequence that starts with the prepended element</returns>
 	public static IEnumerable<T> Prepend<T>(this IEnumerable<T> source, T item) {
 		yield return item;

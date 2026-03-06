@@ -7,7 +7,7 @@ namespace Rephidock.GeneralUtilities.Maths {
 
 
 /// <summary>
-/// Provides methods for convertsion of numbers to/from digit arrays in arbitrary bases
+/// Provides methods for conversion of numbers to/from digit arrays in arbitrary bases
 /// and radix-related maths.
 /// </summary>
 public static class RadixMath {
