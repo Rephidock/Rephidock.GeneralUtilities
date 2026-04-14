@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 
 namespace Rephidock.GeneralUtilities.Collections {
-	
 
 	/// <summary>
 	/// <para>
@@ -58,6 +57,16 @@ namespace Rephidock.GeneralUtilities.Collections {
 		/// <inheritdoc/>
 		public override string ToString() => $"Pair[{First}, {Second}]";
 
+	}
+
+	/// <inheritdoc cref="Pair{T1,T2}"/>
+	public static class Pair {
+
+		/// <summary>Creates a new <see cref="Pair{T1,T2}"/> from the given values.</summary>
+		public static Pair<T1, T2> New<T1, T2>(T1 first, T2 second) {
+			return new Pair<T1, T2>(first, second);
+		}
+		
 	}
 
 }
