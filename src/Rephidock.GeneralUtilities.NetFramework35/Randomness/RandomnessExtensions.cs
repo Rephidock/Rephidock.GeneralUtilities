@@ -18,14 +18,14 @@ public static class RandomnessExtensions {
 	public static int NextUInt31(this Random rng) {
 
 		// Generate random bytes
-		byte[] seedBytes = new byte[4];
-		rng.NextBytes(seedBytes);
+		byte[] bytes = new byte[4];
+		rng.NextBytes(bytes);
 
 		// Strip the int32 sign bit
-		seedBytes[3] &= 127; //0b0111_1111;
+		bytes[3] &= 127; //0b0111_1111;
 
 		// Convert and return
-		return BitConverter.ToInt32(seedBytes, 0);
+		return BitConverter.ToInt32(bytes, 0);
 	}
 
 	/// <summary>Returns a random <see cref="byte"/>.</summary>
