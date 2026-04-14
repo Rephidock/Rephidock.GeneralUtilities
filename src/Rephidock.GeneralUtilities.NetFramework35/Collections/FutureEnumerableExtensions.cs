@@ -45,8 +45,8 @@ public static class FutureEnumerableExtensions {
 	public static IEnumerable<Pair<TFirst, TSecond>> Zip<TFirst, TSecond>(this IEnumerable<TFirst> first, IEnumerable<TSecond> second) {
 
 		// Guards
-		if (null == first) throw new ArgumentNullException("first");
-		if (null == second) throw new ArgumentNullException("second");
+		if (null == first) throw new ArgumentNullException(nameof(first));
+		if (null == second) throw new ArgumentNullException(nameof(second));
 
 		// Enumerate
 		using (var enumFirst = first.GetEnumerator()) {
