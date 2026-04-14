@@ -11,7 +11,7 @@ namespace Rephidock.GeneralUtilities.Randomness {
 public static class RandomnessExtensions {
 
 	/// <summary>
-	/// Returns a non-negative random <see cref="int"/>.
+	/// Returns a random non-negative <see cref="int"/>.
 	/// Unlike <see cref="Random.Next()"/>, includes
 	/// <see cref="int.MaxValue"/> as a possible value.
 	/// </summary>
