@@ -72,25 +72,16 @@ public static class GeneralEnumerableExtensions {
 		int lastSeparatorIndex = -1;
 		for (int i = 0; i < array.Length; i++) {
 
-			// See if current character is a separator 
-			bool foundSeparator = false;
-			for (int sepI = 0; sepI < separators.Length; sepI++) {
-
-				if (Array.IndexOf(separators, array[i]) >= 0) {
-					foundSeparator = true;
-					break;
-				}
-
+			// Not a separator => continue
+			if (Array.IndexOf(separators, array[i]) < 0) {
+				continue;
 			}
-
-			if (!foundSeparator) continue;
 			
-			// If it is - create new segment
+			// Create new segment
 			int start = lastSeparatorIndex + 1;
 			int count = i - start;
 			lastSeparatorIndex = i;
 			yield return new ArraySegment<T>(array, start, count);
-
 		}
 
 		// Create final segment till the end of the array
