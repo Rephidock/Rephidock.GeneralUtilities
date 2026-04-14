@@ -13,7 +13,7 @@
     <RepositoryUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
-      
+      - Added Random.NextByte extension method
     </PackageReleaseNotes>
   </PropertyGroup>
   

@@ -26,7 +26,13 @@ public static class RandomnessExtensions {
 
 		// Convert and return
 		return BitConverter.ToInt32(seedBytes);
+	}
 
+	/// <summary>Returns a random <see cref="byte"/>.</summary>
+	public static byte NextByte(this Random rng) {
+		Span<byte> bytes = stackalloc byte[1];
+		rng.NextBytes(bytes);
+		return bytes[0];
 	}
 
 	/// <summary>

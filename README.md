@@ -71,6 +71,7 @@ The `.Randomness` namespace relates to `System.Random`
 | Method (`RandomnessExtensions`)        | Summary                                             |
 |----------------------------------------|-----------------------------------------------------|
 | (extension) `Random.NextUInt31`        | Returns a random int in range of [0, int.MaxValue]  |
+| (extension) `Random.NextByte`          | Returns a random byte                               |
 | (extension) `Random.Chance`            | Returns `true` with %-chance                        |
 | (extension) `Random.GetItem`           | Randomly picks an item from a list or span          |
 | (extension) `Random.GetDifferentItems` | Randomly picks multiple different items             |
