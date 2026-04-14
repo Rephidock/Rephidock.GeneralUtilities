@@ -17,7 +17,7 @@ All of the listed methods are static.
 Note: extension methods also exit for other numeric types when applicable. Additionally overloads for `BigInteger` exist.
 
 | Method (`MoreMath`)           | Summary                                           |
-| ----------------------------- | ------------------------------------------------- |
+|-------------------------------|---------------------------------------------------|
 | (extension) `int.PosMod`      | Calculates modulo (`%` but always positive)       |
 | (extension) `int.Wrap`        | Wraps value into given range                      |
 | (extension) `int.GetFactors`  | Performs integer factorization                    |
@@ -30,7 +30,7 @@ Note: extension methods also exit for other numeric types when applicable. Addit
 | (extension) `BigInteger.Sqrt` | Returns a square root of `BigInteger` as `double` |
 
 | Method (`RadixMath`)             | Summary                                          |
-| -------------------------------- | ------------------------------------------------ |
+|----------------------------------|--------------------------------------------------|
 | (extension) `int.DigitalRoot`    | Calculates digital root (repeated digit sum)     |
 | (extension) `int.ToDigits`       | Converts a value into an array of digits         |
 | `RadixMath.FromDigits`           | Converts an array of digits into a value         |
@@ -44,7 +44,7 @@ Note: extension methods also exit for other numeric types when applicable. Addit
 The following methods for work with enumerables exist:
 
 | Method (`GeneralEnumerableExtensions`)  | Summary                                 |
-| --------------------------------------- | --------------------------------------- |
+|-----------------------------------------|-----------------------------------------|
 | (extension) `T.Yield<T>`                | Wraps anything in a `IEnumerable<T>`    |
 | (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`      |
 | (extension) `char[].JoinString`         | A fluent way to call string constructor |
@@ -54,7 +54,7 @@ The following methods for work with enumerables exist:
 This package also implements some methods that were added in .NET7 as extensions for .NET6
 
 | .NET6 Extension Method (`ReadOnlyExtensions`) | Summary                              |
-| --------------------------------------------- | ------------------------------------ |
+|-----------------------------------------------|--------------------------------------|
 | `IList<T>.AsReadOnly`                         | Constructs a `ReadOnlyCollection<T>` |
 | `IDictionary<TKey, TValue>.AsReadOnly`        | Constructs a `ReadOnlyDictionary<T>` |
 
@@ -65,11 +65,11 @@ This package also implements some methods that were added in .NET7 as extensions
 The `.Randomness` namespace relates to `System.Random`
 
 | Class             | Summary                                                    |
-| ----------------- | ---------------------------------------------------------- |
+|-------------------|------------------------------------------------------------|
 | `ShuffleIndexMap` | The index map of a shuffle (to track where items ended up) |
 
 | Method (`RandomnessExtensions`)        | Summary                                             |
-| -------------------------------------- | --------------------------------------------------- |
+|----------------------------------------|-----------------------------------------------------|
 | (extension) `Random.NextUInt31`        | Returns a random int in range of [0, int.MaxValue]  |
 | (extension) `Random.Chance`            | Returns `true` with %-chance                        |
 | (extension) `Random.GetItem`           | Randomly picks an item from a list or span          |
@@ -80,7 +80,7 @@ The `.Randomness` namespace relates to `System.Random`
 The following methods also exist and are extensions on collection interfaces to allow fluent syntax:
 
 | Collection extension method                    | Above equivalent           |
-| ---------------------------------------------- | -------------------------- |
+|------------------------------------------------|----------------------------|
 | `IReadOnlyList<T>.PickRandom`                  | `Random.GetItem`           |
 | `IReadOnlyCollection<T>.PickMultipleDifferent` | `Random.GetDifferentItems` |
 | `IList<T>.Shuffle`                             | `Random.Shuffle`           |
@@ -93,12 +93,12 @@ The following methods also exist and are extensions on collection interfaces to 
 The `.Reflection` namespace contains reflections extensions and a generic enum <-> integer converter.
 
 | Method (`EnumConverter<TEnum,TInt>`) | Summary                                    |
-| ------------------------------------ | ------------------------------------------ |
+|--------------------------------------|--------------------------------------------|
 | `EnumConverter<TEnum,TInt>.ToInt`    | Converts an enum value to an integral type |
 | `EnumConverter<TEnum,TInt>.ToEnum`   | Converts an integral value to an enum type |
 
 | Method (`ReflectionExtensions`)       | Summary                                         |
-| ------------------------------------- | ----------------------------------------------- |
+|---------------------------------------|-------------------------------------------------|
 | (extension) `Type.IsSubclassOrSelfOf` | Checks if a type is base type or subclass of it |
 | (extension) `MethodInfo.IsOverride`   | Checks if a method is an override               |
 | (extension) `IEnumerable.Cast`        | A Cast overload with a System.Type parameter    |
