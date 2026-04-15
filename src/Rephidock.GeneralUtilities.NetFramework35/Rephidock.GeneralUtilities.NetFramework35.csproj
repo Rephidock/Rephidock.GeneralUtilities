@@ -14,7 +14,11 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
       See release notes of Rephidock.GeneralUtilities.
-      Additionally added Pair.New to allow for type inference.
+      
+      Additionally added:
+        - Pair.New to allow for type inference.
+        - Action&lt;T1, T2, T3, T4, T5&gt; through ...T8 from future versions
+        - Func&lt;T1, T2, T3, T4, T5, TResult&gt; through ...T8,TResult from future versions
     </PackageReleaseNotes>
   </PropertyGroup>
   

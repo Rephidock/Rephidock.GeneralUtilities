@@ -13,9 +13,11 @@ Following features were removed:
 - Anything relating to `Span`
 - Forcing of readonly in interfaces
 
-Following features were added from future .NET versions:
+Following features from future .NET versions were added:
 - `IEnumerable<T>`.Append
 - `IEnumerable<T>`.Prepend
 - `Pair<T1,T2>` (in place of `ValueTuple<T1,T2>`)
 - `Lazy<T>` (but more basic)
 - `IEnumerable<T>`.Zip (for 2 sequences without selector)
+- `Action<T1, T2, T3, T4, T5>` through ...T8
+- `Func<T1, T2, T3, T4, T5, TResult>` through ...T8,TResult
