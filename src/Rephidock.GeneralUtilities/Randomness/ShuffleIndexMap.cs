@@ -19,7 +19,7 @@ public class ShuffleIndexMap : IReadOnlyCollection<KeyValuePair<int, int>> {
 
 	#region //// Storage
 	
-	/// <summary>An array which translates old indexes to new indexes</summary>
+	/// <summary>An array which translates old indexes to new indexes.</summary>
 	readonly protected int[] oldToNew;
 
 	/// <inheritdoc/>
@@ -37,7 +37,7 @@ public class ShuffleIndexMap : IReadOnlyCollection<KeyValuePair<int, int>> {
 	/// <exception cref="ArgumentException"><paramref name="size"/> is negative</exception>
 	protected ShuffleIndexMap(int size) {
 
-		// Safe guards
+		// Safeguards
 		if (size < 0) throw new ArgumentException("Size for a shuffle map cannot be negative.", nameof(size));
 
 		// 0-length
@@ -71,7 +71,7 @@ public class ShuffleIndexMap : IReadOnlyCollection<KeyValuePair<int, int>> {
 	/// <param name="values">List to shuffle</param>
 	public void ApplyTo<T>(IList<T> values) {
 
-		// Safe guards
+		// Safeguards
 		ArgumentNullException.ThrowIfNull(values);
 
 		// Apply mapping

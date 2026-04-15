@@ -75,7 +75,7 @@ public static class RadixMath {
 	}
 
 	/// <inheritdoc cref="DigitalRoot(int, int)"/>
-	/// <remarks>Calculated digital root using default base of 10</remarks>
+	/// <remarks>Calculates digital root using in base 10</remarks>
 	public static BigInteger DigitalRoot(this BigInteger value) => value.DigitalRoot(10);
 
 	#endregion
