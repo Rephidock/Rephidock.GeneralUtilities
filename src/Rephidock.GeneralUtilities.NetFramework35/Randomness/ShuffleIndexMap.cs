@@ -17,17 +17,13 @@ namespace Rephidock.GeneralUtilities.Randomness {
 /// </remarks>
 public class ShuffleIndexMap : IEnumerable<KeyValuePair<int, int>> {
 
-	#region //// Storage
+	#region /--- Storage + Creation ---/
 	
 	/// <summary>An array which translates old indexes to new indexes.</summary>
 	readonly protected int[] oldToNew;
 
 	/// <inheritdoc cref="ICollection{T}.Count"/>
 	public int Count => oldToNew.Length;
-
-	#endregion
-
-	#region //// Creation
 
 	/// <summary>
 	/// Generates an identity index mapping.
@@ -99,7 +95,7 @@ public class ShuffleIndexMap : IEnumerable<KeyValuePair<int, int>> {
 	/// <returns>New index, corresponding to the old index.</returns>
 	public int this[int oldIndex] => oldToNew[oldIndex];
 
-	#region //// GetEnumerator
+	#region /--- GetEnumerator ---/
 
 	/// <inheritdoc/>
 	public IEnumerator<KeyValuePair<int, int>> GetEnumerator() {

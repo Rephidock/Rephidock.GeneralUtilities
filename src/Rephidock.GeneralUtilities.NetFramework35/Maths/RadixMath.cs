@@ -12,7 +12,7 @@ namespace Rephidock.GeneralUtilities.Maths {
 /// </summary>
 public static class RadixMath {
 
-	#region //// DigitalRoot
+	#region /--- DigitalRoot ---/
 
 	/// <summary>
 	/// Calculates the digital root of a number.
@@ -58,7 +58,7 @@ public static class RadixMath {
 
 	#endregion
 
-	#region //// ToDigits
+	#region /--- ToDigits ---/
 
 	/// <summary>
 	/// Converts a value into an arbitrary base,
@@ -113,7 +113,7 @@ public static class RadixMath {
 
 	#endregion
 
-	#region //// FromDigits
+	#region /--- FromDigits ---/
 
 	/// <summary>
 	/// Converts an array of digits in a given base,
@@ -150,7 +150,7 @@ public static class RadixMath {
 
 	#endregion
 
-	#region //// Counting
+	#region /--- Counting ---/
 
 	/// <summary>
 	/// <para>

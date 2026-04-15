@@ -44,7 +44,7 @@ public static class RandomnessExtensions {
 		return rng.NextDouble() < chance;
 	}
 
-	#region //// PickRandom
+	#region /--- PickRandom ---/
 
 	/// <summary>Returns a random item form a list or span</summary>
 	/// <typeparam name="T">The type of the item</typeparam>
@@ -68,7 +68,7 @@ public static class RandomnessExtensions {
 
 	#endregion
 
-	#region //// PickMultipleDifferent
+	#region /--- PickMultipleDifferent ---/
 
 	/// <summary>
 	/// Picks multiple different items from a collection.
@@ -128,7 +128,7 @@ public static class RandomnessExtensions {
 
 	#endregion
 
-	#region //// Shuffle
+	#region /--- Shuffle ---/
 
 	/// <summary>
 	/// Shuffles a list in-place (mutates the array).

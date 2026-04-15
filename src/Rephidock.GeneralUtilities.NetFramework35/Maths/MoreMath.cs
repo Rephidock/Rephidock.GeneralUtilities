@@ -11,7 +11,7 @@ namespace Rephidock.GeneralUtilities.Maths {
 /// </summary>
 public static class MoreMath {
 
-	#region //// Lerp
+	#region /--- Lerp ---/
 
 	/// <summary>
 	/// Linearly interpolates between 2 points.
@@ -54,7 +54,7 @@ public static class MoreMath {
 
 	#endregion
 
-	#region //// InverseLerp
+	#region /--- InverseLerp ---/
 
 	/// <summary>
 	/// <para>
@@ -79,7 +79,7 @@ public static class MoreMath {
 
 	#endregion
 
-	#region //// TabShift
+	#region /--- TabShift ---/
 
 	/// <summary>
 	/// For a given 0-based column position of a tab character (<c>'\t'</c>)
@@ -91,7 +91,7 @@ public static class MoreMath {
 
 	#endregion
 
-	#region //// PosMod
+	#region /--- PosMod ---/
 
 	/// <summary>
 	/// <para>
@@ -150,7 +150,7 @@ public static class MoreMath {
 
 	#endregion
 
-	#region //// Wrap
+	#region /--- Wrap ---/
 
 	/// <summary>
 	/// <para>
@@ -236,7 +236,7 @@ public static class MoreMath {
 
 	#endregion
 
-	#region //// Factors
+	#region /--- Factors ---/
 
 	/// <summary>
 	/// <para>
@@ -284,7 +284,7 @@ public static class MoreMath {
 
 	#endregion
 
-	#region //// Deg <-> Rad
+	#region /--- Deg <-> Rad ---/
 
 	/// <summary>
 	/// Converts angle measured in degrees to angle measured in radians
@@ -308,7 +308,7 @@ public static class MoreMath {
 
 	#endregion
 
-	#region //// AngleDifference
+	#region /--- AngleDifference ---/
 
 	/// <summary>
 	/// Given two angles calculates the shortest distance,
