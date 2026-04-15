@@ -2,19 +2,13 @@
 
 [![GitHub License Badge](https://img.shields.io/github/license/Rephidock/Rephidock.GeneralUtilities)](https://github.com/Rephidock/Rephidock.GeneralUtilities/blob/main/LICENSE) [![Nuget Version Badge](https://img.shields.io/nuget/v/Rephidock.GeneralUtilities?logo=nuget)](https://www.nuget.org/packages/Rephidock.GeneralUtilities)
 
-A collection of general utilities useful for other projects.
+A collection of general utilities useful for other projects,
+typically in form of extension methods or static methods.
 
-## Contents
-
-All utilities are split into the following sub-namespaces:
 
 ### `.Maths` namespace
 
-The package provides utilities for arithmetic, including work with arbitrary bases.
-
-All of the listed methods are static.
-
-Note: extension methods also exit for other numeric types when applicable. Additionally overloads for `BigInteger` exist.
+Note: overloads for other numeric types exist when applicable, including `BigInteger`.
 
 | Method (`MoreMath`)           | Summary                                           |
 |-------------------------------|---------------------------------------------------|
@@ -41,15 +35,12 @@ Note: extension methods also exit for other numeric types when applicable. Addit
 
 ### `.Collections` namespace
 
-The following methods for work with enumerables exist:
-
 | Method (`GeneralEnumerableExtensions`)  | Summary                                 |
 |-----------------------------------------|-----------------------------------------|
 | (extension) `T.Yield<T>`                | Wraps anything in a `IEnumerable<T>`    |
 | (extension) `IEnumerable<T>.JoinString` | A fluent way to call `string.Join`      |
 | (extension) `char[].JoinString`         | A fluent way to call string constructor |
 | (extension) `T[].SplitIntoSegments`     | "Splits" array into `ArraySegment<T>`s  |
-
 
 This package also implements some methods that were added in .NET7 as extensions for .NET6
 
@@ -61,8 +52,6 @@ This package also implements some methods that were added in .NET7 as extensions
 
 
 ### `.Randomness` namespace
-
-The `.Randomness` namespace relates to `System.Random`
 
 | Class             | Summary                                                    |
 |-------------------|------------------------------------------------------------|
@@ -78,7 +67,7 @@ The `.Randomness` namespace relates to `System.Random`
 | (extension) `Random.Shuffle`           | Shuffles items in-place                             |
 | (extension) `Random.ShuffleRemap`      | Shuffles items in-place & returns `ShuffleIndexMap` |
 
-The following methods also exist and are extensions on collection interfaces to allow fluent syntax:
+Alternatively, some of the above methods can be invoked as extensions on collections to allow fluent syntax:
 
 | Collection extension method                    | Above equivalent           |
 |------------------------------------------------|----------------------------|
@@ -106,4 +95,4 @@ The `.Reflection` namespace contains reflections extensions and a generic enum <
 
 
 
-*\* - Reminder that extension methods are static methods and can be used as such.*
+*\* Reminder that extension methods are static methods and can be used as such.*
