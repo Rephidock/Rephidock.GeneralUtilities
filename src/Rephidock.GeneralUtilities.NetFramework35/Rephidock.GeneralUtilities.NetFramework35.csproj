@@ -5,7 +5,7 @@
     <Authors>Rephidock</Authors>
     <Version>2.2.0+netframework35</Version>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-    <Description>Rephidock.GeneralUtilities but downgraded to .NET fraemwork 3.5</Description>
+    <Description>Rephidock.GeneralUtilities but downgraded to .NET framework 3.5</Description>
     <Copyright>Copyright (c) 2024-2026 Rephidock</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>general;utils;helper;math;maths;reflection;randomness;enumerable;linq;collections;</PackageTags>
@@ -32,7 +32,7 @@
   </ItemGroup>
   
   <PropertyGroup>
-    <TargetFrameworks>net35</TargetFrameworks>
+    <TargetFramework>net35</TargetFramework>
     <LangVersion>6</LangVersion>
     <RootNamespace>Rephidock.GeneralUtilities</RootNamespace>
     <ImplicitUsings>disable</ImplicitUsings>
