@@ -6,7 +6,7 @@
     <Version>2.2.0</Version>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <Description>A collection of general utilities useful for other projects</Description>
-    <Copyright>Copyright (c) 2024 Rephidock</Copyright>
+    <Copyright>Copyright (c) 2024-2026 Rephidock</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>general;utils;helper;math;maths;reflection;randomness;enumerable;linq;collections;</PackageTags>
     <PackageProjectUrl>https://github.com/Rephidock/Rephidock.GeneralUtilities</PackageProjectUrl>
